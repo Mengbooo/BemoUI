@@ -11,8 +11,8 @@ const LandingPage = () => {
   return (
     <section className="landing-wrapper">
       <Helmet>
-        <title>React Bits - Animated UI Components For React</title>
-      </Helmet>
+        <title>BemoUI</title>
+      </Helmet> 
       <LandingHeader />
       <LandingHero />
       <LandingStats />

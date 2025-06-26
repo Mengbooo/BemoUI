@@ -35,7 +35,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  background: linear-gradient(to top, #0d0d0d, #0d0d0da7);
+  background: linear-gradient(to top, #0d0d0d, #1620E4);
   font-weight: 900;
   width: 100%;
   height: 100%;
@@ -62,8 +62,8 @@
 }
 
 .component-nav-container div .link {
-  border-color: #00d8ff;
-  background-color: #00d8ff;
+  border-color: #1620E4;
+  background-color: #0d0d0d
 }
 
 .component-nav-container div .link::before {
@@ -71,7 +71,7 @@
 }
 
 .component-nav-container div .feat-1 {
-  border-color: #ff87b2;
+  border-color: #1620E4;
 }
 
 .component-nav-container div .feat-1:hover {
@@ -84,7 +84,7 @@
 }
 
 .component-nav-container div .feat-2 {
-  border-color: #ff9346;
+  border-color: #1620E4;
 }
 
 .component-nav-container div .feat-2:hover {
@@ -101,7 +101,7 @@
 }
 
 .component-nav-container div .feat-3 {
-  border-color: #7cff67;
+  border-color: #1620E4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,13 +120,13 @@
 .component-nav-container div .feat-3 p {
   position: absolute;
   z-index: 4;
-  color: #7cff67;
+  color: #1620E4;
   font-size: 3rem;
   font-weight: 900;
 }
 
 .component-nav-container div .feat-4 {
-  border-color: #ffee51;
+  border-color: #1620E4;
 }
 
 .component-nav-container div .feat-4:hover {
@@ -154,6 +154,10 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease;
+}
+
+.component-nav-container .link .docs-link p {
+  color: #ffffff;
 }
 
 .component-nav-container .link .docs-link img {

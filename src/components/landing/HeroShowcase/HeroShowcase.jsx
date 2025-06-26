@@ -6,7 +6,6 @@ import Squares from '../../../content/Backgrounds/Squares/Squares';
 import Waves from '../../../content/Backgrounds/Waves/Waves';
 import LetterGlitch from '../../../content/Backgrounds/LetterGlitch/LetterGlitch';
 
-import arrow from '../../../assets/common/icon-arrow.svg';
 import './HeroShowcase.css';
 import MetaBalls from '../../../content/Animations/MetaBalls/MetaBalls';
 
@@ -17,19 +16,18 @@ const HeroShowcase = () => {
     <nav className="component-nav-container">
       <AnimatedContent reverse initialOpacity={0}>
         <div className="circle feat-1" onClick={() => navigate('/animations/meta-balls')}>
-          <MetaBalls color='#ff87b2' cursorBallColor='#ff87b2' />
+          <MetaBalls color='#1620E4' cursorBallColor='#1620E4' />
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
         <div className="square feat-2" onClick={() => navigate('/backgrounds/waves')}>
-          <Waves lineColor='#ff9346' xGap={8} yGap={8} />
+          <Waves lineColor='#1620E4' xGap={8} yGap={8} />
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
         <div className="circle link" onClick={() => navigate('/text-animations/split-text')}>
           <Magnet padding={25}>
             <div className="docs-link">
-              <img src={arrow} alt="arrow pointing diagonally to the upper right corner" />
               <p>Browse Docs</p>
             </div>
           </Magnet>
@@ -47,7 +45,7 @@ const HeroShowcase = () => {
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
         <div className="circle feat-4" onClick={() => navigate('/backgrounds/squares')}>
-          <Squares speed={0.2} borderColor='#ffee51' hoverFillColor='#ffee51' />
+          <Squares speed={0.2} borderColor='#1620E4' hoverFillColor='#1620E4' />
         </div>
       </AnimatedContent>
     </nav>

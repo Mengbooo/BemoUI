@@ -12,11 +12,10 @@ import {
   DrawerOverlay,
   DrawerContent,
   Image,
-  Divider
 } from '@chakra-ui/react';
-import { ArrowForwardIcon, CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../../assets/logos/reactbits-logo.svg';
+import Logo from '../../assets/logos/bemoUI-logo-white.svg';
 import { useRef, useState } from 'react';
 import { CATEGORIES, NEW, UPDATED } from '../../constants/Categories';
 import { useSearch } from '../context/SearchContext/useSearch';
@@ -37,7 +36,7 @@ const Sidebar = () => {
       <Box display={{ md: 'none' }} position="fixed" top={0} left={0} zIndex="overlay" p="1em" w="100%" bgColor="#060606">
         <Flex alignItems="center" gap="1em" justifyContent="space-between" transition=".2s ease" transform={isDrawerOpen ? 'translateY(-200%)' : 'none'}>
           <Link to="/">
-            <Image src={Logo} height="25px" alt="React Bits logo" />
+            <Image src={Logo} maxWidth="100px" alt="logo" />
           </Link>
           <Flex alignItems="center" gap={2}>
             <IconButton
@@ -68,7 +67,7 @@ const Sidebar = () => {
           <DrawerHeader py={0} h="72px" borderBottomWidth="1px" className="sidebar-logo">
             <Flex alignItems="center" justifyContent="space-between">
               <Link to="/">
-                <Image height="25px" src={Logo} alt="Bits Logo" />
+                <Image maxWidth="100px" src={Logo} alt="Bits Logo" />
               </Link>
               <IconButton
                 borderRadius="10px"
@@ -93,19 +92,6 @@ const Sidebar = () => {
                 />
               ))}
             </VStack>
-            <Divider my={4} />
-            <Text color="#a6a6a6" mb={3}>Useful Links</Text>
-            <Flex direction="column">
-              <Link to="https://github.com/DavidHDev/react-bits" target="_blank" display="block" mb={2} onClick={() => setDrawerOpen(false)}>
-                GitHub<ArrowForwardIcon boxSize={7} transform="rotate(-45deg)" position="relative" top="-1px" />
-              </Link>
-              <Link to="/showcase" display="block" mb={2} onClick={() => setDrawerOpen(false)}>
-                Showcase<ArrowForwardIcon boxSize={7} transform="rotate(-45deg)" position="relative" top="-1px" />
-              </Link>
-              <Link to="https://davidhaz.com/" target="_blank" display="block" mb={2} onClick={() => setDrawerOpen(false)}>
-                Who made this?<ArrowForwardIcon boxSize={7} transform="rotate(-45deg)" position="relative" top="-1px" />
-              </Link>
-            </Flex>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

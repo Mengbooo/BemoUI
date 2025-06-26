@@ -160,11 +160,6 @@
   color: #ffffff;
 }
 
-.component-nav-container .link .docs-link img {
-  margin-bottom: 0.6em;
-  width: 16px;
-}
-
 .component-nav-container .link:hover .docs-link {
   transform: scale(1.2);
   transition: transform 0.3s ease;

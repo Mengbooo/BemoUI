@@ -20,7 +20,7 @@ const CategoryPage = () => {
   return (
     <Box className='category-page' ref={scrollRef}>
       <Helmet>
-        <title>React Bits - {decodeLabel(subcategory)}</title>
+        <title>BemoUI - {decodeLabel(subcategory)}</title>
       </Helmet>
 
       <h2 className='sub-category'>{decodeLabel(subcategory)}</h2>

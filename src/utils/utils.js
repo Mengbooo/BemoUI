@@ -42,17 +42,6 @@ export const forceChakraDarkTheme = () => {
 
 export const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0')}`;
 
-export const generateCliCommands = (path, variants = ['default', 'tailwind', 'ts/default', 'ts/tailwind']) => {
-  const [category, component] = path.split('/');
-
-  return Object.fromEntries(
-    variants.map(variant => {
-      const formattedKey = `cli${variant
-        .split('/')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join('')}`;
-
-      return [formattedKey, `npx jsrepo add https://reactbits.dev/${variant}/${category}/${component}`];
-    })
-  );
+export const generateCliCommands = () => {
+  return {};
 };

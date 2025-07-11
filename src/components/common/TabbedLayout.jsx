@@ -9,8 +9,7 @@ import {
   Flex,
   Icon
 } from "@chakra-ui/react";
-import { FiCode, FiEye, FiHeart, FiTerminal } from "react-icons/fi";
-import ContributionSection from "./ContributionSection";
+import { FiCode, FiEye, FiTerminal } from "react-icons/fi";
 
 const tabStyles = {
   _selected: { color: "#fff", bg: "#111" },
@@ -28,7 +27,6 @@ const TabbedLayout = ({ children, className }) => {
   const contentMap = {
     PreviewTab: null,
     CodeTab: null,
-    CliTab: null
   };
 
   React.Children.forEach(children, (child) => {
@@ -58,19 +56,12 @@ const TabbedLayout = ({ children, className }) => {
             &nbsp;CLI
           </Tab>
         </Flex>
-        <Tab sx={tabStyles} className="contribute-tab">
-          <Icon as={FiHeart} />
-          &nbsp;Contribute
-        </Tab>
       </TabList>
 
       <TabPanels>
         <TabPanel p={0}>{contentMap.PreviewTab}</TabPanel>
         <TabPanel p={0}>{contentMap.CodeTab}</TabPanel>
         <TabPanel p={0}>{contentMap.CliTab}</TabPanel>
-        <TabPanel p={0}>
-          <ContributionSection />
-        </TabPanel>
       </TabPanels>
     </Tabs>
   );

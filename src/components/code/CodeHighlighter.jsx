@@ -1,7 +1,7 @@
 import { Box, Button, Icon } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FiCopy, FiCheckSquare } from "react-icons/fi";
 
 const CodeHighlighter = ({ language, codeString, showLineNumbers = true, maxLines = 25 }) => {
@@ -30,7 +30,7 @@ const CodeHighlighter = ({ language, codeString, showLineNumbers = true, maxLine
       >
         <SyntaxHighlighter
           language={language}
-          style={synthwave84}
+          style={dracula}
           showLineNumbers={showLineNumbers}
           className="code-highlighter"
         >

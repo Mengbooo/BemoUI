@@ -21,7 +21,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route path="/:category/:subcategory" element={
+        <Route path="/components/:component" element={
           <SearchProvider>
             <LanguageProvider>
               <main className='app-container'>

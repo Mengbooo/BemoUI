@@ -3,7 +3,7 @@ import { HeroType, PerspectiveGrid } from "../svg/SvgComponents";
 import { useMediaQuery } from "react-haiku";
 import { useActiveBeams } from "../../hooks/useActiveBeams";
 
-import AnimatedContent from "../../content/Animations/AnimatedContent/AnimatedContent";
+import AnimatedContent from "../../content/Components/AnimatedContent/AnimatedContent";
 import HeroShowcase from "./HeroShowcase/HeroShowcase";
 
 const LandingHero = () => {

@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
-import Magnet from '../../../content/Animations/Magnet/Magnet';
+import Magnet from '../../../content/Components/Magnet/Magnet';
 
-import MatrixCode from '../../../content/Backgrounds/MatrixCode/MatrixCode';
-import AnimatedContent from '../../../content/Animations/AnimatedContent/AnimatedContent';
-import Squares from '../../../content/Backgrounds/Squares/Squares';
-import Waves from '../../../content/Backgrounds/Waves/Waves';
-import LetterGlitch from '../../../content/Backgrounds/LetterGlitch/LetterGlitch';
+import MatrixCode from '../../../content/Components/MatrixCode/MatrixCode';
+import AnimatedContent from '../../../content/Components/AnimatedContent/AnimatedContent';
+import Squares from '../../../content/Components/Squares/Squares';
+import Waves from '../../../content/Components/Waves/Waves';
+import LetterGlitch from '../../../content/Components/LetterGlitch/LetterGlitch';
 
 import './HeroShowcase.css';
 
@@ -16,17 +16,17 @@ const HeroShowcase = () => {
   return (
     <nav className="component-nav-container">
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="circle feat-1" onClick={() => navigate('/backgrounds/matrix-code')}>
+        <div className="circle feat-1" onClick={() => navigate('/components/matrix-code')}>
           <MatrixCode color='#1620E4'/>
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="square feat-2" onClick={() => navigate('/backgrounds/waves')}>
+        <div className="square feat-2" onClick={() => navigate('/components/waves')}>
           <Waves lineColor='#1620E4' xGap={8} yGap={8} />
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="circle link" onClick={() => navigate('/text-animations/split-text')}>
+        <div className="circle link" onClick={() => navigate('/components/split-text')}>
           <Magnet padding={25}>
             <div className="docs-link">
               <p>Browse Docs</p>
@@ -35,7 +35,7 @@ const HeroShowcase = () => {
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="square feat-3" onClick={() => navigate('/backgrounds/letter-glitch')}>
+        <div className="square feat-3" onClick={() => navigate('/components/letter-glitch')}>
           <LetterGlitch
             glitchSpeed={10}
             centerVignette={false}
@@ -45,7 +45,7 @@ const HeroShowcase = () => {
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="circle feat-4" onClick={() => navigate('/backgrounds/squares')}>
+        <div className="circle feat-4" onClick={() => navigate('/components/squares')}>
           <Squares speed={0.2} borderColor='#1620E4' hoverFillColor='#1620E4' />
         </div>
       </AnimatedContent>

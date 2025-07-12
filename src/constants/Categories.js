@@ -5,42 +5,30 @@ export const UPDATED = [];
 // Used for main sidebar navigation
 export const CATEGORIES = [
   {
-    name: 'Text Animations',
+    name: 'Components',
     subcategories: [
+      // Text Animations
       'Split Text',
       'Blur Text',
       'Shiny Text',
       'Gradient Text',
-      'Glitch Text',
-      'Scroll Velocity',
-      'Count Up'
-    ]
-  },
-  {
-    name: 'Animations',
-    subcategories: [
+      // Animations
       'Animated Content',
       'Fade Content',
       'Magnet',
-      'Meta Balls',
-      'Star Border'
-    ]
-  },
-  {
-    name: 'Components',
-    subcategories: [
+      'Star Border',
+      
+      // Components
       'Animated List',
       'Spotlight Card',
-      'Flowing Menu'],
-  },
-  {
-    name: 'Backgrounds',
-    subcategories: [
+      'Flowing Menu',
+      
+      // Backgrounds
       'Grid Motion',
       'Squares',
       'Letter Glitch',
       'Waves',
       'Matrix Code'
-    ],
+    ]
   }
 ];

@@ -120,7 +120,7 @@ const Category = ({ category, handleClick, location }) => {
       <Text className="category-name" mb={2}>{category.name}</Text>
       <Stack spacing={0.5} pl={4} borderLeft="1px solid #ffffff1c">
         {category.subcategories.map(sub => {
-          const path = `/${formatForURL(category.name)}/${formatForURL(sub)}`;
+          const path = `/components/${formatForURL(sub)}`;
           const isActive = location.pathname === path;
           const isNew = NEW.includes(sub);
           const isUpdated = UPDATED.includes(sub);

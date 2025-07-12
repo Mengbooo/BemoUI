@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import bemoUIlogo from "../../../assets/logos/bemoUI-logo-white.png";
 
-import FadeContent from "../../../content/Animations/FadeContent/FadeContent";
+import FadeContent from "../../../content/Components/FadeContent/FadeContent";
 
 import "./LandingHeader.css";
 
@@ -35,7 +35,7 @@ const LandingHeader = () => {
               as={Link}
               fontWeight={500}
               fontSize="16px"
-              to="/text-animations/split-text"
+              to="/components/split-text"
             >
               Docs
             </Text>

@@ -8,6 +8,7 @@
 		"build": "vite build",
 		"new:component": "node scripts/generateComponent.js",
 		"delete:component": "node scripts/deleteComponent.js",
+		"update:imports": "node scripts/updateImportPaths.js",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview"
 	},

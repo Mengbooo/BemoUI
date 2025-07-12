@@ -8,21 +8,35 @@ const __dirname = path.dirname(__filename);
 
 // Check command line arguments
 const args = process.argv.slice(2);
-if (args.length < 2) {
-  console.error("Usage: npm run delete:component <ComponentType> [ComponentName1 ComponentName2 ...]");
+if (args.length < 1) {
+  console.error("Usage: npm run delete:component <ComponentName1> [ComponentName2 ...]");
   process.exit(1);
 }
 
-const componentType = args[0];
-const componentNames = args.slice(1);
+const componentNames = args;
 
-if (componentNames.length === 0) {
-  console.error("Error: At least one component name must be provided");
-  process.exit(1);
+// Function to determine component type from name
+function getComponentType(componentName) {
+  // Check in which directory the component exists
+  const possibleTypes = ["TextAnimations", "Animations", "Components", "Backgrounds"];
+  
+  for (const type of possibleTypes) {
+    const demoPath = path.join(__dirname, "../src/demo", type, `${componentName}Demo.jsx`);
+    if (fs.existsSync(demoPath)) {
+      return type;
+    }
+  }
+  
+  // If not found, make educated guess based on component name
+  if (componentName.includes("Text")) return "TextAnimations";
+  if (componentName.includes("Card") || componentName.includes("Menu") || componentName.includes("List")) return "Components";
+  if (componentName.includes("Motion") || componentName.includes("Grid")) return "Backgrounds";
+  return "Animations"; // Default
 }
 
 // Function to delete a single component
-function deleteComponent(componentType, componentName) {
+function deleteComponent(componentName) {
+  const componentType = getComponentType(componentName);
   const componentNameLower = componentName.charAt(0).toLowerCase() + componentName.slice(1);
   
   // Define paths to delete
@@ -68,16 +82,16 @@ function deleteComponent(componentType, componentName) {
   });
   
   // Update Categories.js to remove the component reference
-  updateCategoriesFile(componentType, componentName);
+  updateCategoriesFile(componentName);
   
   // Update Components.js to remove the component mapping
-  updateComponentsFile(componentType, componentName);
+  updateComponentsFile(componentName);
   
-  console.log(`Component "${componentName}" has been removed from "${componentType}" type.`);
+  console.log(`Component "${componentName}" has been removed.`);
 }
 
 // Function to update Categories.js
-function updateCategoriesFile(componentType, componentName) {
+function updateCategoriesFile(componentName) {
   try {
     const categoriesPath = path.join(__dirname, "../src/constants/Categories.js");
     
@@ -91,7 +105,7 @@ function updateCategoriesFile(componentType, componentName) {
         .trim() // Remove leading space if first letter is capital
         .replace(/^./, str => str.toUpperCase()); // Capitalize first letter
       
-      // Find and remove component references
+      // Find and remove component references - now only in one category
       const regex = new RegExp(`(['"])${componentTitleCase}\\1,?\\s*`, 'g');
       const newContent = categoriesContent.replace(regex, '');
       
@@ -120,7 +134,7 @@ function updateCategoriesFile(componentType, componentName) {
 }
 
 // Function to update Components.js
-function updateComponentsFile(componentType, componentName) {
+function updateComponentsFile(componentName) {
   try {
     const componentsPath = path.join(__dirname, "../src/constants/Components.js");
     
@@ -135,7 +149,7 @@ function updateComponentsFile(componentType, componentName) {
         .replace(/^-/, ''); // Remove leading dash
       
       // Find and remove the component mapping line
-      // This handles formats like: 'split-text': () => import("../demo/TextAnimations/SplitTextDemo"),
+      // This handles formats like: 'split-text': () => import("../demo/Components/SplitTextDemo"),
       const regex = new RegExp(`\\s*['"]${componentKebabCase}['"]\\s*:\\s*\\(\\)\\s*=>\\s*import\\([^)]*\\),?`, 'g');
       const newContent = componentsContent.replace(regex, '');
       
@@ -156,8 +170,8 @@ function updateComponentsFile(componentType, componentName) {
 
 // Process each component name
 componentNames.forEach(componentName => {
-  console.log(`\n--- Deleting ${componentName} from ${componentType} ---`);
-  deleteComponent(componentType, componentName);
+  console.log(`\n--- Deleting ${componentName} ---`);
+  deleteComponent(componentName);
 });
 
-console.log(`\n✅ Completed deletion of ${componentNames.length} component(s) from "${componentType}" type.`); 
+console.log(`\n✅ Completed deletion of ${componentNames.length} component(s).`); 

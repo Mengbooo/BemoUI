@@ -80,7 +80,7 @@
 }
 
 .component-nav-container div .feat-1::before {
-  content: "<MetaBalls />";
+  content: "<MatrixCode />";
 }
 
 .component-nav-container div .feat-2 {

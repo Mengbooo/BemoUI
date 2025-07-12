@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
 import Magnet from '../../../content/Animations/Magnet/Magnet';
+
+import MatrixCode from '../../../content/Backgrounds/MatrixCode/MatrixCode';
 import AnimatedContent from '../../../content/Animations/AnimatedContent/AnimatedContent';
 import Squares from '../../../content/Backgrounds/Squares/Squares';
 import Waves from '../../../content/Backgrounds/Waves/Waves';
 import LetterGlitch from '../../../content/Backgrounds/LetterGlitch/LetterGlitch';
 
 import './HeroShowcase.css';
-import MetaBalls from '../../../content/Animations/MetaBalls/MetaBalls';
 
 const HeroShowcase = () => {
   const navigate = useNavigate();
@@ -15,8 +16,8 @@ const HeroShowcase = () => {
   return (
     <nav className="component-nav-container">
       <AnimatedContent reverse initialOpacity={0}>
-        <div className="circle feat-1" onClick={() => navigate('/animations/meta-balls')}>
-          <MetaBalls color='#1620E4' cursorBallColor='#1620E4' />
+        <div className="circle feat-1" onClick={() => navigate('/backgrounds/matrix-code')}>
+          <MatrixCode color='#1620E4'/>
         </div>
       </AnimatedContent>
       <AnimatedContent reverse initialOpacity={0}>

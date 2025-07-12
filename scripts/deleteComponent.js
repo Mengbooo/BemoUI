@@ -15,42 +15,22 @@ if (args.length < 1) {
 
 const componentNames = args;
 
-// Function to determine component type from name
-function getComponentType(componentName) {
-  // Check in which directory the component exists
-  const possibleTypes = ["TextAnimations", "Animations", "Components", "Backgrounds"];
-  
-  for (const type of possibleTypes) {
-    const demoPath = path.join(__dirname, "../src/demo", type, `${componentName}Demo.jsx`);
-    if (fs.existsSync(demoPath)) {
-      return type;
-    }
-  }
-  
-  // If not found, make educated guess based on component name
-  if (componentName.includes("Text")) return "TextAnimations";
-  if (componentName.includes("Card") || componentName.includes("Menu") || componentName.includes("List")) return "Components";
-  if (componentName.includes("Motion") || componentName.includes("Grid")) return "Backgrounds";
-  return "Animations"; // Default
-}
-
 // Function to delete a single component
 function deleteComponent(componentName) {
-  const componentType = getComponentType(componentName);
   const componentNameLower = componentName.charAt(0).toLowerCase() + componentName.slice(1);
   
   // Define paths to delete
   const paths = {
-    content: path.join(__dirname, "../src/content", componentType, componentName),
-    tailwind: path.join(__dirname, "../src/tailwind", componentType, componentName),
-    ts: path.join(__dirname, "../src/ts-default", componentType, componentName),
-    tsTailwind: path.join(__dirname, "../src/ts-tailwind", componentType, componentName),
+    content: path.join(__dirname, "../src/content/Components", componentName),
+    tailwind: path.join(__dirname, "../src/tailwind/Components", componentName),
+    ts: path.join(__dirname, "../src/ts-default/Components", componentName),
+    tsTailwind: path.join(__dirname, "../src/ts-tailwind/Components", componentName),
   };
 
   // Define files to delete
   const files = [
-    path.join(__dirname, "../src/demo", componentType, `${componentName}Demo.jsx`),
-    path.join(__dirname, "../src/constants/code", componentType, `${componentNameLower}Code.js`),
+    path.join(__dirname, "../src/demo/Components", `${componentName}Demo.jsx`),
+    path.join(__dirname, "../src/constants/code/Components", `${componentNameLower}Code.js`),
   ];
 
   // Delete directories

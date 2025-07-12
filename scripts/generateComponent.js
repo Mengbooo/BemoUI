@@ -21,12 +21,12 @@ const componentKebabCase = componentName
 
 // Create directories for component in each variant
 const paths = {
-  content: path.join(__dirname, "../src/content/components", componentName),
-  tailwind: path.join(__dirname, "../src/tailwind/components", componentName),
-  ts: path.join(__dirname, "../src/ts-default/components", componentName),
-  tsTailwind: path.join(__dirname, "../src/ts-tailwind/components", componentName),
-  demo: path.join(__dirname, "../src/demo/components"),
-  constants: path.join(__dirname, "../src/constants/code/components"),
+  content: path.join(__dirname, "../src/content/Components", componentName),
+  tailwind: path.join(__dirname, "../src/tailwind/Components", componentName),
+  ts: path.join(__dirname, "../src/ts-default/Components", componentName),
+  tsTailwind: path.join(__dirname, "../src/ts-tailwind/Components", componentName),
+  demo: path.join(__dirname, "../src/demo/Components"),
+  constants: path.join(__dirname, "../src/constants/code/Components"),
 };
 
 // Create all necessary directories
@@ -120,7 +120,7 @@ function updateComponentsFile(componentName) {
       
       if (match) {
         // Add the new component to the component map
-        const newComponentEntry = `\n  '${componentKebabCase}': () => import("../demo/components/${componentName}Demo"),`;
+        const newComponentEntry = `\n  '${componentKebabCase}': () => import("../demo/Components/${componentName}Demo"),`;
         const updatedContent = componentsContent.replace(
           componentMapRegex, 
           `$1${match[2]}${newComponentEntry}$3`

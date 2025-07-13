@@ -6,7 +6,7 @@ const CodeExample = ({ codeObject }) => {
   return (
     <>
       {Object.entries(codeObject).map(([key, codeString]) => {
-        if (['tailwind', 'css', 'tsTailwind', 'tsCode', 'cliDefault', 'cliTailwind', 'cliTsTailwind', 'cliTsDefault'].includes(key)) return null;
+        if (['tailwind', 'css', 'tsTailwind', 'tsCode'].includes(key)) return null;
 
         return key === 'code' || key === 'tsCode' ? (
           <div key={codeString}>

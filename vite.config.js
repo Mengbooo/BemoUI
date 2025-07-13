@@ -30,5 +30,4 @@ export default defineConfig({
       parser: safeParser
     }
   },
-  assetsInclude: ['**/*.glb']
 })

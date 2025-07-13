@@ -1,12 +1,9 @@
-import { generateCliCommands } from '@/utils/utils';
-
 import code from '@content/Components/AnimatedContent/AnimatedContent.jsx?raw';
 import tailwind from '@tailwind/Components/AnimatedContent/AnimatedContent.jsx?raw';
 import tsCode from '@ts-default/Components/AnimatedContent/AnimatedContent.tsx?raw';
 import tsTailwind from '@ts-tailwind/Components/AnimatedContent/AnimatedContent.tsx?raw';
 
 export const animatedContent = {
-  ...(generateCliCommands('Animations/AnimatedContent')),
   installation: `npm install @react-spring/web`,
   usage: `import AnimatedContent from './AnimatedContent'
 

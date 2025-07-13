@@ -1,12 +1,9 @@
-import { generateCliCommands } from '@/utils/utils';
-
 import code from '@content/Components/BlurText/BlurText.jsx?raw';
 import tailwind from '@tailwind/Components/BlurText/BlurText.jsx?raw';
 import tsCode from '@ts-default/Components/BlurText/BlurText.tsx?raw';
 import tsTailwind from '@ts-tailwind/Components/BlurText/BlurText.tsx?raw';
 
 export const blurText = {
-  ...(generateCliCommands('TextAnimations/BlurText')),
   installation: `npm install @react-spring/web`,
   usage: `import BlurText from "./BlurText";
 

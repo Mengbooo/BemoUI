@@ -1,5 +1,3 @@
-import { generateCliCommands } from '@/utils/utils';
-
 import code from '@content/Components/GradientText/GradientText.jsx?raw';
 import css from '@content/Components/GradientText/GradientText.css?raw';
 import tailwind from '@tailwind/Components/GradientText/GradientText.jsx?raw';
@@ -8,7 +6,6 @@ import tsTailwind from '@ts-tailwind/Components/GradientText/GradientText.tsx?ra
 
 
 export const gradientText = {
-  ...(generateCliCommands('TextAnimations/GradientText')),
   usage: `import GradientText from './GradientText'
   
 <GradientText

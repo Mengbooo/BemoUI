@@ -1,5 +1,3 @@
-import { generateCliCommands } from '@/utils/utils';
-
 import code from '@content/Components/MatrixCode/MatrixCode.jsx?raw';
 import css from '@content/Components/MatrixCode/MatrixCode.css?raw';
 import tailwind from '@tailwind/Components/MatrixCode/MatrixCode.jsx?raw';
@@ -7,7 +5,6 @@ import tsCode from '@ts-default/Components/MatrixCode/MatrixCode.tsx?raw';
 import tsTailwind from '@ts-tailwind/Components/MatrixCode/MatrixCode.tsx?raw';
 
 export const matrixCode = {
-  ...(generateCliCommands('Backgrounds/MatrixCode')),
   usage: `import MatrixCode from './MatrixCode';
 <MatrixCode
   fontSize={20}

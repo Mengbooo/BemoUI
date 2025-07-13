@@ -1,5 +1,3 @@
-import { generateCliCommands } from '@/utils/utils';
-
 import code from '@content/Components/GridMotion/GridMotion.jsx?raw';
 import css from '@content/Components/GridMotion/GridMotion.css?raw';
 import tailwind from '@tailwind/Components/GridMotion/GridMotion.jsx?raw';
@@ -7,7 +5,6 @@ import tsCode from '@ts-default/Components/GridMotion/GridMotion.tsx?raw'
 import tsTailwind from '@ts-tailwind/Components/GridMotion/GridMotion.tsx?raw'
 
 export const gridMotion = {
-  ...(generateCliCommands('Backgrounds/GridMotion')),
   installation: `npm i gsap`,
   usage: `import GridMotion from './GridMotion';
   

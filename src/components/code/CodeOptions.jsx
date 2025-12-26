@@ -1,8 +1,18 @@
-import { Children, useEffect, useState } from "react";
-import { Tabs, TabList, Tab, TabPanels, TabPanel, Icon, Text, Flex, Select } from "@chakra-ui/react";
+import { Children } from "react";
+import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Icon,
+  Text,
+  Flex,
+  Select,
+} from "@chakra-ui/react";
 import { RiEmotionSadLine, RiTailwindCssFill } from "react-icons/ri";
 import { FiCode } from "react-icons/fi";
-import { useLanguage } from '../context/LanguageContext/useLanguage';
+import { useLanguage } from "../context/LanguageContext/useLanguage";
 
 const CodeOptions = ({ children }) => {
   const { languagePreset, setLanguagePreset } = useLanguage();
@@ -12,20 +22,28 @@ const CodeOptions = ({ children }) => {
     TS: { css: TSCSSTab, tailwind: TSTailwindTab },
   };
 
-  const categorizedTabs = Children.toArray(children).reduce((acc, child) => {
-    Object.entries(tabComponents).forEach(([lang, types]) => {
-      Object.entries(types).forEach(([type, component]) => {
-        if (child.type === component) acc[lang][type] = child;
+  const categorizedTabs = Children.toArray(children).reduce(
+    (acc, child) => {
+      Object.entries(tabComponents).forEach(([lang, types]) => {
+        Object.entries(types).forEach(([type, component]) => {
+          if (child.type === component) acc[lang][type] = child;
+        });
       });
-    });
-    return acc;
-  }, { JS: { css: null, tailwind: null }, TS: { css: null, tailwind: null } });
+      return acc;
+    },
+    { JS: { css: null, tailwind: null }, TS: { css: null, tailwind: null } }
+  );
 
   const hasValidContent = (content) => content?.props?.children;
 
   const renderTabContent = (type) => {
-    const content = languagePreset === "JS" ? categorizedTabs.JS[type] : categorizedTabs.TS[type];
-    return hasValidContent(content) ? content : (
+    const content =
+      languagePreset === "JS"
+        ? categorizedTabs.JS[type]
+        : categorizedTabs.TS[type];
+    return hasValidContent(content) ? (
+      content
+    ) : (
       <Flex alignItems="center" gap={2} my={6} color="#a1a1aa">
         <Text>Nothing here yet!</Text>
         <Icon as={RiEmotionSadLine} />
@@ -48,11 +66,23 @@ const CodeOptions = ({ children }) => {
   const selectStyles = { ...tabStyles, paddingRight: "2.2em" };
 
   return (
-    <Tabs mt={4} variant="unstyled" border="none" opacity={languagePreset ? 1 : 0} transition={languagePreset ? "opacity 0.3s" : "none"}>
+    <Tabs
+      mt={4}
+      variant="unstyled"
+      border="none"
+      opacity={languagePreset ? 1 : 0}
+      transition={languagePreset ? "opacity 0.3s" : "none"}
+    >
       <TabList mb={4} justifyContent="space-between">
         <Flex wrap="wrap" gap="0.5rem">
-          <Tab sx={tabStyles}><Icon as={FiCode} />&nbsp;Default</Tab>
-          <Tab sx={tabStyles}><Icon as={RiTailwindCssFill} />&nbsp;Tailwind</Tab>
+          <Tab sx={tabStyles}>
+            <Icon as={FiCode} />
+            &nbsp;Default
+          </Tab>
+          <Tab sx={tabStyles}>
+            <Icon as={RiTailwindCssFill} />
+            &nbsp;Tailwind
+          </Tab>
         </Flex>
 
         <Flex alignItems="center" gap="8px">

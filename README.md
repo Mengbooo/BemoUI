@@ -148,17 +148,3 @@ npm run new:component MyComponent
 ## 📄 许可证
 
 [MIT License](LICENSE)
-
-## 🤝 贡献
-
-欢迎贡献代码、报告问题或提出改进建议！请查看[贡献指南](CONTRIBUTING.md)了解更多信息。
-
-## 📚 文档
-
-访问我们的[文档网站](https://bemo-ui.dev)获取更多信息和详细的组件文档。
-
----
-
-<div align="center">
-  <p>Made with ❤️ by BemoUI</p>
-</div>

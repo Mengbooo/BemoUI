@@ -99,9 +99,9 @@ const MagnetDemo = () => {
             disabled={disabled}
             magnetStrength={magnetStrength}
           >
-            <a href="https://github.com/DavidHDev/react-bits" target="_blank" rel="noreferrer">
+            <a href="https://github.com/mengbooo/BemoUI" target="_blank" rel="noreferrer">
               <Flex fontSize="lg" color="#fff">
-                Star&nbsp;<Text color="#00f0ff">React Bits</Text>&nbsp;on GitHub!
+                Star&nbsp;<Text color="#00f0ff">BemoUI</Text>&nbsp;on GitHub!
               </Flex>
             </a>
           </Magnet>

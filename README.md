@@ -1,7 +1,12 @@
 <div align="center">
   <img src="src/assets/logos/bemoUI-logo-color.svg" alt="BemoUI Logo" width="400">
   <h1>BemoUI</h1>
-  <p>一个现代化、高性能的React动画组件库</p>
+  <p>A Modern, High-Performance React Animation Component Library</p>
+  
+  <p>
+    <a href="#english">English</a> • 
+    <a href="README_zh.md">中文</a>
+  </p>
 </div>
 
 <div align="center">
@@ -12,39 +17,42 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
 </div>
 
-## 📋 概述
+---
 
-BemoUI 是一个功能丰富的 React 动画组件库，提供了多种实现方式以满足不同开发者的需求。项目架构清晰，组件设计灵活，支持高度定制，适合用于构建具有丰富视觉效果和交互体验的现代 Web 应用。
+## <a name="english"></a>📖 Overview
 
-### ✨ 特点
+**BemoUI** is a comprehensive React animation component library designed for building modern web applications with rich visual effects and interactive experiences. It combines powerful animation libraries like React Spring, Framer Motion, and GSAP with a clean, scalable architecture that supports multiple implementation variants.
 
-- **多种实现方式**：每个组件提供四种实现版本（JS+CSS、JS+Tailwind、TS+CSS、TS+Tailwind）
-- **高性能动画**：基于 React Spring、Framer Motion 和 GSAP 等优秀动画库构建
-- **完全可定制**：每个组件都提供丰富的属性和选项，可根据需求进行定制
-- **响应式设计**：所有组件都适配不同屏幕尺寸，提供最佳用户体验
-- **TypeScript支持**：完整的TypeScript类型定义，提供优秀的开发体验
-- **3D效果支持**：集成Three.js和相关库，支持创建3D交互效果
+### ✨ Key Features
 
-## 🚀 快速开始
+- **Multi-Version Support**: Each component is available in 4 variants (JS+CSS, JS+Tailwind, TS+CSS, TS+Tailwind) to suit different project needs
+- **High-Performance Animations**: Built with industry-standard libraries including React Spring, Framer Motion, GSAP, and Three.js
+- **Fully Customizable**: Rich props and configuration options for every component, allowing complete customization
+- **Responsive Design**: All components are optimized for different screen sizes and device types
+- **Complete TypeScript Support**: Full type definitions for excellent development experience and type safety
+- **3D Effects**: Integrated Three.js support for creating stunning 3D interactive effects
+- **Production-Ready**: Thoroughly tested and optimized for performance and reliability
 
-### 安装
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-# 使用npm
+# Using npm
 npm install bemo-ui
 
-# 使用yarn
+# Using yarn
 yarn add bemo-ui
 
-# 使用pnpm
+# Using pnpm
 pnpm add bemo-ui
 ```
 
-### 基本使用
+### Basic Usage
 
 ```jsx
 import { AnimatedContent, Waves } from 'bemo-ui';
-import 'bemo-ui/styles.css'; // 导入样式（如果使用CSS版本）
+import 'bemo-ui/styles.css'; // Import styles (for CSS version)
 
 function App() {
   return (
@@ -59,92 +67,188 @@ function App() {
     </div>
   );
 }
+
+export default App;
 ```
 
-## 📦 组件列表
+## 📦 Component Library
 
-BemoUI 提供了丰富的组件：
+BemoUI provides a diverse collection of animation components:
 
-- **BlurText** - 模糊文本效果
-- **GradientText** - 渐变文本效果
-- **LetterGlitch** - 字母故障效果
-- **ShinyText** - 闪光文本效果
-- **SplitText** - 文本分割动画
-- **AnimatedContent** - 内容出现动画
-- **AnimatedList** - 列表动画效果
-- **FadeContent** - 淡入淡出效果
-- **Magnet** - 磁性吸附效果
-- **FlowingMenu** - 流动菜单效果
-- **SpotlightCard** - 聚光灯卡片效果
-- **StarBorder** - 星形边框效果
-- **GridMotion** - 网格动效背景
-- **MatrixCode** - 矩阵代码雨效果
-- **Squares** - 方块背景效果
-- **Waves** - 波浪动效背景
+### Text Effects
+- **BlurText** - Blur effect animation
+- **GradientText** - Gradient color animation
+- **LetterGlitch** - Glitch effect animation
+- **ShinyText** - Shiny/gloss effect
+- **SplitText** - Text split animation
 
-目前CLI正在WIP，但我们提供了所有组建的源代码供你使用！
+### Layout & Container
+- **AnimatedContent** - Content reveal animation
+- **AnimatedList** - List item animations
+- **FadeContent** - Fade in/out effect
+- **SpotlightCard** - Spotlight lens effect
+- **StarBorder** - Star-shaped border effect
 
-## 🛠️ 开发
+### Interactive Effects
+- **Magnet** - Magnetic attraction effect
+- **FlowingMenu** - Flowing menu animation
+- **GridMotion** - Grid motion background
+- **MatrixCode** - Matrix rain effect
+- **Squares** - Square pattern background
+- **Waves** - Wave animation background
 
-### 环境要求
+*Full component documentation and live demos available on the [official website](https://bemoui.com).*
 
-- Node.js 16+
-- npm 7+ 或 yarn 1.22+ 或 pnpm 7+
+## 🛠️ Development Guide
 
-### 安装依赖
+### Prerequisites
+
+- Node.js 16 or higher
+- npm 7+ / yarn 1.22+ / pnpm 7+
+
+### Installation
 
 ```bash
-# 使用npm
+# Clone the repository
+git clone https://github.com/your-org/bemo-ui.git
+cd bemo-ui
+
+# Install dependencies
 npm install
-
-# 使用yarn
-yarn
-
-# 使用pnpm
+# or
+yarn install
+# or
 pnpm install
 ```
 
-### 开发命令
+### Available Commands
 
 ```bash
-# 启动开发服务器
+# Start development server with hot reload
 npm run dev
 
-# 构建项目
+# Build for production
 npm run build
 
-# 预览构建结果
+# Preview production build
 npm run preview
 
-# 创建新组件
+# Create a new component (generates all 4 variants)
 npm run new:component ComponentName
 
-# 删除组件
+# Delete a component
 npm run delete:component ComponentName
 
-# 代码检查
+# Synchronize component versions
+npm run sync:component ComponentName [--source=variant]
+
+# Run ESLint checks
 npm run lint
 ```
 
-## 🔧 自定义组件
+### Creating Custom Components
 
-BemoUI 提供了方便的脚本来创建新组件：
+BemoUI provides automated scripts to scaffold new components:
 
 ```bash
 npm run new:component MyComponent
 ```
 
-这将自动创建以下文件：
+This command automatically generates:
 
-- `src/content/Components/MyComponent/MyComponent.jsx` - JS+CSS 版本
-- `src/content/Components/MyComponent/MyComponent.css` - CSS 样式
-- `src/tailwind/Components/MyComponent/MyComponent.jsx` - JS+Tailwind 版本
-- `src/ts-default/Components/MyComponent/MyComponent.tsx` - TS+CSS 版本
-- `src/ts-default/Components/MyComponent/MyComponent.css` - TS 版本的 CSS 样式
-- `src/ts-tailwind/Components/MyComponent/MyComponent.tsx` - TS+Tailwind 版本
-- `src/demo/Components/MyComponentDemo.jsx` - 组件演示页面
-- `src/constants/code/Components/myComponentCode.js` - 组件代码示例
+- `src/content/Components/MyComponent/MyComponent.jsx` - JS+CSS variant
+- `src/content/Components/MyComponent/MyComponent.css` - CSS styles
+- `src/tailwind/Components/MyComponent/MyComponent.jsx` - JS+Tailwind variant
+- `src/ts-default/Components/MyComponent/MyComponent.tsx` - TS+CSS variant
+- `src/ts-default/Components/MyComponent/MyComponent.css` - TS CSS styles
+- `src/ts-tailwind/Components/MyComponent/MyComponent.tsx` - TS+Tailwind variant
+- `src/demo/Components/MyComponentDemo.jsx` - Component demo page
+- `src/constants/code/Components/myComponentCode.js` - Code examples for showcase
 
-## 📄 许可证
+### Component Synchronization
 
-[MIT License](LICENSE)
+The `sync:component` script helps maintain consistency across all component variants:
+
+```bash
+# Sync from content version to all other variants
+npm run sync:component ShinyText --source=content
+
+# Sync from TypeScript version
+npm run sync:component ShinyText --source=ts-default
+```
+
+## 📁 Project Structure
+
+```
+bemo-ui/
+├── src/
+│   ├── components/          # UI components (navigation, layout, etc.)
+│   ├── content/Components/  # JS+CSS components
+│   ├── tailwind/Components/ # JS+Tailwind components
+│   ├── ts-default/Components/  # TS+CSS components
+│   ├── ts-tailwind/Components/ # TS+Tailwind components
+│   ├── demo/Components/     # Component demonstrations
+│   ├── constants/           # Configuration constants
+│   ├── hooks/              # Custom React hooks
+│   ├── css/                # Global styles
+│   └── utils/              # Utility functions
+├── scripts/
+│   ├── generateComponent.js # Component generator
+│   ├── deleteComponent.js  # Component remover
+│   ├── syncComponent.js    # Component synchronizer
+│   └── ...
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## 🎨 Design System
+
+All components follow a consistent design philosophy:
+
+- **Performance First**: Optimized animations with minimal re-renders
+- **Accessibility**: ARIA-compliant components with keyboard support
+- **Customization**: Flexible props and CSS/Tailwind integration
+- **Consistency**: Uniform naming conventions and API design
+
+## 📚 Documentation
+
+For detailed documentation and interactive component demos, visit:
+- [Official Website](https://bemoui.com)
+- [Component Documentation](https://bemoui.com/docs)
+- [API Reference](https://bemoui.com/api)
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+BemoUI is built upon these excellent libraries:
+- [React](https://react.dev)
+- [Framer Motion](https://www.framer.com/motion)
+- [React Spring](https://www.react-spring.dev)
+- [GSAP](https://greensock.com/gsap)
+- [Three.js](https://threejs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by BemoUI Team</p>
+  <p>
+    <a href="https://github.com/your-org/bemo-ui">GitHub</a> • 
+    <a href="https://twitter.com/bemoui">Twitter</a> • 
+    <a href="https://discord.gg/bemoui">Discord</a>
+  </p>
+</div>

@@ -11,7 +11,7 @@ import { matrixCode } from "../../constants/code/Components/matrixCodeCode";
 
 const MatrixCodeDemo = () => {
   const [fontSize, setFontSize] = useState(20);
-  const [color, setColor] = useState("#00ff00");
+  const [color, setColor] = useState("#1620e4");
   const [characters, setCharacters] = useState("01");
   const [fadeOpacity, setFadeOpacity] = useState(0.1);
   const [speed, setSpeed] = useState(1);

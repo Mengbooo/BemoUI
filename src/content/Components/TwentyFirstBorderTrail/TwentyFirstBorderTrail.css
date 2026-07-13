@@ -1,0 +1,84 @@
+.bemo-21st-border-trail {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.bemo-21st-border-trail-mask {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-style: solid;
+  border-color: transparent;
+  /* Mask so only the border region shows the trail */
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: destination-out;
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+  mask-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+}
+
+.bemo-21st-border-trail-dot {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  background-color: #1620E4;
+  will-change: offset-distance;
+  /* Soft glow using secondary accent */
+  box-shadow:
+    0 0 8px color-mix(in srgb, #7BE9C6 55%, transparent),
+    0 0 16px color-mix(in srgb, #1620E4 40%, transparent);
+}
+
+.bemo-21st-border-trail-dot--static {
+  /* Static fallback: place near top-left corner of the path */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0.85;
+  box-shadow:
+    0 0 6px color-mix(in srgb, #7BE9C6 40%, transparent),
+    0 0 12px color-mix(in srgb, #1620E4 30%, transparent);
+}
+
+/* Disabled state */
+.bemo-21st-border-trail[data-disabled] .bemo-21st-border-trail-dot,
+.bemo-21st-border-trail[data-disabled] .bemo-21st-border-trail-dot--static {
+  opacity: 0.35;
+  box-shadow: none;
+  filter: grayscale(0.4);
+}
+
+/* Reduced motion: hide continuous animation emphasis */
+.bemo-21st-border-trail[data-reduced-motion] .bemo-21st-border-trail-dot {
+  animation: none !important;
+}
+
+/* Focus-visible support when parent is focusable (decorative child remains aria-hidden) */
+:focus-visible > .bemo-21st-border-trail .bemo-21st-border-trail-dot,
+:focus-visible > .bemo-21st-border-trail .bemo-21st-border-trail-dot--static {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 2px;
+}
+
+/* Responsive: slightly smaller trail on narrow viewports */
+@media (max-width: 640px) {
+  .bemo-21st-border-trail-dot,
+  .bemo-21st-border-trail-dot--static {
+    /* size is mostly controlled by prop; soften glow on small screens */
+    box-shadow:
+      0 0 4px color-mix(in srgb, #7BE9C6 45%, transparent),
+      0 0 10px color-mix(in srgb, #1620E4 30%, transparent);
+  }
+}
+
+/* Explicit prefers-reduced-motion safety net */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-border-trail-dot {
+    transition: none !important;
+    animation: none !important;
+  }
+}

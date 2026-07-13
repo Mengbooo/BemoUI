@@ -1,0 +1,58 @@
+.bemo-21st-progressive-blur {
+  position: relative;
+  display: block;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.bemo-21st-progressive-blur__layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  will-change: backdrop-filter;
+}
+
+/* Disabled / static state helpers (parent can toggle) */
+.bemo-21st-progressive-blur[data-disabled="true"] .bemo-21st-progressive-blur__layer,
+.bemo-21st-progressive-blur--disabled .bemo-21st-progressive-blur__layer {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Focus-visible support when component is interactive wrapper */
+.bemo-21st-progressive-blur:focus {
+  outline: none;
+}
+
+.bemo-21st-progressive-blur:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+/* Reduced motion: eliminate expensive filters */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-progressive-blur__layer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive: slightly softer on small screens for performance */
+@media (max-width: 640px) {
+  .bemo-21st-progressive-blur__layer {
+    /* layers still applied; intensity is prop-driven */
+  }
+}
+
+/* Utility accents for demos / theming */
+.bemo-21st-progressive-blur--accent {
+  --bemo-accent: #1620E4;
+  --bemo-accent-soft: #7BE9C6;
+}
+
+.bemo-21st-progressive-blur[hidden] {
+  display: none !important;
+}

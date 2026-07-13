@@ -89,6 +89,7 @@ const categoryIconMapping = {
   "Animations": FiCircle,
   "ReactBits": FiLayers,
   "MagicUI": FiLayers,
+  "21st.dev": FiLayers,
   "Backgrounds": FiImage,
 };
 

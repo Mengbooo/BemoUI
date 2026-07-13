@@ -1,0 +1,202 @@
+.bemo-21st-cult-minimal-card {
+  --bemo-card-bg: #fafafa;
+  --bemo-card-bg-hover: #f5f5f5;
+  --bemo-card-text: #0a0a0a;
+  --bemo-card-muted: #737373;
+  --bemo-card-accent: #1620E4;
+  --bemo-card-accent-2: #7BE9C6;
+  --bemo-card-radius: 24px;
+  --bemo-card-img-radius: 20px;
+  --bemo-card-img-inner-radius: 16px;
+
+  position: relative;
+  display: block;
+  border-radius: var(--bemo-card-radius);
+  background-color: var(--bemo-card-bg);
+  color: var(--bemo-card-text);
+  padding: 0.5rem;
+  text-decoration: none;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 1px 1px 0px rgba(255, 252, 240, 0.5) inset,
+    0px 0px 0px 1px hsla(0, 0%, 100%, 0.1) inset,
+    0px 0px 1px 0px rgba(28, 27, 26, 0.5),
+    rgba(17, 24, 28, 0.08) 0 0 0 1px,
+    rgba(17, 24, 28, 0.08) 0 1px 2px -1px,
+    rgba(17, 24, 28, 0.04) 0 2px 4px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.bemo-21st-cult-minimal-card:hover {
+  background-color: var(--bemo-card-bg-hover);
+}
+
+.bemo-21st-cult-minimal-card:focus-visible {
+  outline: 2px solid var(--bemo-card-accent);
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--bemo-card-accent) 25%, transparent),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    rgba(17, 24, 28, 0.08) 0 0 0 1px,
+    rgba(17, 24, 28, 0.08) 0 1px 2px -1px;
+}
+
+.bemo-21st-cult-minimal-card:disabled,
+.bemo-21st-cult-minimal-card[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-minimal-card {
+    --bemo-card-bg: #262626;
+    --bemo-card-bg-hover: rgba(38, 38, 38, 0.8);
+    --bemo-card-text: #fafafa;
+    --bemo-card-muted: #a3a3a3;
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1),
+      0 4px 4px 0 rgba(0, 0, 0, 0.1),
+      0 8px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .bemo-21st-cult-minimal-card:hover {
+    background-color: var(--bemo-card-bg-hover);
+  }
+}
+
+.bemo-21st-cult-minimal-card-image {
+  position: relative;
+  height: 190px;
+  width: 100%;
+  border-radius: var(--bemo-card-img-radius);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 1px 1px 0px rgba(255, 252, 240, 0.5) inset,
+    0px 0px 0px 1px hsla(0, 0%, 100%, 0.1) inset,
+    0px 0px 1px 0px rgba(28, 27, 26, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-minimal-card-image {
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1),
+      0 4px 4px 0 rgba(0, 0, 0, 0.1),
+      0 8px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bemo-21st-cult-minimal-card-image-img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--bemo-card-img-inner-radius);
+  object-fit: cover;
+  display: block;
+}
+
+.bemo-21st-cult-minimal-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--bemo-card-img-inner-radius);
+  pointer-events: none;
+}
+
+.bemo-21st-cult-minimal-card-image-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--bemo-card-img-inner-radius);
+  box-shadow:
+    0px 0px 0px 1px rgba(0, 0, 0, 0.07),
+    0px 0px 0px 3px #fff,
+    0px 0px 0px 4px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-minimal-card-image-ring {
+    box-shadow:
+      0px 0px 0px 1px rgba(0, 0, 0, 0.07),
+      0px 0px 0px 3px rgba(100, 100, 100, 0.3),
+      0px 0px 0px 4px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.bemo-21st-cult-minimal-card-image-inner-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--bemo-card-img-inner-radius);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-minimal-card-image-inner-shadow {
+    box-shadow:
+      0px 1px 1px 0px rgba(0, 0, 0, 0.15),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.15) inset,
+      0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset,
+      0px 0px 1px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.bemo-21st-cult-minimal-card-title {
+  margin: 0.5rem 0 0;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.bemo-21st-cult-minimal-card-description {
+  margin: 0;
+  padding: 0 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--bemo-card-muted);
+}
+
+.bemo-21st-cult-minimal-card-content {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.bemo-21st-cult-minimal-card-footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+  gap: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .bemo-21st-cult-minimal-card-image {
+    height: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .bemo-21st-cult-minimal-card-title {
+    font-size: 1rem;
+  }
+
+  .bemo-21st-cult-minimal-card-content,
+  .bemo-21st-cult-minimal-card-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-minimal-card {
+    transition: none;
+  }
+}

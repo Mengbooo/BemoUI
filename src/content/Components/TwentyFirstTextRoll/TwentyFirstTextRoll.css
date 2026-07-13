@@ -1,0 +1,90 @@
+.bemo-21st-text-roll {
+  display: inline-block;
+  color: #0a0a0a;
+  font-weight: 600;
+  line-height: 1.2;
+  perspective: 1000px;
+}
+
+.bemo-21st-text-roll__char {
+  position: relative;
+  display: inline-block;
+  perspective: 10000px;
+  transform-style: preserve-3d;
+  width: auto;
+}
+
+.bemo-21st-text-roll__face {
+  position: absolute;
+  display: inline-block;
+  backface-visibility: hidden;
+}
+
+.bemo-21st-text-roll__face--enter {
+  transform-origin: 50% 25%;
+}
+
+.bemo-21st-text-roll__face--exit {
+  transform-origin: 50% 100%;
+}
+
+.bemo-21st-text-roll__placeholder {
+  visibility: hidden;
+}
+
+.bemo-21st-text-roll__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus-visible for interactive usage (e.g. when used as button/link wrapper) */
+.bemo-21st-text-roll:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Disabled state */
+.bemo-21st-text-roll[aria-disabled="true"],
+.bemo-21st-text-roll:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Accent helpers (optional via className) */
+.bemo-21st-text-roll--accent {
+  color: #1620E4;
+}
+
+.bemo-21st-text-roll--mint {
+  color: #7BE9C6;
+}
+
+.bemo-21st-text-roll--dark {
+  color: #ffffff;
+}
+
+/* Responsive: slightly tighter tracking on small screens */
+@media (max-width: 640px) {
+  .bemo-21st-text-roll {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Prefer reduced motion: already handled in JS via useReducedMotion,
+   but CSS fallback ensures no transform animation if styles are applied externally */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-text-roll__face {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

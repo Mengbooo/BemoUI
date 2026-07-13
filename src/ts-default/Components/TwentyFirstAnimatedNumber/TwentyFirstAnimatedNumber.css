@@ -1,0 +1,59 @@
+.bemo-21st-animated-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  color: inherit;
+  line-height: 1.2;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.bemo-21st-animated-number:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.bemo-21st-animated-number--disabled,
+.bemo-21st-animated-number[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bemo-21st-animated-number {
+    font-size: 0.95em;
+  }
+}
+
+/* Prefers reduced motion - spring still jumps but CSS can force instant */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-animated-number {
+    transition: none;
+  }
+}
+
+/* Accent utilities for demos / theming */
+.bemo-21st-animated-number--accent {
+  color: #1620E4;
+}
+
+.bemo-21st-animated-number--accent-mint {
+  color: #7BE9C6;
+}
+
+.bemo-21st-animated-number--bold {
+  font-weight: 700;
+}
+
+.bemo-21st-animated-number--large {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .bemo-21st-animated-number--large {
+    font-size: 3.5rem;
+  }
+}

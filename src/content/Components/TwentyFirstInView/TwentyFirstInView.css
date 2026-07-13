@@ -1,0 +1,76 @@
+.bemo-21st-in-view {
+  /* Base container styles for the in-view animation wrapper */
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Focus-visible styles for keyboard accessibility when the component itself is focusable */
+.bemo-21st-in-view:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+/* Disabled state support if used on interactive elements */
+.bemo-21st-in-view[aria-disabled="true"],
+.bemo-21st-in-view:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bemo-21st-in-view {
+    /* Ensure full width on mobile when appropriate */
+    width: 100%;
+  }
+}
+
+/* Prefers-reduced-motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-in-view {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .bemo-21st-in-view * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Utility for content inside */
+.bemo-21st-in-view-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* Example accent helpers matching BemoUI palette */
+.bemo-21st-in-view--accent-primary {
+  color: #1620E4;
+}
+
+.bemo-21st-in-view--accent-secondary {
+  color: #7BE9C6;
+}
+
+.bemo-21st-in-view--bg-dark {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.bemo-21st-in-view--bg-light {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+
+.bemo-21st-in-view--border {
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+}
+
+/* Ensure motion doesn't clip content unexpectedly */
+.bemo-21st-in-view {
+  overflow: visible;
+}

@@ -1,0 +1,233 @@
+.bemo-21st-toolbar-expandable {
+  --bemo-21st-accent: #1620E4;
+  --bemo-21st-secondary: #7BE9C6;
+  --bemo-21st-bg: #ffffff;
+  --bemo-21st-border: rgba(9, 9, 11, 0.1);
+  --bemo-21st-text: #3f3f46;
+  --bemo-21st-text-strong: #18181b;
+  --bemo-21st-muted: #71717a;
+  --bemo-21st-hover: #f4f4f5;
+  --bemo-21st-radius: 0.75rem;
+  position: relative;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--bemo-21st-text);
+}
+
+.bemo-21st-toolbar-expandable[data-disabled='true'] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.bemo-21st-toolbar-expandable-shell {
+  height: 100%;
+  width: 100%;
+  border-radius: var(--bemo-21st-radius);
+  border: 1px solid var(--bemo-21st-border);
+  background: var(--bemo-21st-bg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.bemo-21st-toolbar-expandable-overflow {
+  overflow: hidden;
+}
+
+.bemo-21st-toolbar-expandable-content-wrap {
+  overflow: hidden;
+}
+
+.bemo-21st-toolbar-expandable-content {
+  padding: 0.5rem;
+}
+
+.bemo-21st-toolbar-expandable-panel {
+  padding: 0.5rem 0.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.bemo-21st-toolbar-expandable-panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bemo-21st-toolbar-expandable-user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-avatar {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--bemo-21st-accent), var(--bemo-21st-secondary));
+}
+
+.bemo-21st-toolbar-expandable-text {
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-balance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-amount {
+  font-weight: 600;
+  color: var(--bemo-21st-accent);
+}
+
+.bemo-21st-toolbar-expandable-action {
+  position: relative;
+  display: flex;
+  height: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--bemo-21st-border);
+  background: transparent;
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+  color: var(--bemo-21st-muted);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  user-select: none;
+}
+
+.bemo-21st-toolbar-expandable-action:hover {
+  background: var(--bemo-21st-hover);
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-action:active {
+  transform: scale(0.98);
+}
+
+.bemo-21st-toolbar-expandable-action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-bg), 0 0 0 4px var(--bemo-21st-accent);
+}
+
+.bemo-21st-toolbar-expandable-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-toolbar-expandable-menu {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.bemo-21st-toolbar-expandable-btn {
+  position: relative;
+  display: flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--bemo-21st-muted);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  user-select: none;
+}
+
+.bemo-21st-toolbar-expandable-btn:hover:not(:disabled) {
+  background: var(--bemo-21st-hover);
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.bemo-21st-toolbar-expandable-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-bg), 0 0 0 4px var(--bemo-21st-accent);
+}
+
+.bemo-21st-toolbar-expandable-btn--active {
+  background: var(--bemo-21st-hover);
+  color: var(--bemo-21st-text-strong);
+}
+
+.bemo-21st-toolbar-expandable-btn--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: var(--bemo-21st-accent);
+}
+
+.bemo-21st-toolbar-expandable-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bemo-21st-toolbar-expandable-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .bemo-21st-toolbar-expandable-menu {
+    gap: 0.25rem;
+    padding: 0.375rem;
+  }
+
+  .bemo-21st-toolbar-expandable-btn {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .bemo-21st-toolbar-expandable-icon {
+    height: 1.125rem;
+    width: 1.125rem;
+  }
+
+  .bemo-21st-toolbar-expandable-panel {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-toolbar-expandable-action,
+  .bemo-21st-toolbar-expandable-btn {
+    transition: none;
+  }
+
+  .bemo-21st-toolbar-expandable-action:active,
+  .bemo-21st-toolbar-expandable-btn:active:not(:disabled) {
+    transform: none;
+  }
+}

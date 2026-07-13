@@ -1,0 +1,230 @@
+.bemo-21st-cult-shift-card {
+  --bemo-21st-accent: #1620E4;
+  --bemo-21st-accent-soft: #7BE9C6;
+  --bemo-21st-bg: #ffffff;
+  --bemo-21st-fg: #0a0a0a;
+  --bemo-21st-muted: #6b7280;
+  --bemo-21st-border: rgba(0, 0, 0, 0.08);
+  --bemo-21st-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 1px 1px 0px rgba(255, 252, 240, 0.5) inset,
+    0px 0px 0px 1px hsla(0, 0%, 100%, 0.1) inset,
+    0px 0px 1px 0px rgba(28, 27, 26, 0.5);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
+  width: 280px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--bemo-21st-fg);
+  background-color: var(--bemo-21st-bg);
+  box-shadow: var(--bemo-21st-shadow);
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .bemo-21st-cult-shift-card {
+    width: 300px;
+  }
+}
+
+.bemo-21st-cult-shift-card:focus-visible {
+  outline: 2px solid var(--bemo-21st-accent);
+  outline-offset: 3px;
+  box-shadow: var(--bemo-21st-shadow),
+    0 0 0 4px color-mix(in srgb, var(--bemo-21st-accent) 25%, transparent);
+}
+
+.bemo-21st-cult-shift-card--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-cult-shift-card--hovered {
+  box-shadow:
+    0 4px 12px rgba(22, 32, 228, 0.12),
+    0 1px 1px 0 rgba(0, 0, 0, 0.05),
+    0px 1px 1px 0px rgba(255, 252, 240, 0.5) inset,
+    0px 0px 0px 1px hsla(0, 0%, 100%, 0.1) inset;
+}
+
+.bemo-21st-cult-shift-card-header {
+  width: 100%;
+}
+
+.bemo-21st-cult-shift-card-header-inner {
+  display: flex;
+  height: 46px;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  color: inherit;
+}
+
+.bemo-21st-cult-shift-card-top {
+  width: 100%;
+}
+
+.bemo-21st-cult-shift-card-top-animate {
+  margin-top: 0.25rem;
+}
+
+.bemo-21st-cult-shift-card-middle {
+  padding-bottom: 3rem;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bemo-21st-cult-shift-card-content {
+  position: absolute;
+  bottom: -0.375rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.bemo-21st-cult-shift-card-bottom-wrap {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bemo-21st-bg) 92%, var(--bemo-21st-accent-soft)) 0%,
+    var(--bemo-21st-bg) 100%
+  );
+  border-top: 1px solid color-mix(in srgb, var(--bemo-21st-accent) 12%, transparent);
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+.bemo-21st-cult-shift-card-bottom {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Dark mode support via prefers-color-scheme or parent class */
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-shift-card {
+    --bemo-21st-bg: #141414;
+    --bemo-21st-fg: #f5f5f5;
+    --bemo-21st-muted: #9ca3af;
+    --bemo-21st-border: rgba(255, 255, 255, 0.08);
+    --bemo-21st-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1),
+      0 4px 4px 0 rgba(0, 0, 0, 0.1),
+      0 8px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .bemo-21st-cult-shift-card--hovered {
+    box-shadow:
+      0 4px 16px rgba(123, 233, 198, 0.1),
+      0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .bemo-21st-cult-shift-card-bottom-wrap {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bemo-21st-bg) 88%, var(--bemo-21st-accent)) 0%,
+      var(--bemo-21st-bg) 100%
+    );
+    border-top-color: color-mix(in srgb, var(--bemo-21st-accent-soft) 18%, transparent);
+  }
+}
+
+.bemo-21st-cult-shift-card[data-theme='dark'] {
+  --bemo-21st-bg: #141414;
+  --bemo-21st-fg: #f5f5f5;
+  --bemo-21st-muted: #9ca3af;
+  --bemo-21st-border: rgba(255, 255, 255, 0.08);
+  --bemo-21st-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 4px 4px 0 rgba(0, 0, 0, 0.1),
+    0 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-shift-card,
+  .bemo-21st-cult-shift-card * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Utility classes for common content patterns */
+.bemo-21st-cult-shift-card .bemo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--bemo-21st-accent) 12%, transparent);
+  color: var(--bemo-21st-accent);
+}
+
+.bemo-21st-cult-shift-card .bemo-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bemo-21st-fg);
+}
+
+.bemo-21st-cult-shift-card .bemo-muted {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--bemo-21st-muted);
+}
+
+.bemo-21st-cult-shift-card .bemo-media {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.bemo-21st-cult-shift-card .bemo-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.bemo-21st-cult-shift-card .bemo-accent-text {
+  color: var(--bemo-21st-accent);
+  font-weight: 600;
+}
+
+.bemo-21st-cult-shift-card .bemo-soft-text {
+  color: var(--bemo-21st-accent-soft);
+  font-weight: 600;
+}

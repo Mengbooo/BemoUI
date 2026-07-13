@@ -1,0 +1,75 @@
+.bemo-21st-spotlight {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at center,
+    var(--bemo-spotlight-from, #7BE9C6),
+    var(--bemo-spotlight-via, #1620E4),
+    var(--bemo-spotlight-to, transparent) 80%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: left, top, opacity;
+  z-index: 0;
+}
+
+.bemo-21st-spotlight-visible {
+  opacity: var(--bemo-spotlight-opacity, 0.8);
+}
+
+.bemo-21st-spotlight-hidden {
+  opacity: 0;
+}
+
+.bemo-21st-spotlight-disabled {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.bemo-21st-spotlight-blur-sm {
+  filter: blur(4px);
+}
+
+.bemo-21st-spotlight-blur-md {
+  filter: blur(8px);
+}
+
+.bemo-21st-spotlight-blur-lg {
+  filter: blur(16px);
+}
+
+.bemo-21st-spotlight-blur-xl {
+  filter: blur(24px);
+}
+
+.bemo-21st-spotlight-reduced {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-spotlight {
+    transition: opacity 0.15s ease;
+    filter: blur(12px);
+  }
+
+  .bemo-21st-spotlight-visible {
+    opacity: calc(var(--bemo-spotlight-opacity, 0.8) * 0.6);
+  }
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-spotlight {
+    /* Soften on small screens; size still controlled by prop */
+    filter: blur(16px);
+  }
+}
+
+.bemo-21st-spotlight:focus-visible {
+  outline: none;
+}
+
+/* Parent is expected to be relative + overflow hidden (set by component) */

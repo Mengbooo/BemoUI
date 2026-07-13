@@ -1,0 +1,236 @@
+.bemo-21st-carousel {
+  --bemo-21st-carousel-accent: #1620e4;
+  --bemo-21st-carousel-accent-soft: #7be9c6;
+  --bemo-21st-carousel-bg: #ffffff;
+  --bemo-21st-carousel-fg: #0a0a0a;
+  --bemo-21st-carousel-muted: #71717a;
+  --bemo-21st-carousel-surface: #f4f4f5;
+  --bemo-21st-carousel-border: #e4e4e7;
+  position: relative;
+  width: 100%;
+  color: var(--bemo-21st-carousel-fg);
+}
+
+.bemo-21st-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.bemo-21st-carousel__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  outline: none;
+}
+
+.bemo-21st-carousel__content:focus-visible {
+  box-shadow: 0 0 0 2px var(--bemo-21st-carousel-accent-soft),
+    0 0 0 4px var(--bemo-21st-carousel-accent);
+}
+
+.bemo-21st-carousel__content--draggable {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.bemo-21st-carousel__content--draggable:active {
+  cursor: grabbing;
+}
+
+.bemo-21st-carousel__item {
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+.bemo-21st-carousel__nav {
+  pointer-events: none;
+  position: absolute;
+  left: -12.5%;
+  top: 50%;
+  display: flex;
+  width: 125%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  z-index: 10;
+}
+
+.bemo-21st-carousel__nav:not(.bemo-21st-carousel__nav--always) .bemo-21st-carousel__nav-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bemo-21st-carousel.group\/hover:hover .bemo-21st-carousel__nav:not(.bemo-21st-carousel__nav--always) .bemo-21st-carousel__nav-btn,
+.bemo-21st-carousel.group\/hover:focus-within .bemo-21st-carousel__nav:not(.bemo-21st-carousel__nav--always) .bemo-21st-carousel__nav-btn {
+  opacity: 1;
+}
+
+.bemo-21st-carousel__nav--always .bemo-21st-carousel__nav-btn {
+  opacity: 1;
+}
+
+.bemo-21st-carousel__nav-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 9999px;
+  background-color: var(--bemo-21st-carousel-bg);
+  color: var(--bemo-21st-carousel-muted);
+  border: 1px solid var(--bemo-21st-carousel-border);
+  padding: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.2s ease, color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bemo-21st-carousel__nav-btn:hover:not(:disabled) {
+  background-color: var(--bemo-21st-carousel-surface);
+  color: var(--bemo-21st-carousel-accent);
+  border-color: var(--bemo-21st-carousel-accent);
+}
+
+.bemo-21st-carousel__nav-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-carousel-bg),
+    0 0 0 4px var(--bemo-21st-carousel-accent);
+  opacity: 1;
+}
+
+.bemo-21st-carousel__nav-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.bemo-21st-carousel__nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-carousel__nav:not(.bemo-21st-carousel__nav--always)
+  .bemo-21st-carousel.group\/hover:hover
+  .bemo-21st-carousel__nav-btn:disabled,
+.bemo-21st-carousel__nav--always .bemo-21st-carousel__nav-btn:disabled {
+  opacity: 0.4;
+}
+
+.bemo-21st-carousel__indicators {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bemo-21st-carousel__indicators-inner {
+  display: flex;
+  gap: 0.5rem;
+  pointer-events: auto;
+  padding: 0.35rem 0.6rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--bemo-21st-carousel-border);
+}
+
+.bemo-21st-carousel__indicator {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  border: none;
+  padding: 0;
+  background-color: rgba(24, 24, 27, 0.35);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bemo-21st-carousel__indicator:hover {
+  background-color: rgba(22, 32, 228, 0.55);
+}
+
+.bemo-21st-carousel__indicator--active {
+  background-color: var(--bemo-21st-carousel-accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px rgba(123, 233, 198, 0.45);
+}
+
+.bemo-21st-carousel__indicator:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-carousel-bg),
+    0 0 0 4px var(--bemo-21st-carousel-accent-soft);
+}
+
+.bemo-21st-carousel__indicator:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-carousel__nav {
+    left: 0;
+    width: 100%;
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+
+  .bemo-21st-carousel__nav:not(.bemo-21st-carousel__nav--always) .bemo-21st-carousel__nav-btn {
+    opacity: 1;
+  }
+
+  .bemo-21st-carousel__indicators {
+    bottom: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-carousel__nav-btn,
+  .bemo-21st-carousel__indicator,
+  .bemo-21st-carousel__content {
+    transition: none !important;
+  }
+
+  .bemo-21st-carousel__indicator--active {
+    transform: none;
+  }
+
+  .bemo-21st-carousel__nav-btn:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-carousel {
+    --bemo-21st-carousel-bg: #09090b;
+    --bemo-21st-carousel-fg: #fafafa;
+    --bemo-21st-carousel-muted: #a1a1aa;
+    --bemo-21st-carousel-surface: #18181b;
+    --bemo-21st-carousel-border: #27272a;
+  }
+
+  .bemo-21st-carousel__indicators-inner {
+    background-color: rgba(9, 9, 11, 0.75);
+  }
+
+  .bemo-21st-carousel__indicator {
+    background-color: rgba(250, 250, 250, 0.35);
+  }
+
+  .bemo-21st-carousel__indicator--active {
+    background-color: var(--bemo-21st-carousel-accent-soft);
+    box-shadow: 0 0 0 2px rgba(22, 32, 228, 0.45);
+  }
+}

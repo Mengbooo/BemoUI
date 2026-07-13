@@ -1,0 +1,193 @@
+.bemo-21st-image-comparison {
+  --bemo-21st-accent: #1620e4;
+  --bemo-21st-accent-soft: #7be9c6;
+  --bemo-21st-bg: #0a0a0a;
+  --bemo-21st-surface: #111111;
+  --bemo-21st-border: #2a2a2a;
+  --bemo-21st-text: #f5f5f5;
+  --bemo-21st-muted: #9ca3af;
+  --bemo-21st-slider-width: 2px;
+  --bemo-21st-handle-size: 40px;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  border-radius: 12px;
+  background: var(--bemo-21st-surface);
+  isolation: isolate;
+  outline: none;
+}
+
+.bemo-21st-image-comparison[data-enable-hover='true'],
+.bemo-21st-image-comparison[data-dragging='true'] {
+  cursor: ew-resize;
+}
+
+.bemo-21st-image-comparison[data-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.bemo-21st-image-comparison__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bemo-21st-image-comparison__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.bemo-21st-image-comparison__slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--bemo-21st-slider-width);
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    var(--bemo-21st-accent) 0%,
+    var(--bemo-21st-accent-soft) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 12px rgba(22, 32, 228, 0.45);
+  cursor: ew-resize;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bemo-21st-image-comparison__slider[data-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.bemo-21st-image-comparison__slider-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  transform: translateX(-50%);
+  z-index: 3;
+  cursor: ew-resize;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: none;
+}
+
+.bemo-21st-image-comparison__slider-control:focus-visible {
+  outline: 2px solid var(--bemo-21st-accent-soft);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.bemo-21st-image-comparison__slider-control:focus-visible::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--bemo-21st-handle-size);
+  height: var(--bemo-21st-handle-size);
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border: 2px solid var(--bemo-21st-accent-soft);
+  box-shadow: 0 0 0 4px rgba(123, 233, 198, 0.25);
+  pointer-events: none;
+}
+
+.bemo-21st-image-comparison[data-disabled='true'] .bemo-21st-image-comparison__slider-control {
+  cursor: not-allowed;
+}
+
+/* Default handle when children not provided */
+.bemo-21st-image-comparison__slider:empty::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--bemo-21st-handle-size);
+  height: var(--bemo-21st-handle-size);
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--bemo-21st-accent) 0%, #0f14a0 100%);
+  border: 2px solid var(--bemo-21st-accent-soft);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+.bemo-21st-image-comparison__slider:empty::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(var(--bemo-21st-text), var(--bemo-21st-text)) left center / 2px 8px no-repeat,
+    linear-gradient(var(--bemo-21st-text), var(--bemo-21st-text)) right center / 2px 8px no-repeat;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .bemo-21st-image-comparison {
+    border-radius: 8px;
+    --bemo-21st-handle-size: 36px;
+  }
+
+  .bemo-21st-image-comparison__slider-control {
+    width: 32px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-image-comparison,
+  .bemo-21st-image-comparison * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Ensure container has intrinsic height when images load with absolute positioning */
+.bemo-21st-image-comparison > .bemo-21st-image-comparison__image:first-of-type,
+.bemo-21st-image-comparison > img:first-of-type {
+  position: relative;
+  z-index: 0;
+}
+
+.bemo-21st-image-comparison > .bemo-21st-image-comparison__image.bemo-21st-image-comparison__image--left,
+.bemo-21st-image-comparison > .bemo-21st-image-comparison__image.bemo-21st-image-comparison__image--right {
+  position: absolute;
+}
+
+/* Fallback aspect ratio helper via padding if used with empty height */
+.bemo-21st-image-comparison[style*='aspect-ratio'],
+.bemo-21st-image-comparison {
+  min-height: 12rem;
+}

@@ -1,0 +1,97 @@
+.bemo-21st-text-shimmer-wave {
+  --bemo-21st-text-shimmer-wave-base: #71717a;
+  --bemo-21st-text-shimmer-wave-gradient: #ffffff;
+  --bemo-21st-text-shimmer-wave-accent: #1620E4;
+  --bemo-21st-text-shimmer-wave-accent-alt: #7BE9C6;
+
+  position: relative;
+  display: inline-block;
+  perspective: 500px;
+  color: var(--bemo-21st-base-color, var(--bemo-21st-text-shimmer-wave-base));
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+.bemo-21st-text-shimmer-wave__char {
+  display: inline-block;
+  white-space: pre;
+  transform-style: preserve-3d;
+  will-change: transform, color;
+  backface-visibility: hidden;
+}
+
+/* Focus-visible for interactive use (when used as button/link via `as`) */
+.bemo-21st-text-shimmer-wave:focus {
+  outline: none;
+}
+
+.bemo-21st-text-shimmer-wave:focus-visible {
+  outline: 2px solid var(--bemo-21st-text-shimmer-wave-accent, #1620E4);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Disabled state */
+.bemo-21st-text-shimmer-wave--disabled,
+.bemo-21st-text-shimmer-wave[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: var(--bemo-21st-base-color, var(--bemo-21st-text-shimmer-wave-base));
+}
+
+.bemo-21st-text-shimmer-wave--disabled .bemo-21st-text-shimmer-wave__char {
+  animation: none !important;
+  transform: none !important;
+  color: inherit !important;
+}
+
+/* Reduced motion: freeze to static readable text */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-text-shimmer-wave .bemo-21st-text-shimmer-wave__char {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    color: var(--bemo-21st-base-color, var(--bemo-21st-text-shimmer-wave-base)) !important;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .bemo-21st-text-shimmer-wave {
+    perspective: 400px;
+  }
+}
+
+/* Dark-mode friendly defaults (consumers can override CSS vars) */
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-text-shimmer-wave {
+    --bemo-21st-text-shimmer-wave-base: #a1a1aa;
+    --bemo-21st-text-shimmer-wave-gradient: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .bemo-21st-text-shimmer-wave {
+    --bemo-21st-text-shimmer-wave-base: #52525b;
+    --bemo-21st-text-shimmer-wave-gradient: #000000;
+  }
+}
+
+/* Utility modifiers (optional accents) */
+.bemo-21st-text-shimmer-wave--accent {
+  --bemo-21st-base-color: #1620E4;
+  --bemo-21st-gradient-color: #7BE9C6;
+}
+
+.bemo-21st-text-shimmer-wave--muted {
+  --bemo-21st-base-color: #71717a;
+  --bemo-21st-gradient-color: #e4e4e7;
+}

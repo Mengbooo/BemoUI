@@ -1,0 +1,109 @@
+.bemo-21st-infinite-slider {
+  --bemo-21st-infinite-slider-accent: #1620E4;
+  --bemo-21st-infinite-slider-accent-secondary: #7BE9C6;
+  --bemo-21st-infinite-slider-bg: transparent;
+  --bemo-21st-infinite-slider-fg: #0a0a0a;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bemo-21st-infinite-slider-bg);
+  color: var(--bemo-21st-infinite-slider-fg);
+  outline: none;
+}
+
+.bemo-21st-infinite-slider:focus-visible {
+  outline: 2px solid var(--bemo-21st-infinite-slider-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.bemo-21st-infinite-slider[data-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.bemo-21st-infinite-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.bemo-21st-infinite-slider__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  align-items: center;
+}
+
+.bemo-21st-infinite-slider[data-direction="vertical"] .bemo-21st-infinite-slider__track {
+  flex-direction: column;
+  height: max-content;
+  width: 100%;
+}
+
+.bemo-21st-infinite-slider__content {
+  display: flex;
+  flex-direction: inherit;
+  gap: inherit;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.bemo-21st-infinite-slider[data-direction="vertical"] .bemo-21st-infinite-slider__content {
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Hover affordance via accent bar (optional visual polish) */
+.bemo-21st-infinite-slider::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--bemo-21st-infinite-slider-accent) 20%,
+    var(--bemo-21st-infinite-slider-accent-secondary) 80%,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.bemo-21st-infinite-slider:hover::after,
+.bemo-21st-infinite-slider:focus-within::after {
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-infinite-slider__track {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .bemo-21st-infinite-slider::after {
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-infinite-slider {
+    --bemo-21st-infinite-slider-gap-fallback: 12px;
+  }
+}
+
+/* High contrast / forced colors */
+@media (forced-colors: active) {
+  .bemo-21st-infinite-slider:focus-visible {
+    outline: 2px solid CanvasText;
+  }
+
+  .bemo-21st-infinite-slider::after {
+    background: CanvasText;
+    opacity: 0.5;
+  }
+}

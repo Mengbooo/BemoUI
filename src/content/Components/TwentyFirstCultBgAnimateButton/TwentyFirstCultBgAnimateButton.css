@@ -1,0 +1,259 @@
+.bemo-21st-cult-bg-animate-button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.25;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bemo-21st-cult-bg-animate-button:focus {
+  outline: none;
+}
+
+.bemo-21st-cult-bg-animate-button:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 3px;
+}
+
+.bemo-21st-cult-bg-animate-button:disabled,
+.bemo-21st-cult-bg-animate-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.bemo-21st-cult-bg-animate-button__gradient {
+  position: absolute;
+  inset: -1000%;
+  margin: auto;
+  display: block;
+  width: 2000%;
+  height: 2000%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bemo-21st-cult-bg-animate-button__inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.bemo-21st-cult-bg-animate-button:hover:not(:disabled) .bemo-21st-cult-bg-animate-button__inner {
+  transform: translateY(-1px);
+}
+
+.bemo-21st-cult-bg-animate-button:active:not(:disabled) .bemo-21st-cult-bg-animate-button__inner {
+  transform: translateY(0);
+}
+
+/* Sizes */
+.bemo-21st-cult-bg-animate-button--size-sm .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--size-sm.bemo-21st-cult-bg-animate-button__inner {
+  font-size: 0.75rem;
+  padding: 0.25rem 1rem;
+}
+
+.bemo-21st-cult-bg-animate-button--size-default .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--size-default.bemo-21st-cult-bg-animate-button__inner {
+  font-size: 0.875rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.bemo-21st-cult-bg-animate-button--size-lg .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--size-lg.bemo-21st-cult-bg-animate-button__inner {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+}
+
+/* Rounded */
+.bemo-21st-cult-bg-animate-button--rounded-full,
+.bemo-21st-cult-bg-animate-button--rounded-full .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-full .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 9999px;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-xl,
+.bemo-21st-cult-bg-animate-button--rounded-xl .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-xl .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 0.75rem;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-2xl,
+.bemo-21st-cult-bg-animate-button--rounded-2xl .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-2xl .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 1rem;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-3xl,
+.bemo-21st-cult-bg-animate-button--rounded-3xl .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-3xl .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 1.5rem;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-sm,
+.bemo-21st-cult-bg-animate-button--rounded-sm .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-sm .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 0.25rem;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-xs,
+.bemo-21st-cult-bg-animate-button--rounded-xs .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-xs .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 0.125rem;
+}
+
+.bemo-21st-cult-bg-animate-button--rounded-base,
+.bemo-21st-cult-bg-animate-button--rounded-base .bemo-21st-cult-bg-animate-button__inner,
+.bemo-21st-cult-bg-animate-button--rounded-base .bemo-21st-cult-bg-animate-button__gradient {
+  border-radius: 0.25rem;
+}
+
+/* Shadows */
+.bemo-21st-cult-bg-animate-button--shadow-flat .bemo-21st-cult-bg-animate-button__inner {
+  box-shadow: none;
+}
+
+.bemo-21st-cult-bg-animate-button--shadow-soft .bemo-21st-cult-bg-animate-button__inner {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bemo-21st-cult-bg-animate-button--shadow-base .bemo-21st-cult-bg-animate-button__inner {
+  box-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    inset 0 0.5px 1px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.bemo-21st-cult-bg-animate-button--shadow-deep .bemo-21st-cult-bg-animate-button__inner {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bemo-21st-cult-bg-animate-button--shadow-deeper .bemo-21st-cult-bg-animate-button__inner {
+  box-shadow:
+    0 6px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 3px rgba(255, 255, 255, 0.25),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Text */
+.bemo-21st-cult-bg-animate-button--text-dark {
+  color: #000000;
+}
+
+.bemo-21st-cult-bg-animate-button--text-light {
+  color: #ffffff;
+}
+
+/* Gradients */
+.bemo-21st-cult-bg-animate-button--gradient-sunrise {
+  background: conic-gradient(from 90deg at 50% 50%, #ff9a9e 0%, #fad0c4 50%, #ff9a9e 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-ocean {
+  background: conic-gradient(from 90deg at 50% 50%, #a1c4fd 0%, #c2e9fb 50%, #a1c4fd 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-candy {
+  background: conic-gradient(from 90deg at 50% 50%, #ff9a9e 0%, #fad0c4 50%, #fad0c4 90%, #ff9a9e 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-forest {
+  background: conic-gradient(from 90deg at 50% 50%, #85d797 0%, #1a806b 50%, #85d797 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-sunset {
+  background: conic-gradient(from 90deg at 50% 50%, #fe5d75 0%, #f5af19 50%, #fe5d75 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-nebula {
+  background: conic-gradient(from 90deg at 50% 50%, #A77BFE 0%, #8860D0 50%, #A77BFE 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-default {
+  background: conic-gradient(from 90deg at 50% 50%, #E2CBFF 0%, #393BB2 50%, #E2CBFF 100%);
+}
+
+.bemo-21st-cult-bg-animate-button--gradient-bemo {
+  background: conic-gradient(from 90deg at 50% 50%, #1620E4 0%, #7BE9C6 50%, #1620E4 100%);
+}
+
+/* Animations */
+@keyframes bemo-21st-cult-bg-animate-button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bemo-21st-cult-bg-animate-button-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.bemo-21st-cult-bg-animate-button--animation-spin {
+  animation: bemo-21st-cult-bg-animate-button-spin 4s linear infinite;
+}
+
+.bemo-21st-cult-bg-animate-button--animation-spin-fast {
+  animation: bemo-21st-cult-bg-animate-button-spin 2s linear infinite;
+}
+
+.bemo-21st-cult-bg-animate-button--animation-spin-slow {
+  animation: bemo-21st-cult-bg-animate-button-spin 8s linear infinite;
+}
+
+.bemo-21st-cult-bg-animate-button--animation-pulse {
+  animation: bemo-21st-cult-bg-animate-button-pulse 2s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-bg-animate-button--animation-spin,
+  .bemo-21st-cult-bg-animate-button--animation-spin-fast,
+  .bemo-21st-cult-bg-animate-button--animation-spin-slow,
+  .bemo-21st-cult-bg-animate-button--animation-pulse {
+    animation: none;
+  }
+
+  .bemo-21st-cult-bg-animate-button:hover:not(:disabled) .bemo-21st-cult-bg-animate-button__inner,
+  .bemo-21st-cult-bg-animate-button:active:not(:disabled) .bemo-21st-cult-bg-animate-button__inner {
+    transform: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bemo-21st-cult-bg-animate-button--size-lg .bemo-21st-cult-bg-animate-button__inner,
+  .bemo-21st-cult-bg-animate-button--size-lg.bemo-21st-cult-bg-animate-button__inner {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.5rem;
+  }
+}

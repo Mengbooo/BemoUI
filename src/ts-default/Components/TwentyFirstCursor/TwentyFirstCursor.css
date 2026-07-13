@@ -1,0 +1,90 @@
+.bemo-21st-cursor-root {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  will-change: transform;
+}
+
+.bemo-21st-cursor-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+
+/* Default cursor visual used by demos / consumers */
+.bemo-21st-cursor-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #1620E4;
+  box-shadow: 0 0 0 2px rgba(22, 32, 228, 0.25), 0 4px 14px rgba(22, 32, 228, 0.35);
+  mix-blend-mode: normal;
+}
+
+.bemo-21st-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 2px solid #7BE9C6;
+  background: transparent;
+  box-shadow: 0 0 12px rgba(123, 233, 198, 0.45);
+}
+
+.bemo-21st-cursor-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  background: #1620E4;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(22, 32, 228, 0.4);
+}
+
+.bemo-21st-cursor-label--accent {
+  background: #7BE9C6;
+  color: #0a0a0a;
+  box-shadow: 0 4px 16px rgba(123, 233, 198, 0.45);
+}
+
+/* Reduced motion: snap instead of spring feel via consumers, but keep layout stable */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cursor-root,
+  .bemo-21st-cursor-content {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Focus-visible helpers for parent / demo containers that host the cursor */
+.bemo-21st-cursor-host:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 3px;
+}
+
+.bemo-21st-cursor-host[aria-disabled="true"],
+.bemo-21st-cursor-host:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Responsive: slightly larger hit visuals on larger screens */
+@media (min-width: 768px) {
+  .bemo-21st-cursor-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .bemo-21st-cursor-ring {
+    width: 42px;
+    height: 42px;
+  }
+}

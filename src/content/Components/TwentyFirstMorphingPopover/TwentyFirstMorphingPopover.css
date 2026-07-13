@@ -1,0 +1,110 @@
+.bemo-21st-morphing-popover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bemo-21st-morphing-popover-trigger-wrap {
+  display: inline-flex;
+}
+
+.bemo-21st-morphing-popover-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #ffffff;
+  background-color: #1620E4;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.bemo-21st-morphing-popover-trigger:hover:not(:disabled) {
+  background-color: #1219c0;
+  box-shadow: 0 2px 8px rgba(22, 32, 228, 0.35);
+}
+
+.bemo-21st-morphing-popover-trigger:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 2px;
+}
+
+.bemo-21st-morphing-popover-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-morphing-popover-trigger:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.bemo-21st-morphing-popover-content {
+  position: absolute;
+  z-index: 50;
+  overflow: hidden;
+  min-width: 12rem;
+  max-width: min(20rem, calc(100vw - 2rem));
+  padding: 0.75rem;
+  color: #0a0a0a;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(22, 32, 228, 0.06);
+}
+
+.bemo-21st-morphing-popover-content:focus {
+  outline: none;
+}
+
+.bemo-21st-morphing-popover-content:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-morphing-popover-content {
+    color: #fafafa;
+    background-color: #18181b;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.4),
+      0 2px 4px -2px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(123, 233, 198, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-morphing-popover-content {
+    min-width: 10rem;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.625rem;
+  }
+
+  .bemo-21st-morphing-popover-trigger {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-morphing-popover-trigger {
+    transition: none;
+  }
+
+  .bemo-21st-morphing-popover-trigger:active:not(:disabled) {
+    transform: none;
+  }
+}

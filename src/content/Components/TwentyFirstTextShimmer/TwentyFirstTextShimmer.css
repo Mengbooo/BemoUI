@@ -1,0 +1,103 @@
+.bemo-21st-text-shimmer {
+  position: relative;
+  display: inline-block;
+  background-size: 250% 100%, auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  --base-color: #71717a;
+  --base-gradient-color: #ffffff;
+  --bg: linear-gradient(
+    90deg,
+    #0000 calc(50% - var(--spread, 20px)),
+    var(--base-gradient-color),
+    #0000 calc(50% + var(--spread, 20px))
+  );
+  background-repeat: no-repeat, padding-box;
+  background-image: var(--bg), linear-gradient(var(--base-color), var(--base-color));
+}
+
+/* Light mode defaults using Bemo accents where appropriate; neutrals for text */
+@media (prefers-color-scheme: light) {
+  .bemo-21st-text-shimmer {
+    --base-color: #a1a1aa;
+    --base-gradient-color: #000000;
+  }
+}
+
+/* Explicit dark support if parent has data-theme or class */
+[data-theme='dark'] .bemo-21st-text-shimmer,
+.dark .bemo-21st-text-shimmer {
+  --base-color: #71717a;
+  --base-gradient-color: #ffffff;
+}
+
+[data-theme='light'] .bemo-21st-text-shimmer,
+.light .bemo-21st-text-shimmer {
+  --base-color: #a1a1aa;
+  --base-gradient-color: #000000;
+}
+
+/* Accent overrides via CSS vars from props or parent */
+.bemo-21st-text-shimmer[style*='--base-color'] {
+  /* props take precedence via inline */
+}
+
+/* Reduced motion: static gradient text without animation */
+.bemo-21st-text-shimmer--reduced {
+  animation: none !important;
+  background-position: 50% center !important;
+  background-image: linear-gradient(var(--base-color), var(--base-color));
+  color: var(--base-color);
+  -webkit-text-fill-color: var(--base-color);
+  background-clip: unset;
+  -webkit-background-clip: unset;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-text-shimmer {
+    animation: none !important;
+    background-position: 50% center !important;
+    /* Fallback solid-ish look */
+    background-image: linear-gradient(var(--base-color), var(--base-color));
+    color: var(--base-color);
+    -webkit-text-fill-color: var(--base-color);
+    background-clip: unset;
+    -webkit-background-clip: unset;
+  }
+}
+
+/* Focus visible for interactive usages (e.g. if as=button or link) */
+.bemo-21st-text-shimmer:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Disabled state */
+.bemo-21st-text-shimmer:disabled,
+.bemo-21st-text-shimmer[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Responsive: ensure readable sizes */
+@media (max-width: 640px) {
+  .bemo-21st-text-shimmer {
+    font-size: inherit;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: more) {
+  .bemo-21st-text-shimmer {
+    --base-color: #000000;
+    --base-gradient-color: #1620E4;
+  }
+  [data-theme='dark'] .bemo-21st-text-shimmer,
+  .dark .bemo-21st-text-shimmer {
+    --base-color: #ffffff;
+    --base-gradient-color: #7BE9C6;
+  }
+}

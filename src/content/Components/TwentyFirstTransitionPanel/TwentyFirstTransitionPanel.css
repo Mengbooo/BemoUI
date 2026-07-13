@@ -1,0 +1,42 @@
+.bemo-21st-transition-panel-root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: #0a0a0a;
+  background: transparent;
+}
+
+.bemo-21st-transition-panel-panel {
+  width: 100%;
+  outline: none;
+  will-change: transform, opacity;
+}
+
+.bemo-21st-transition-panel-root:focus-within .bemo-21st-transition-panel-panel {
+  box-shadow: 0 0 0 2px #1620E4;
+}
+
+.bemo-21st-transition-panel-panel:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+.bemo-21st-transition-panel-root[data-disabled="true"],
+.bemo-21st-transition-panel-root:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-transition-panel-root {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-transition-panel-panel {
+    transition: none !important;
+    animation: none !important;
+  }
+}

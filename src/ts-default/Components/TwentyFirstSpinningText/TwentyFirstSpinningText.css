@@ -1,0 +1,100 @@
+.bemo-21st-spinning-text {
+  position: relative;
+  display: inline-block;
+  color: #0a0a0a;
+  font-weight: 600;
+  line-height: 1;
+  --bemo-accent: #1620E4;
+  --bemo-accent-soft: #7BE9C6;
+}
+
+.bemo-21st-spinning-text__letter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  font-size: calc(var(--font-size, 1) * 1rem);
+  transform:
+    translate(-50%, -50%)
+    rotate(calc(360deg / var(--total) * var(--index)))
+    translateY(calc(var(--radius, 5) * -1ch));
+  transform-origin: center;
+  will-change: transform;
+  color: inherit;
+}
+
+.bemo-21st-spinning-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.bemo-21st-spinning-text--static {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(22, 32, 228, 0.08), rgba(123, 233, 198, 0.12));
+  border: 1px solid rgba(22, 32, 228, 0.15);
+}
+
+.bemo-21st-spinning-text__static-text {
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: #1620E4;
+}
+
+.bemo-21st-spinning-text:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.bemo-21st-spinning-text[disabled],
+.bemo-21st-spinning-text--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-spinning-text {
+    animation: none !important;
+  }
+
+  .bemo-21st-spinning-text__letter {
+    position: static;
+    transform: none !important;
+    display: inline;
+  }
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-spinning-text__letter {
+    font-size: calc(var(--font-size, 1) * 0.875rem);
+  }
+}
+
+/* Dark mode support via parent theme if present */
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-spinning-text {
+    color: #f5f5f5;
+  }
+
+  .bemo-21st-spinning-text--static {
+    background: linear-gradient(135deg, rgba(22, 32, 228, 0.2), rgba(123, 233, 198, 0.15));
+    border-color: rgba(123, 233, 198, 0.25);
+  }
+
+  .bemo-21st-spinning-text__static-text {
+    color: #7BE9C6;
+  }
+}

@@ -1,0 +1,61 @@
+.bemo-21st-text-loop {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  color: #0a0a0a;
+  font-weight: 500;
+  line-height: 1.2;
+  vertical-align: baseline;
+}
+
+.bemo-21st-text-loop__item {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Accent helpers for demos / composition */
+.bemo-21st-text-loop--accent-primary {
+  color: #1620E4;
+}
+
+.bemo-21st-text-loop--accent-secondary {
+  color: #7BE9C6;
+}
+
+/* Focus-visible for interactive wrappers if used as button/link child */
+.bemo-21st-text-loop:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.bemo-21st-text-loop[aria-disabled="true"],
+.bemo-21st-text-loop--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .bemo-21st-text-loop {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+
+/* Reduced motion: neutralize residual transform if any */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-text-loop__item {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Dark-friendly neutral */
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-text-loop {
+    color: #f5f5f5;
+  }
+}

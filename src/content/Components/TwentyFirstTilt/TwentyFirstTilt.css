@@ -1,0 +1,77 @@
+.bemo-21st-tilt {
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  outline: none;
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.bemo-21st-tilt:focus-visible {
+  box-shadow: 0 0 0 3px #1620E4, 0 0 0 6px rgba(22, 32, 228, 0.25);
+  border-radius: 4px;
+}
+
+.bemo-21st-tilt[aria-disabled="true"],
+.bemo-21st-tilt.bemo-21st-tilt--disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bemo-21st-tilt:hover:not([aria-disabled="true"]) {
+  /* subtle lift feedback if desired; transform handled by motion */
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .bemo-21st-tilt {
+    /* reduce intensity on small screens via parent props usually, but ensure base */
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-tilt {
+    transform: none !important;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* Ensure children preserve 3d if needed */
+.bemo-21st-tilt > * {
+  transform-style: preserve-3d;
+}
+
+/* Utility for demo cards etc */
+.bemo-21st-tilt-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.bemo-21st-tilt-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.bemo-21st-tilt-accent {
+  color: #1620E4;
+}
+
+.bemo-21st-tilt-accent-bg {
+  background-color: #1620E4;
+}
+
+.bemo-21st-tilt-secondary {
+  color: #7BE9C6;
+}
+
+.bemo-21st-tilt-secondary-bg {
+  background-color: #7BE9C6;
+}

@@ -19,6 +19,9 @@
 		"test:magicui-import": "node --test scripts/importMagicUI.test.js scripts/importAllMagicUI.test.js",
 		"sync:reactbits:components": "node scripts/syncReactBitsComponents.js --all",
 		"test:reactbits-sync": "node --test scripts/syncReactBitsComponents.test.js",
+		"import:21st": "node scripts/import21stComponents.js",
+		"import:21st:all": "node scripts/import21stComponents.js --retry-failed",
+		"test:21st-import": "node --test scripts/import21stComponents.test.js",
 		"test:component-routes": "node --test scripts/componentRoutes.test.js"
 	},
 	"dependencies": {

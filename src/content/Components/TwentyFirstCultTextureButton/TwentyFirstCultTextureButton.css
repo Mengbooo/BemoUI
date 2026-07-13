@@ -1,0 +1,381 @@
+.bemo-21st-cult-texture-button-outer {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  border-style: solid;
+  padding: 1px;
+  transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  isolation: isolate;
+}
+
+.bemo-21st-cult-texture-button-outer:disabled,
+.bemo-21st-cult-texture-button-outer[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-cult-texture-button-outer:focus {
+  outline: none;
+}
+
+.bemo-21st-cult-texture-button-outer:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+.bemo-21st-cult-texture-button-outer--sm {
+  border-radius: 6px;
+}
+
+.bemo-21st-cult-texture-button-outer--default,
+.bemo-21st-cult-texture-button-outer--lg {
+  border-radius: 12px;
+}
+
+.bemo-21st-cult-texture-button-outer--icon-size {
+  border-radius: 9999px;
+}
+
+/* Primary outer */
+.bemo-21st-cult-texture-button-outer--primary {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), #000000);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--primary {
+    border-width: 2px;
+    border-color: #000000;
+    background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.8));
+  }
+}
+
+/* Accent outer - uses brand accents #1620E4 / #7BE9C6 */
+.bemo-21st-cult-texture-button-outer--accent {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, rgba(22, 32, 228, 0.9), #1620E4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--accent {
+    border-width: 2px;
+    border-color: #0a0a0a;
+    background: linear-gradient(to bottom, rgba(123, 233, 198, 0.7), #1620E4);
+  }
+}
+
+/* Destructive outer */
+.bemo-21st-cult-texture-button-outer--destructive {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, rgba(239, 68, 68, 0.9), #ef4444);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--destructive {
+    border-width: 2px;
+    border-color: #0a0a0a;
+    background: linear-gradient(to bottom, rgba(252, 165, 165, 0.9), #ef4444);
+  }
+}
+
+/* Secondary outer */
+.bemo-21st-cult-texture-button-outer--secondary {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--secondary {
+    border-width: 2px;
+    border-color: #0a0a0a;
+    background: rgba(82, 82, 82, 0.5);
+  }
+}
+
+/* Minimal outer */
+.bemo-21st-cult-texture-button-outer--minimal {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.bemo-21st-cult-texture-button-outer--minimal:hover {
+  background: linear-gradient(to top, #f5f5f5, #ffffff);
+}
+
+.bemo-21st-cult-texture-button-outer--minimal:active {
+  background: #e5e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--minimal {
+    border-width: 2px;
+    border-color: #0a0a0a;
+    background: rgba(82, 82, 82, 0.8);
+  }
+  .bemo-21st-cult-texture-button-outer--minimal:hover {
+    background: linear-gradient(to top, rgba(82, 82, 82, 0.5), rgba(82, 82, 82, 0.7));
+  }
+  .bemo-21st-cult-texture-button-outer--minimal:active {
+    background: #262626;
+  }
+}
+
+/* Icon outer */
+.bemo-21st-cult-texture-button-outer--icon {
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.bemo-21st-cult-texture-button-outer--icon:hover {
+  background: linear-gradient(to top, #f5f5f5, #ffffff);
+}
+
+.bemo-21st-cult-texture-button-outer--icon:active {
+  background: #e5e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-outer--icon {
+    border-color: #0a0a0a;
+    background: rgba(82, 82, 82, 0.5);
+  }
+  .bemo-21st-cult-texture-button-outer--icon:hover {
+    background: linear-gradient(to top, #404040, #525252);
+  }
+  .bemo-21st-cult-texture-button-outer--icon:active {
+    background: #262626;
+  }
+}
+
+/* Inner base */
+.bemo-21st-cult-texture-button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.15s ease-in-out;
+  font-family: inherit;
+  line-height: 1.25;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.bemo-21st-cult-texture-button-inner--sm {
+  font-size: 0.75rem;
+  border-radius: 4px;
+  padding: 0.25rem 1rem;
+}
+
+.bemo-21st-cult-texture-button-inner--default {
+  font-size: 0.875rem;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.bemo-21st-cult-texture-button-inner--lg {
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.bemo-21st-cult-texture-button-inner--icon-size {
+  border-radius: 9999px;
+  padding: 0.25rem;
+}
+
+/* Primary inner */
+.bemo-21st-cult-texture-button-inner--primary {
+  background: linear-gradient(to bottom, #262626, #000000);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bemo-21st-cult-texture-button-outer--primary:hover .bemo-21st-cult-texture-button-inner--primary {
+  background: linear-gradient(to bottom, #44403c, rgba(38, 38, 38, 0.7));
+}
+
+.bemo-21st-cult-texture-button-outer--primary:active .bemo-21st-cult-texture-button-inner--primary {
+  background: linear-gradient(to bottom, #000000, #000000);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--primary {
+    background: linear-gradient(to bottom, #e5e5e5, #fafafa);
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .bemo-21st-cult-texture-button-outer--primary:hover .bemo-21st-cult-texture-button-inner--primary {
+    background: linear-gradient(to bottom, #e7e5e4, #e5e5e5);
+  }
+  .bemo-21st-cult-texture-button-outer--primary:active .bemo-21st-cult-texture-button-inner--primary {
+    background: linear-gradient(to bottom, #d6d3d1, #d4d4d4);
+  }
+}
+
+/* Accent inner */
+.bemo-21st-cult-texture-button-inner--accent {
+  background: linear-gradient(to bottom, #3b46f0, #1620E4);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.bemo-21st-cult-texture-button-outer--accent:hover .bemo-21st-cult-texture-button-inner--accent {
+  background: linear-gradient(to bottom, rgba(59, 70, 240, 0.75), rgba(22, 32, 228, 0.75));
+}
+
+.bemo-21st-cult-texture-button-outer--accent:active .bemo-21st-cult-texture-button-inner--accent {
+  background: linear-gradient(to bottom, rgba(59, 70, 240, 0.85), rgba(22, 32, 228, 0.85));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--accent {
+    background: linear-gradient(to bottom, #7BE9C6, #1620E4);
+    color: #0a0a0a;
+  }
+  .bemo-21st-cult-texture-button-outer--accent:hover .bemo-21st-cult-texture-button-inner--accent {
+    background: linear-gradient(to bottom, rgba(123, 233, 198, 0.8), rgba(22, 32, 228, 0.85));
+  }
+  .bemo-21st-cult-texture-button-outer--accent:active .bemo-21st-cult-texture-button-inner--accent {
+    background: linear-gradient(to bottom, #7BE9C6, #1620E4);
+  }
+}
+
+/* Destructive inner */
+.bemo-21st-cult-texture-button-inner--destructive {
+  background: linear-gradient(to bottom, rgba(248, 113, 113, 0.6), rgba(239, 68, 68, 0.6));
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bemo-21st-cult-texture-button-outer--destructive:hover .bemo-21st-cult-texture-button-inner--destructive {
+  background: linear-gradient(to bottom, rgba(248, 113, 113, 0.7), rgba(220, 38, 38, 0.7));
+}
+
+.bemo-21st-cult-texture-button-outer--destructive:active .bemo-21st-cult-texture-button-inner--destructive {
+  background: linear-gradient(to bottom, rgba(248, 113, 113, 0.8), rgba(220, 38, 38, 0.8));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--destructive {
+    background: linear-gradient(to bottom, rgba(252, 165, 165, 0.9), #ef4444);
+  }
+  .bemo-21st-cult-texture-button-outer--destructive:hover .bemo-21st-cult-texture-button-inner--destructive {
+    background: linear-gradient(to bottom, rgba(248, 113, 113, 0.7), rgba(239, 68, 68, 0.8));
+  }
+  .bemo-21st-cult-texture-button-outer--destructive:active .bemo-21st-cult-texture-button-inner--destructive {
+    background: linear-gradient(to bottom, #f87171, #ef4444);
+  }
+}
+
+/* Secondary inner */
+.bemo-21st-cult-texture-button-inner--secondary {
+  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(229, 229, 229, 0.5));
+  color: #171717;
+}
+
+.bemo-21st-cult-texture-button-outer--secondary:hover .bemo-21st-cult-texture-button-inner--secondary {
+  background: linear-gradient(to bottom, rgba(229, 229, 229, 0.4), rgba(212, 212, 212, 0.6));
+}
+
+.bemo-21st-cult-texture-button-outer--secondary:active .bemo-21st-cult-texture-button-inner--secondary {
+  background: linear-gradient(to bottom, rgba(229, 229, 229, 0.6), rgba(212, 212, 212, 0.7));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--secondary {
+    background: linear-gradient(to bottom, #262626, rgba(64, 64, 64, 0.5));
+    color: #f5f5f5;
+  }
+  .bemo-21st-cult-texture-button-outer--secondary:hover .bemo-21st-cult-texture-button-inner--secondary {
+    background: linear-gradient(to bottom, #404040, rgba(64, 64, 64, 0.6));
+  }
+  .bemo-21st-cult-texture-button-outer--secondary:active .bemo-21st-cult-texture-button-inner--secondary {
+    background: linear-gradient(to bottom, #262626, #404040);
+  }
+}
+
+/* Minimal inner */
+.bemo-21st-cult-texture-button-inner--minimal {
+  background: linear-gradient(to bottom, #ffffff, rgba(250, 250, 250, 0.5));
+  color: #171717;
+}
+
+.bemo-21st-cult-texture-button-outer--minimal:hover .bemo-21st-cult-texture-button-inner--minimal {
+  background: linear-gradient(to bottom, rgba(250, 250, 250, 0.5), rgba(245, 245, 245, 0.6));
+}
+
+.bemo-21st-cult-texture-button-outer--minimal:active .bemo-21st-cult-texture-button-inner--minimal {
+  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.9));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--minimal {
+    background: linear-gradient(to bottom, #262626, rgba(64, 64, 64, 0.5));
+    color: #f5f5f5;
+  }
+  .bemo-21st-cult-texture-button-outer--minimal:hover .bemo-21st-cult-texture-button-inner--minimal {
+    background: linear-gradient(to bottom, #404040, rgba(64, 64, 64, 0.6));
+  }
+  .bemo-21st-cult-texture-button-outer--minimal:active .bemo-21st-cult-texture-button-inner--minimal {
+    background: linear-gradient(to bottom, #262626, #404040);
+  }
+}
+
+/* Icon inner */
+.bemo-21st-cult-texture-button-inner--icon {
+  background: linear-gradient(to bottom, #ffffff, rgba(250, 250, 250, 0.5));
+  color: #171717;
+  border-radius: 9999px;
+}
+
+.bemo-21st-cult-texture-button-outer--icon:active .bemo-21st-cult-texture-button-inner--icon {
+  background: #e5e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-texture-button-inner--icon {
+    background: linear-gradient(to bottom, #262626, rgba(64, 64, 64, 0.5));
+    color: #f5f5f5;
+  }
+  .bemo-21st-cult-texture-button-outer--icon:active .bemo-21st-cult-texture-button-inner--icon {
+    background: #262626;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-texture-button-outer,
+  .bemo-21st-cult-texture-button-inner {
+    transition: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bemo-21st-cult-texture-button-outer {
+    width: 100%;
+  }
+  .bemo-21st-cult-texture-button-outer--icon-size,
+  .bemo-21st-cult-texture-button-outer--icon {
+    width: auto;
+  }
+  .bemo-21st-cult-texture-button-inner--sm {
+    padding: 0.35rem 0.85rem;
+  }
+  .bemo-21st-cult-texture-button-inner--default,
+  .bemo-21st-cult-texture-button-inner--lg {
+    padding: 0.55rem 1rem;
+  }
+}

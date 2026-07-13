@@ -1,0 +1,87 @@
+.bemo-21st-glow-effect {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  transform: scale(var(--bemo-scale, 1));
+  transform-gpu: true;
+  will-change: transform, opacity, background;
+  backface-visibility: hidden;
+}
+
+.bemo-21st-glow-effect-base {
+  /* base styles */
+}
+
+.bemo-21st-glow-effect-blur-softest {
+  filter: blur(2px);
+}
+
+.bemo-21st-glow-effect-blur-soft {
+  filter: blur(4px);
+}
+
+.bemo-21st-glow-effect-blur-medium {
+  filter: blur(8px);
+}
+
+.bemo-21st-glow-effect-blur-strong {
+  filter: blur(12px);
+}
+
+.bemo-21st-glow-effect-blur-stronger {
+  filter: blur(16px);
+}
+
+.bemo-21st-glow-effect-blur-strongest {
+  filter: blur(24px);
+}
+
+.bemo-21st-glow-effect-blur-none {
+  filter: blur(0);
+}
+
+.bemo-21st-glow-effect-blur-custom {
+  /* filter set via inline style for numeric blur */
+}
+
+/* Focus-visible (though pointer-events none, for parent contexts) */
+.bemo-21st-glow-effect:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+/* Disabled state support if applied via parent */
+.bemo-21st-glow-effect[aria-disabled="true"],
+.bemo-21st-glow-effect:disabled {
+  opacity: 0.5;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Reduced motion: disable continuous animations */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-glow-effect {
+    animation: none !important;
+    transition: none !important;
+    transform: scale(var(--bemo-scale, 1)) !important;
+  }
+}
+
+/* Responsive: slightly less blur on small screens for performance */
+@media (max-width: 640px) {
+  .bemo-21st-glow-effect-blur-strong,
+  .bemo-21st-glow-effect-blur-stronger,
+  .bemo-21st-glow-effect-blur-strongest {
+    filter: blur(10px);
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .bemo-21st-glow-effect {
+    filter: none;
+    opacity: 0.85;
+  }
+}

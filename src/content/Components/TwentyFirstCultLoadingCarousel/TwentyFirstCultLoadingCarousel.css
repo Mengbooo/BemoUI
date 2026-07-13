@@ -1,0 +1,414 @@
+.bemo-21st-cult-loading-carousel {
+  --bemo-21st-cult-loading-carousel-accent: #1620e4;
+  --bemo-21st-cult-loading-carousel-accent-soft: #7be9c6;
+  --bemo-21st-cult-loading-carousel-bg: #f4f4f5;
+  --bemo-21st-cult-loading-carousel-fg: #18181b;
+  --bemo-21st-cult-loading-carousel-muted: #e4e4e7;
+  --bemo-21st-cult-loading-carousel-ring: #1620e4;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 72rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: var(--bemo-21st-cult-loading-carousel-bg);
+  color: var(--bemo-21st-cult-loading-carousel-fg);
+  box-shadow:
+    0 1px 1px 0 rgba(0, 0, 0, 0.05),
+    0 1px 1px 0 rgba(255, 252, 240, 0.5) inset,
+    0 0 0 1px hsla(0, 0%, 100%, 0.1) inset,
+    0 0 1px 0 rgba(28, 27, 26, 0.5);
+  outline: none;
+}
+
+.bemo-21st-cult-loading-carousel *,
+.bemo-21st-cult-loading-carousel *::before,
+.bemo-21st-cult-loading-carousel *::after {
+  box-sizing: border-box;
+}
+
+.bemo-21st-cult-loading-carousel:focus-visible {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px var(--bemo-21st-cult-loading-carousel-ring),
+    0 1px 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.bemo-21st-cult-loading-carousel-inner {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.bemo-21st-cult-loading-carousel-stage {
+  position: relative;
+  width: 100%;
+}
+
+.bemo-21st-cult-loading-carousel-slide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #09090b;
+}
+
+.bemo-21st-cult-loading-carousel-aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.bemo-21st-cult-loading-carousel-aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.bemo-21st-cult-loading-carousel-aspect-wide {
+  aspect-ratio: 2 / 1;
+}
+
+.bemo-21st-cult-loading-carousel-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.bemo-21st-cult-loading-carousel-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2), transparent);
+  pointer-events: none;
+}
+
+.bemo-21st-cult-loading-carousel-overlay-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.bemo-21st-cult-loading-carousel-overlay-top {
+  top: 0;
+}
+
+.bemo-21st-cult-loading-carousel-overlay-bottom {
+  bottom: 0;
+}
+
+.bemo-21st-cult-loading-carousel-overlay-link {
+  display: block;
+  min-width: 0;
+  border-radius: 0.125rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bemo-21st-cult-loading-carousel-overlay-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+.bemo-21st-cult-loading-carousel-overlay-copy {
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625;
+  letter-spacing: -0.015em;
+  color: #fff;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+.bemo-21st-cult-loading-carousel-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  background: rgba(24, 24, 27, 0.72);
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.bemo-21st-cult-loading-carousel-nav:hover {
+  background: rgba(24, 24, 27, 0.9);
+}
+
+.bemo-21st-cult-loading-carousel-nav:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.bemo-21st-cult-loading-carousel-nav:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--bemo-21st-cult-loading-carousel-accent);
+}
+
+.bemo-21st-cult-loading-carousel-nav:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-cult-loading-carousel-nav-prev {
+  left: 0.5rem;
+}
+
+.bemo-21st-cult-loading-carousel-nav-next {
+  right: 0.5rem;
+}
+
+.bemo-21st-cult-loading-carousel-nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.bemo-21st-cult-loading-carousel-footer {
+  background: var(--bemo-21st-cult-loading-carousel-bg);
+  padding: 1rem;
+}
+
+.bemo-21st-cult-loading-carousel-footer-compact {
+  /* denser padding on large screens when indicators + caption share space */
+}
+
+.bemo-21st-cult-loading-carousel-footer-row {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.bemo-21st-cult-loading-carousel-indicators {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+
+.bemo-21st-cult-loading-carousel-indicator {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  min-width: 2rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.bemo-21st-cult-loading-carousel-indicator:active {
+  transform: scale(0.96);
+}
+
+.bemo-21st-cult-loading-carousel-indicator:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-cult-loading-carousel-bg), 0 0 0 4px var(--bemo-21st-cult-loading-carousel-ring);
+}
+
+.bemo-21st-cult-loading-carousel-indicator:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-21st-cult-loading-carousel-indicator-track {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(24, 24, 27, 0.15);
+}
+
+.bemo-21st-cult-loading-carousel-indicator-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    var(--bemo-21st-cult-loading-carousel-accent) 0%,
+    var(--bemo-21st-cult-loading-carousel-accent-soft) 100%
+  );
+  transform-origin: left center;
+}
+
+.bemo-21st-cult-loading-carousel-indicator-complete {
+  transform: scaleX(1);
+}
+
+.bemo-21st-cult-loading-carousel-indicator-transition {
+  transition: transform 0.3s ease-out;
+}
+
+.bemo-21st-cult-loading-carousel-no-motion {
+  transition: none;
+}
+
+.bemo-21st-cult-loading-carousel-indicator-on {
+  transform: scaleX(1);
+}
+
+.bemo-21st-cult-loading-carousel-indicator-off {
+  transform: scaleX(0);
+}
+
+.bemo-21st-cult-loading-carousel-caption {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--bemo-21st-cult-loading-carousel-accent);
+}
+
+.bemo-21st-cult-loading-carousel-tip-count {
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--bemo-21st-cult-loading-carousel-fg);
+}
+
+.bemo-21st-cult-loading-carousel-caption-body {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bemo-21st-cult-loading-carousel-caption-link,
+.bemo-21st-cult-loading-carousel-caption-text {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+  color: var(--bemo-21st-cult-loading-carousel-fg);
+}
+
+.bemo-21st-cult-loading-carousel-caption-link {
+  border-radius: 0.125rem;
+  text-decoration: none;
+}
+
+.bemo-21st-cult-loading-carousel-caption-link:hover {
+  color: var(--bemo-21st-cult-loading-carousel-accent);
+}
+
+.bemo-21st-cult-loading-carousel-caption-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bemo-21st-cult-loading-carousel-bg), 0 0 0 4px var(--bemo-21st-cult-loading-carousel-ring);
+}
+
+.bemo-21st-cult-loading-carousel-caption-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--bemo-21st-cult-loading-carousel-accent);
+}
+
+@media (min-width: 640px) {
+  .bemo-21st-cult-loading-carousel-overlay-text {
+    padding: 1.5rem;
+  }
+
+  .bemo-21st-cult-loading-carousel-overlay-copy {
+    font-size: 1.125rem;
+  }
+
+  .bemo-21st-cult-loading-carousel-footer {
+    padding: 1.25rem;
+  }
+
+  .bemo-21st-cult-loading-carousel-footer-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bemo-21st-cult-loading-carousel-footer-stacked {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bemo-21st-cult-loading-carousel-indicators {
+    padding-bottom: 0;
+  }
+
+  .bemo-21st-cult-loading-carousel-indicator {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .bemo-21st-cult-loading-carousel-overlay-text {
+    padding: 2rem;
+  }
+
+  .bemo-21st-cult-loading-carousel-overlay-copy {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bemo-21st-cult-loading-carousel-footer-compact {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .bemo-21st-cult-loading-carousel-overlay-copy {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .bemo-21st-cult-loading-carousel-caption-link,
+  .bemo-21st-cult-loading-carousel-caption-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bemo-21st-cult-loading-carousel-caption-link,
+  .bemo-21st-cult-loading-carousel-caption-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-loading-carousel-nav,
+  .bemo-21st-cult-loading-carousel-indicator,
+  .bemo-21st-cult-loading-carousel-indicator-transition {
+    transition: none !important;
+  }
+
+  .bemo-21st-cult-loading-carousel-indicator-fill {
+    transition: none !important;
+  }
+}

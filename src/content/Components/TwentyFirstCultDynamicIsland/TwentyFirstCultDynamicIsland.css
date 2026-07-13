@@ -1,0 +1,131 @@
+.bemo-21st-cult-dynamic-island-container {
+  z-index: 10;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.bemo-21st-cult-dynamic-island {
+  margin-left: auto;
+  margin-right: auto;
+  height: 0;
+  width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  outline: none;
+}
+
+.bemo-21st-cult-dynamic-island:focus-within {
+  background-color: #171717;
+  box-shadow: 0 0 0 2px #1620E4, 0 0 0 4px rgba(22, 32, 228, 0.35);
+}
+
+.bemo-21st-cult-dynamic-island:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.bemo-21st-cult-dynamic-island:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 3px;
+}
+
+.bemo-21st-cult-dynamic-island[aria-disabled='true'],
+.bemo-21st-cult-dynamic-island:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.bemo-21st-cult-dynamic-island-container-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.bemo-21st-cult-dynamic-island-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.bemo-21st-cult-dynamic-island-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.bemo-21st-cult-dynamic-island-description {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bemo-21st-cult-dynamic-island-accent {
+  color: #7BE9C6;
+}
+
+.bemo-21st-cult-dynamic-island-accent-bg {
+  background-color: #1620E4;
+}
+
+.bemo-21st-cult-dynamic-island-accent-ring {
+  box-shadow: 0 0 0 2px #1620E4;
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-cult-dynamic-island-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .bemo-21st-cult-dynamic-island-title {
+    font-size: 0.8125rem;
+  }
+
+  .bemo-21st-cult-dynamic-island-description {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-dynamic-island {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .bemo-21st-cult-dynamic-island:focus-within {
+    background-color: #000000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-dynamic-island,
+  .bemo-21st-cult-dynamic-island-container-inner,
+  .bemo-21st-cult-dynamic-island-div,
+  .bemo-21st-cult-dynamic-island-title,
+  .bemo-21st-cult-dynamic-island-description {
+    transition: none !important;
+    animation: none !important;
+  }
+}

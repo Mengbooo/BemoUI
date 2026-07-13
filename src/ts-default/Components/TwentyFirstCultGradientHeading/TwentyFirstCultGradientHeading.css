@@ -1,0 +1,267 @@
+.bemo-21st-cult-gradient-heading {
+  display: inline-block;
+  letter-spacing: -0.025em;
+  padding-bottom: 0.75rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Variants - using #1620E4 and #7BE9C6 accents with neutrals */
+.bemo-21st-cult-gradient-heading--variant-default {
+  background-image: linear-gradient(to top, #404040, #262626);
+}
+
+.bemo-21st-cult-gradient-heading--variant-pink {
+  background-image: linear-gradient(to top, #1620E4, color-mix(in srgb, #1620E4 90%, transparent));
+}
+
+.bemo-21st-cult-gradient-heading--variant-light {
+  background-image: linear-gradient(to top, #e5e5e5, #d4d4d4);
+}
+
+.bemo-21st-cult-gradient-heading--variant-secondary {
+  background-image: linear-gradient(to top, #737373, #525252);
+}
+
+/* Dark mode support via prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  .bemo-21st-cult-gradient-heading--variant-default {
+    background-image: linear-gradient(to top, #e7e5e4, #e5e5e5);
+  }
+  .bemo-21st-cult-gradient-heading--variant-pink {
+    background-image: linear-gradient(to top, #e7e5e4, #e5e5e5);
+  }
+  .bemo-21st-cult-gradient-heading--variant-secondary {
+    background-image: linear-gradient(to top, #e7e5e4, #e5e5e5);
+  }
+}
+
+/* Custom accent gradient using brand colors */
+.bemo-21st-cult-gradient-heading--variant-accent {
+  background-image: linear-gradient(to top, #1620E4, #7BE9C6);
+}
+
+/* Sizes - responsive */
+.bemo-21st-cult-gradient-heading--size-default {
+  font-size: 1.5rem; /* 2xl */
+  line-height: 2rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-default {
+    font-size: 1.875rem; /* 3xl */
+    line-height: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-default {
+    font-size: 2.25rem; /* 4xl */
+    line-height: 2.5rem;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xxs {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xxs {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xxs {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xs {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xs {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xs {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-sm {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-sm {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-sm {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-md {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-md {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-md {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-lg {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-lg {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-lg {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xll {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xll {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xll {
+    font-size: 5.4rem;
+    line-height: 0.9;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xxl {
+  font-size: 3rem;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xxl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xxl {
+    font-size: 6rem;
+    line-height: 1;
+  }
+}
+
+.bemo-21st-cult-gradient-heading--size-xxxl {
+  font-size: 3rem;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .bemo-21st-cult-gradient-heading--size-xxxl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .bemo-21st-cult-gradient-heading--size-xxxl {
+    font-size: 8rem;
+    line-height: 1;
+  }
+}
+
+/* Weights */
+.bemo-21st-cult-gradient-heading--weight-default,
+.bemo-21st-cult-gradient-heading--weight-bold {
+  font-weight: 700;
+}
+.bemo-21st-cult-gradient-heading--weight-thin {
+  font-weight: 100;
+}
+.bemo-21st-cult-gradient-heading--weight-base {
+  font-weight: 400;
+}
+.bemo-21st-cult-gradient-heading--weight-semi {
+  font-weight: 600;
+}
+.bemo-21st-cult-gradient-heading--weight-black {
+  font-weight: 900;
+}
+
+/* Focus-visible for accessibility when used as interactive */
+.bemo-21st-cult-gradient-heading:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Disabled state */
+.bemo-21st-cult-gradient-heading[aria-disabled="true"],
+.bemo-21st-cult-gradient-heading:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-cult-gradient-heading {
+    transition: none;
+  }
+}
+
+/* Ensure parent heading has no extra styles conflicting */
+h1 .bemo-21st-cult-gradient-heading,
+h2 .bemo-21st-cult-gradient-heading,
+h3 .bemo-21st-cult-gradient-heading,
+h4 .bemo-21st-cult-gradient-heading,
+h5 .bemo-21st-cult-gradient-heading,
+h6 .bemo-21st-cult-gradient-heading {
+  margin: 0;
+}

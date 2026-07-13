@@ -1,0 +1,62 @@
+.bemo-21st-text-morph {
+  display: inline-block;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.3;
+  font-weight: inherit;
+  color: #0a0a0a;
+  letter-spacing: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+  outline: none;
+}
+
+.bemo-21st-text-morph:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.bemo-21st-text-morph--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #6b7280;
+}
+
+.bemo-21st-text-morph__char {
+  display: inline-block;
+  will-change: opacity, transform;
+}
+
+.bemo-21st-text-morph__char:focus-visible {
+  outline: none;
+}
+
+/* Accent helpers for demos / theming */
+.bemo-21st-text-morph--accent {
+  color: #1620E4;
+}
+
+.bemo-21st-text-morph--mint {
+  color: #7BE9C6;
+}
+
+.bemo-21st-text-morph--on-dark {
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .bemo-21st-text-morph {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-21st-text-morph__char {
+    will-change: auto;
+    transition: none !important;
+    animation: none !important;
+  }
+}

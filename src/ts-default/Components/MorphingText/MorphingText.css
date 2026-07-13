@@ -1,0 +1,52 @@
+.bemo-morphing-text {
+  position: relative;
+  margin-inline: auto;
+  height: 4rem;
+  width: 100%;
+  max-width: 48rem;
+  text-align: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 40pt;
+  line-height: 1;
+  font-weight: 700;
+  color: #1620E4;
+  text-shadow: 0 0 24px rgba(123, 233, 198, 0.35);
+}
+
+@media (min-width: 768px) {
+  .bemo-morphing-text {
+    height: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bemo-morphing-text {
+    font-size: 6rem;
+  }
+}
+
+.bemo-morphing-text__text {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  margin: auto;
+  display: inline-block;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bemo-morphing-text__filters {
+  position: fixed;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-morphing-text {
+    filter: none !important;
+    text-shadow: none;
+  }
+}

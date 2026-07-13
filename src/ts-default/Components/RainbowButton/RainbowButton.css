@@ -1,0 +1,139 @@
+.bemo-rainbow-button {
+  --bemo-rb-1: #1620E4;
+  --bemo-rb-2: #7BE9C6;
+  --bemo-rb-3: #00d4ff;
+  --bemo-rb-4: #a855f7;
+  --bemo-rb-5: #ff4d9a;
+  --bemo-rb-bg: #121213;
+  --bemo-rb-fg: #ffffff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  outline: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--bemo-rb-fg);
+  border: 0.125rem solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: bemo-rainbow-button-rainbow 2s linear infinite;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bemo-rainbow-button__content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.bemo-rainbow-button svg {
+  pointer-events: none;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.bemo-rainbow-button--default {
+  background-image:
+    linear-gradient(var(--bemo-rb-bg), var(--bemo-rb-bg)),
+    linear-gradient(var(--bemo-rb-bg) 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(90deg, var(--bemo-rb-1), var(--bemo-rb-5), var(--bemo-rb-3), var(--bemo-rb-4), var(--bemo-rb-2));
+}
+
+.bemo-rainbow-button--outline {
+  --bemo-rb-bg: #111116;
+  --bemo-rb-fg: #f4f4f5;
+  border-color: #303038;
+  border-bottom-color: transparent;
+  background-image:
+    linear-gradient(var(--bemo-rb-bg), var(--bemo-rb-bg)),
+    linear-gradient(var(--bemo-rb-bg) 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(90deg, var(--bemo-rb-1), var(--bemo-rb-5), var(--bemo-rb-3), var(--bemo-rb-4), var(--bemo-rb-2));
+}
+
+.bemo-rainbow-button::before {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  z-index: 0;
+  height: 20%;
+  width: 60%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(
+    90deg,
+    var(--bemo-rb-1),
+    var(--bemo-rb-5),
+    var(--bemo-rb-3),
+    var(--bemo-rb-4),
+    var(--bemo-rb-2)
+  );
+  background-size: 200%;
+  filter: blur(0.75rem);
+  animation: bemo-rainbow-button-rainbow 2s linear infinite;
+  pointer-events: none;
+}
+
+.bemo-rainbow-button--size-default {
+  height: 2.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.bemo-rainbow-button--size-sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.bemo-rainbow-button--size-lg {
+  height: 2.75rem;
+  padding: 0 2rem;
+  border-radius: 0.75rem;
+}
+
+.bemo-rainbow-button--size-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+}
+
+.bemo-rainbow-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(22, 32, 228, 0.45);
+}
+
+.bemo-rainbow-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.bemo-rainbow-button:hover:not(:disabled) {
+  opacity: 0.95;
+}
+
+@keyframes bemo-rainbow-button-rainbow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-rainbow-button,
+  .bemo-rainbow-button::before {
+    animation: none;
+  }
+}

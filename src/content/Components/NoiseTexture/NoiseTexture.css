@@ -1,0 +1,23 @@
+.bemo-noise-texture {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  user-select: none;
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-noise-texture {
+    opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-noise-texture {
+    /* Static SVG filter overlay — no motion properties to reduce */
+  }
+}

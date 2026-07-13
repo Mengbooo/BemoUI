@@ -1,0 +1,17 @@
+.bemo-safari { width: 100%; overflow: hidden; border: 1px solid #2a2a32; border-radius: 14px; background: #111116; box-shadow: 0 24px 70px rgb(22 32 228 / 12%); }
+.bemo-safari__toolbar { display: grid; grid-template-columns: auto auto minmax(8rem, 1fr) auto; align-items: center; gap: 16px; min-height: 52px; padding: 0 18px; border-bottom: 1px solid #2a2a32; background: #15151a; color: #a1a1aa; }
+.bemo-safari__controls { display: flex; gap: 7px; }
+.bemo-safari__controls span { width: 11px; height: 11px; border-radius: 50%; background: #52525b; }
+.bemo-safari__controls span:first-child { background: #1620E4; }
+.bemo-safari__controls span:last-child { background: #7BE9C6; }
+.bemo-safari__nav, .bemo-safari__actions { white-space: nowrap; font-weight: 700; }
+.bemo-safari__address { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; padding: 7px 14px; border-radius: 8px; background: #24242b; color: #d4d4d8; font-size: 13px; }
+.bemo-safari__address span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bemo-safari__address span:first-child { color: #7BE9C6; font-size: 8px; }
+.bemo-safari__screen { aspect-ratio: 1200 / 700; overflow: hidden; background: #09090b; }
+.bemo-safari__screen > img, .bemo-safari__screen > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bemo-safari__placeholder { display: grid; place-content: center; gap: 10px; width: 100%; height: 100%; padding: 24px; text-align: center; color: white; background: radial-gradient(circle at 35% 30%, rgb(123 233 198 / 30%), transparent 28%), radial-gradient(circle at 65% 70%, rgb(22 32 228 / 55%), transparent 35%), #09090b; }
+.bemo-safari__placeholder strong { font-size: clamp(2rem, 7vw, 5rem); }
+.bemo-safari__placeholder span { color: #d4d4d8; }
+@media (max-width: 600px) { .bemo-safari__toolbar { grid-template-columns: auto minmax(6rem, 1fr); gap: 10px; padding: 0 12px; } .bemo-safari__nav, .bemo-safari__actions { display: none; } }
+@media (prefers-reduced-motion: reduce) { .bemo-safari__screen > video { display: none; } }

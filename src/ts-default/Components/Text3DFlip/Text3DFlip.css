@@ -1,0 +1,79 @@
+.bemo-text-3d-flip {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  color: #1620E4;
+  cursor: default;
+  outline: none;
+}
+
+.bemo-text-3d-flip:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.bemo-text-3d-flip--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-text-3d-flip__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bemo-text-3d-flip__word {
+  display: inline-flex;
+}
+
+.bemo-text-3d-flip__space {
+  white-space: pre;
+}
+
+.bemo-text-3d-flip__char {
+  display: inline;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.bemo-text-3d-flip__face {
+  position: relative;
+  display: block;
+  height: 1lh;
+  backface-visibility: hidden;
+  color: inherit;
+}
+
+.bemo-text-3d-flip__face--flip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #7BE9C6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-text-3d-flip__char {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .bemo-text-3d-flip__face,
+  .bemo-text-3d-flip__face--flip {
+    transform: none !important;
+    position: relative;
+  }
+
+  .bemo-text-3d-flip__face--flip {
+    display: none;
+  }
+}

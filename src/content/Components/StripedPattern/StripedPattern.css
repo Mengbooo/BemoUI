@@ -1,0 +1,17 @@
+.bemo-striped-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  stroke-width: 0.5;
+  color: #1620E4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-striped-pattern {
+    transition: none;
+    animation: none;
+  }
+}

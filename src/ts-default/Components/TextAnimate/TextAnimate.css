@@ -1,0 +1,52 @@
+.bemo-text-animate {
+  margin: 0;
+  color: inherit;
+  white-space: pre-wrap;
+}
+
+.bemo-text-animate__segment {
+  display: inline-block;
+  white-space: pre;
+}
+
+.bemo-text-animate__segment--line {
+  display: block;
+}
+
+.bemo-text-animate__segment--character {
+  display: inline-block;
+}
+
+.bemo-text-animate__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bemo-text-animate__accent {
+  color: #1620E4;
+}
+
+.bemo-text-animate__accent-secondary {
+  color: #7BE9C6;
+}
+
+.bemo-text-animate__underline {
+  text-decoration-line: underline;
+  text-decoration-color: #7BE9C6;
+  text-underline-offset: 0.2em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-text-animate,
+  .bemo-text-animate * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,40 @@
+.bemo-animated-shiny-text {
+  --bemo-shiny-width: 100px;
+  display: inline-block;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #1620E4 45%,
+    #7BE9C6 55%,
+    transparent
+  );
+  background-size: var(--bemo-shiny-width) 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: bemo-animated-shiny-text-shine 1.5s cubic-bezier(0.6, 0.6, 0, 1) infinite;
+}
+
+@keyframes bemo-animated-shiny-text-shine {
+  0% {
+    background-position: calc(0% - var(--bemo-shiny-width)) 0;
+  }
+  100% {
+    background-position: calc(100% + var(--bemo-shiny-width)) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-shiny-text {
+    animation: none;
+    background-image: none;
+    color: #4b5563;
+    -webkit-text-fill-color: #4b5563;
+  }
+}

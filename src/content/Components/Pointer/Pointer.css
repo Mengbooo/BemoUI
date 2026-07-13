@@ -1,0 +1,33 @@
+.bemo-pointer-host {
+  cursor: none !important;
+}
+
+.bemo-pointer-anchor {
+  display: contents;
+}
+
+.bemo-pointer {
+  pointer-events: none;
+  position: fixed;
+  z-index: 50;
+  margin: 0;
+  color: #1620E4;
+}
+
+.bemo-pointer__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  transform: rotate(-70deg);
+  fill: #1620E4;
+  stroke: #7BE9C6;
+  color: #1620E4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-pointer,
+  .bemo-pointer * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

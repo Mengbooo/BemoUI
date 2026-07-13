@@ -1,0 +1,53 @@
+.bemo-ripple {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+  mask-image: linear-gradient(to bottom, white, transparent);
+  user-select: none;
+  overflow: hidden;
+}
+
+.bemo-ripple__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: translate(-50%, -50%) scale(1);
+  animation-name: bemo-ripple;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--bemo-ripple-i, 0) * 0.06s);
+}
+
+.bemo-ripple__circle--blue {
+  border-color: #1620E4;
+  background-color: rgba(22, 32, 228, 0.25);
+}
+
+.bemo-ripple__circle--green {
+  border-color: #7BE9C6;
+  background-color: rgba(123, 233, 198, 0.25);
+}
+
+@keyframes bemo-ripple {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-ripple__circle {
+    animation: none;
+  }
+}

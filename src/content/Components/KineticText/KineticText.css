@@ -1,0 +1,77 @@
+.bemo-kinetic-text {
+  --hover-padding: calc(1em / 12);
+  --text-stroke-width: calc(1em * 125 / 6000);
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 300;
+  color: #1620E4;
+}
+
+.bemo-kinetic-text:focus {
+  outline: none;
+}
+
+.bemo-kinetic-text:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 4px;
+}
+
+.bemo-kinetic-text__letter {
+  will-change: font-weight, -webkit-text-stroke-width, padding;
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: var(--text-stroke-width);
+  transition: font-weight 0.4s, -webkit-text-stroke-color 0.4s, padding 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-kinetic-text__letter {
+    transition: none;
+    will-change: auto;
+  }
+}
+
+.bemo-kinetic-text:not(.bemo-kinetic-text--disabled) .bemo-kinetic-text__letter:has(+ .bemo-kinetic-text__letter + .bemo-kinetic-text__letter:hover) {
+  font-weight: 400;
+}
+
+.bemo-kinetic-text:not(.bemo-kinetic-text--disabled) .bemo-kinetic-text__letter:has(+ .bemo-kinetic-text__letter:hover) {
+  padding-inline: var(--hover-padding);
+  font-weight: 600;
+}
+
+.bemo-kinetic-text:not(.bemo-kinetic-text--disabled) .bemo-kinetic-text__letter:hover + .bemo-kinetic-text__letter {
+  padding-inline: var(--hover-padding);
+  font-weight: 600;
+}
+
+.bemo-kinetic-text:not(.bemo-kinetic-text--disabled) .bemo-kinetic-text__letter:hover + .bemo-kinetic-text__letter + .bemo-kinetic-text__letter {
+  font-weight: 400;
+}
+
+.bemo-kinetic-text:not(.bemo-kinetic-text--disabled) .bemo-kinetic-text__letter:hover {
+  padding-inline: var(--hover-padding);
+  font-weight: 900;
+  -webkit-text-stroke-color: currentColor;
+  -webkit-text-stroke-width: calc(var(--text-stroke-width) * 2);
+}
+
+.bemo-kinetic-text--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bemo-kinetic-text--disabled .bemo-kinetic-text__letter {
+  pointer-events: none;
+}
+
+.bemo-kinetic-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,120 @@
+@property --bemo-shiny-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
+@keyframes bemo-shiny-button-x {
+  0% {
+    --bemo-shiny-x: 100%;
+  }
+  100% {
+    --bemo-shiny-x: -100%;
+  }
+}
+
+.bemo-shiny-button {
+  --bemo-shiny-button-primary: #1620e4;
+  --bemo-shiny-button-accent: #7be9c6;
+  --bemo-shiny-x: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--bemo-shiny-button-primary) 22%, transparent);
+  padding: 0.5rem 1.5rem;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1.25;
+  color: inherit;
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--bemo-shiny-button-primary) 12%, transparent) 0%,
+    transparent 60%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease, opacity 0.2s ease;
+  isolation: isolate;
+}
+
+.bemo-shiny-button:hover:not(:disabled) {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--bemo-shiny-button-primary) 18%, transparent);
+}
+
+.bemo-shiny-button:focus-visible {
+  outline: 2px solid var(--bemo-shiny-button-primary);
+  outline-offset: 2px;
+}
+
+.bemo-shiny-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.bemo-shiny-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bemo-shiny-button__label {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  mask-image: linear-gradient(
+    -75deg,
+    var(--bemo-shiny-button-primary) calc(var(--bemo-shiny-x) + 20%),
+    transparent calc(var(--bemo-shiny-x) + 30%),
+    var(--bemo-shiny-button-primary) calc(var(--bemo-shiny-x) + 100%)
+  );
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    var(--bemo-shiny-button-primary) calc(var(--bemo-shiny-x) + 20%),
+    transparent calc(var(--bemo-shiny-x) + 30%),
+    var(--bemo-shiny-button-primary) calc(var(--bemo-shiny-x) + 100%)
+  );
+  animation: bemo-shiny-button-x 2.4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.bemo-shiny-button__border {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  mask: linear-gradient(#000, #000) content-box exclude, linear-gradient(#000, #000);
+  -webkit-mask: linear-gradient(#000, #000) content-box exclude,
+    linear-gradient(#000, #000);
+  background-image: linear-gradient(
+    -75deg,
+    color-mix(in srgb, var(--bemo-shiny-button-primary) 12%, transparent)
+      calc(var(--bemo-shiny-x) + 20%),
+    color-mix(in srgb, var(--bemo-shiny-button-accent) 55%, transparent)
+      calc(var(--bemo-shiny-x) + 25%),
+    color-mix(in srgb, var(--bemo-shiny-button-primary) 12%, transparent)
+      calc(var(--bemo-shiny-x) + 100%)
+  );
+  animation: bemo-shiny-button-x 2.4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-shiny-button__label,
+  .bemo-shiny-button__border {
+    animation: none;
+    --bemo-shiny-x: 40%;
+  }
+
+  .bemo-shiny-button:active:not(:disabled) {
+    transform: none;
+  }
+}

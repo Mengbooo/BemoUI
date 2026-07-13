@@ -1,0 +1,20 @@
+.bemo-word-rotate {
+  display: inline-flex;
+  overflow: hidden;
+  padding-block: 0.5rem;
+  vertical-align: baseline;
+}
+
+.bemo-word-rotate__word {
+  display: inline-block;
+  margin: 0;
+  color: #1620E4;
+  border-bottom: 2px solid #7BE9C6;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-word-rotate__word {
+    will-change: opacity;
+  }
+}

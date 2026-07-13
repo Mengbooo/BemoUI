@@ -1,0 +1,85 @@
+.bemo-spinning-text {
+  --bemo-spinning-text-duration: 10s;
+  --bemo-spinning-text-radius: 5;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--bemo-spinning-text-radius) * 2ch + 2ch);
+  height: calc(var(--bemo-spinning-text-radius) * 2ch + 2ch);
+  color: #1620E4;
+  font-weight: 600;
+  line-height: 1;
+  user-select: none;
+}
+
+.bemo-spinning-text__container {
+  position: absolute;
+  inset: 0;
+  animation: bemo-spinning-text-spin var(--bemo-spinning-text-duration) linear infinite;
+}
+
+.bemo-spinning-text__container--reverse {
+  animation-name: bemo-spinning-text-spin-reverse;
+}
+
+.bemo-spinning-text__letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  transform:
+    translate(-50%, -50%)
+    rotate(calc(360deg / var(--bemo-spinning-text-total, 1) * var(--bemo-spinning-text-index, 0)))
+    translateY(calc(var(--bemo-spinning-text-radius, 5) * -1ch));
+  transform-origin: center;
+  white-space: pre;
+}
+
+.bemo-spinning-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes bemo-spinning-text-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bemo-spinning-text-spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-spinning-text {
+    width: auto;
+    height: auto;
+    color: #1620E4;
+  }
+
+  .bemo-spinning-text__container {
+    position: static;
+    animation: none;
+  }
+
+  .bemo-spinning-text__letter {
+    position: static;
+    transform: none;
+  }
+}

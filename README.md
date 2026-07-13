@@ -218,6 +218,33 @@ For detailed documentation and interactive component demos, visit:
 - [Component Documentation](https://bemoui.com/docs)
 - [API Reference](https://bemoui.com/api)
 
+## 🤖 CodePen Import Pipeline
+
+CodePen's terms prohibit crawling, and its public API does not expose arbitrary Pen source. BemoUI therefore uses a curated workflow: manually select a Pen, download its official ZIP export, then automate conversion.
+
+Create a Git-ignored `.env.local` file for the configured OpenAI-compatible provider:
+
+```bash
+OPENAI_API_KEY="..."
+OPENAI_BASE_URL="https://www.micuapi.ai/v1"
+OPENAI_MODEL="grok-4.5"
+OPENAI_USER_AGENT="codex_cli_rs/0.77.0 (Windows 10.0.26100; x86_64) WindowsTerminal"
+```
+
+Then run:
+
+```bash
+npm run import:codepen -- \
+  --source /path/to/codepen-export.zip \
+  --name AuroraButton \
+  --url https://codepen.io/author/pen/pen-id \
+  --author author \
+  --license MIT \
+  --confirm-rights
+```
+
+The importer reads the exported HTML/CSS/JavaScript, generates the BemoUI React component, demo, code entry, and source record, then leaves the result for review. Run `npm run test:codepen-import`, `npm run lint`, and `npm run build` before opening a Pull Request. Merging into `main` publishes through the existing Vercel project. The configured provider is MicuAPI using the OpenAI Responses protocol and `grok-4.5`. Override the endpoint, model, or required User-Agent with the corresponding environment variables.
+
 ## 🤝 Contributing
 
 We welcome contributions! Please follow these steps:
@@ -252,3 +279,9 @@ BemoUI is built upon these excellent libraries:
     <a href="https://discord.gg/bemoui">Discord</a>
   </p>
 </div>
+
+## Magic UI import workflow
+
+`.github/workflows/import-magicui.yml` fetches a component from the official Magic UI registry, converts it into BemoUI's JavaScript, Tailwind, TypeScript, and demo variants, validates the result, and opens a pull request.
+
+Configure the `MICUAPI_API_KEY` Actions secret and allow GitHub Actions to write repository contents and create pull requests. Then run **Actions → Import Magic UI component** with the registry `slug` and a PascalCase `component_name`. Generated code is never merged automatically and still requires visual, accessibility, and attribution review.

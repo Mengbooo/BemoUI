@@ -1,0 +1,106 @@
+.bemo-pulsating-button {
+  --bemo-pulse-color: #1620E4;
+  --bemo-duration: 1.5s;
+  --bemo-distance: 8px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #1620E4;
+  color: #ffffff;
+  font: inherit;
+  line-height: 1.25;
+  text-align: center;
+  overflow: visible;
+  isolation: isolate;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+.bemo-pulsating-button:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.bemo-pulsating-button:active:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.bemo-pulsating-button:focus {
+  outline: none;
+}
+
+.bemo-pulsating-button:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 2px;
+}
+
+.bemo-pulsating-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.bemo-pulsating-button:disabled .bemo-pulsating-button__effect {
+  animation: none;
+  opacity: 0;
+}
+
+.bemo-pulsating-button__content {
+  position: relative;
+  z-index: 1;
+}
+
+.bemo-pulsating-button__effect {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.bemo-pulsating-button__effect--pulse {
+  background-color: inherit;
+  animation: bemo-pulsating-button-pulse var(--bemo-duration) ease-out infinite;
+}
+
+.bemo-pulsating-button__effect--ripple {
+  background-color: transparent;
+  animation: bemo-pulsating-button-ripple var(--bemo-duration) ease-out infinite;
+}
+
+@keyframes bemo-pulsating-button-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--bemo-pulse-color);
+    opacity: 0.75;
+  }
+  70% {
+    box-shadow: 0 0 0 var(--bemo-distance) transparent;
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    opacity: 0;
+  }
+}
+
+@keyframes bemo-pulsating-button-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+    box-shadow: inset 0 0 0 2px var(--bemo-pulse-color);
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+    box-shadow: inset 0 0 0 2px transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-pulsating-button__effect--pulse,
+  .bemo-pulsating-button__effect--ripple {
+    animation: none;
+  }
+}

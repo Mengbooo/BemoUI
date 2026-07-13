@@ -1,0 +1,133 @@
+.bemo-interactive-hover-button {
+  position: relative;
+  display: inline-flex;
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid #303038;
+  background-color: #111116;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.25;
+  color: #f4f4f5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.bemo-interactive-hover-button:focus {
+  outline: none;
+}
+
+.bemo-interactive-hover-button:focus-visible {
+  outline: 2px solid #1620e4;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(22, 32, 228, 0.2);
+}
+
+.bemo-interactive-hover-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.bemo-interactive-hover-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.bemo-interactive-hover-button__dot {
+  flex-shrink: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-color: #1620e4;
+  transition: transform 0.3s ease;
+}
+
+.bemo-interactive-hover-button__label {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bemo-interactive-hover-button__hover {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transform: translateX(3rem);
+  opacity: 0;
+  color: #ffffff;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bemo-interactive-hover-button__hover-label {
+  display: inline-block;
+}
+
+.bemo-interactive-hover-button__arrow {
+  flex-shrink: 0;
+  color: #7be9c6;
+}
+
+.bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__dot {
+  transform: scale(100.8);
+}
+
+.bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__label {
+  transform: translateX(3rem);
+  opacity: 0;
+}
+
+.bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__hover {
+  transform: translateX(-1.25rem);
+  opacity: 1;
+}
+
+.bemo-interactive-hover-button:disabled:hover .bemo-interactive-hover-button__dot,
+.bemo-interactive-hover-button:disabled:hover .bemo-interactive-hover-button__label,
+.bemo-interactive-hover-button:disabled:hover .bemo-interactive-hover-button__hover {
+  transform: none;
+  opacity: inherit;
+}
+
+.bemo-interactive-hover-button:disabled .bemo-interactive-hover-button__hover {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-interactive-hover-button__dot,
+  .bemo-interactive-hover-button__label,
+  .bemo-interactive-hover-button__hover {
+    transition: none;
+  }
+
+  .bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__dot {
+    transform: none;
+    background-color: #7be9c6;
+  }
+
+  .bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__label {
+    transform: none;
+    opacity: 0;
+  }
+
+  .bemo-interactive-hover-button:hover:not(:disabled) .bemo-interactive-hover-button__hover {
+    transform: none;
+    opacity: 1;
+  }
+
+  .bemo-interactive-hover-button:hover:not(:disabled) {
+    background-color: #1620e4;
+    border-color: #1620e4;
+    color: #ffffff;
+  }
+}

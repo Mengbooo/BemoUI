@@ -1,0 +1,25 @@
+.bemo-grid-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  fill: rgba(22, 32, 228, 0.3);
+  stroke: rgba(22, 32, 228, 0.3);
+}
+
+.bemo-grid-pattern__squares {
+  overflow: visible;
+}
+
+.bemo-grid-pattern__square {
+  fill: rgba(123, 233, 198, 0.35);
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-grid-pattern {
+    transition: none;
+    animation: none;
+  }
+}

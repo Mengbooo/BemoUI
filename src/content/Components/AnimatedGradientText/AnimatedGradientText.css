@@ -1,0 +1,28 @@
+.bemo-animated-gradient-text {
+  display: inline;
+  background-image: linear-gradient(
+    to right,
+    var(--bemo-agt-color-from, #1620E4),
+    var(--bemo-agt-color-to, #7BE9C6),
+    var(--bemo-agt-color-from, #1620E4)
+  );
+  background-size: var(--bemo-agt-bg-size, 300%) 100%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: bemo-animated-gradient-text-gradient 8s linear infinite;
+}
+
+@keyframes bemo-animated-gradient-text-gradient {
+  to {
+    background-position: var(--bemo-agt-bg-size, 300%) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-gradient-text {
+    animation: none;
+    background-position: 0 0;
+  }
+}

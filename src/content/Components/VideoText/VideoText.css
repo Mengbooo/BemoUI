@@ -1,0 +1,69 @@
+.bemo-video-text {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 8rem;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.bemo-video-text__mask {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background-color: #111827;
+}
+
+.bemo-video-text__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bemo-video-text__fallback {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, #1620E4 0%, #7BE9C6 50%, #1620E4 100%);
+  background-size: 200% 200%;
+  animation: bemo-video-text-shift 8s ease infinite;
+}
+
+.bemo-video-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes bemo-video-text-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-video-text__fallback {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}

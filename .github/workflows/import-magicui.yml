@@ -1,0 +1,73 @@
+name: Import Magic UI component
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: Magic UI registry slug, for example shimmer-button
+        required: true
+        type: string
+      component_name:
+        description: BemoUI PascalCase name, for example ShimmerButton
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: import-magicui-${{ inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate component with AI
+        env:
+          OPENAI_API_KEY: ${{ secrets.MICUAPI_API_KEY }}
+          OPENAI_BASE_URL: https://www.micuapi.ai/v1
+          OPENAI_MODEL: grok-4.5
+          OPENAI_USER_AGENT: codex_cli_rs/0.77.0 (Windows 10.0.26100; x86_64) WindowsTerminal
+          GITHUB_TOKEN: ${{ github.token }}
+          MAGICUI_SLUG: ${{ inputs.slug }}
+          COMPONENT_NAME: ${{ inputs.component_name }}
+        run: npm run import:magicui -- --slug "$MAGICUI_SLUG" --name "$COMPONENT_NAME"
+
+      - name: Validate generated component
+        run: |
+          npm run test:magicui-import
+          npm run lint
+          npx tsc --noEmit
+          npm run build
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAGICUI_SLUG: ${{ inputs.slug }}
+          COMPONENT_NAME: ${{ inputs.component_name }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          branch="automation/magicui-${MAGICUI_SLUG}-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add .
+          git commit -m "feat: import Magic UI ${COMPONENT_NAME}"
+          git push --set-upstream origin "$branch"
+          gh pr create \
+            --base "$BASE_BRANCH" \
+            --head "$branch" \
+            --title "feat: import Magic UI ${COMPONENT_NAME}" \
+            --body "AI-assisted import of Magic UI \`${MAGICUI_SLUG}\`. Tests, lint, TypeScript, and production build passed in this workflow. Manual visual and license review is still required."

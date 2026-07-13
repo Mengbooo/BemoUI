@@ -108,6 +108,51 @@
   justify-content: center;
 }
 
+.bemo-preview-panel {
+  position: relative;
+  width: 100%;
+  min-height: 12rem;
+  overflow: hidden;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  color: #f4f4f5;
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(22, 32, 228, 0.12), transparent 28rem),
+    radial-gradient(circle at 92% 8%, rgba(123, 233, 198, 0.08), transparent 24rem),
+    #09090b;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.bemo-preview-panel > :first-child {
+  margin-top: 0;
+}
+
+.bemo-preview-panel .bemo-android__body,
+.bemo-preview-panel .bemo-android__screen {
+  fill: #404040;
+  stroke: #404040;
+}
+
+.bemo-preview-panel .bemo-android__bezel,
+.bemo-preview-panel .bemo-android__camera {
+  fill: #262626;
+}
+
+.bemo-preview-panel .bemo-avatar-circles__img,
+.bemo-preview-panel .bemo-avatar-circles__fallback,
+.bemo-preview-panel .bemo-avatar-circles__more {
+  border-color: #1f2937;
+}
+
+@media (max-width: 697px) {
+  .bemo-preview-panel {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+}
+
 div:has(> .props-table) {
   border: 1px solid #222;
   border-radius: 20px;

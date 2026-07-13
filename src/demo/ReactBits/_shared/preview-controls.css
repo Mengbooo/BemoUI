@@ -1,0 +1,7 @@
+.reactbits-preview-options { margin-top: 1.5rem; }
+.reactbits-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; margin-top: 1rem; }
+.reactbits-control { min-height: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .65rem; padding: .75rem .9rem; color: #f4f4f5; background: #0b0c10; border: 1px solid #ffffff1c; border-radius: 10px; font-size: .8rem; }
+.reactbits-control input[type='range'] { grid-column: 1 / -1; width: 100%; accent-color: #1620E4; }
+.reactbits-control input[type='text'], .reactbits-control select { min-width: 0; max-width: 150px; color: #fff; background: #060606; border: 1px solid #ffffff26; border-radius: 7px; padding: .45rem .55rem; }
+.reactbits-control input[type='checkbox'], .reactbits-control input[type='color'] { accent-color: #1620E4; }
+.reactbits-control output, .reactbits-control code { color: #7BE9C6; }

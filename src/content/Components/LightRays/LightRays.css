@@ -1,0 +1,78 @@
+.bemo-light-rays {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.bemo-light-rays__inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bemo-light-rays__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
+
+.bemo-light-rays__glow--primary {
+  background: radial-gradient(
+    circle at 20% 15%,
+    color-mix(in srgb, var(--bemo-light-rays-color, rgba(22, 32, 228, 0.35)) 45%, transparent),
+    transparent 70%
+  );
+}
+
+.bemo-light-rays__glow--secondary {
+  background: radial-gradient(
+    circle at 80% 10%,
+    color-mix(in srgb, #7be9c6 28%, transparent),
+    transparent 75%
+  );
+}
+
+.bemo-light-rays__ray {
+  pointer-events: none;
+  position: absolute;
+  top: -12%;
+  left: var(--ray-left, 50%);
+  width: var(--ray-width, 200px);
+  height: var(--bemo-light-rays-length, 70vh);
+  transform-origin: top center;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bemo-light-rays-color, rgba(22, 32, 228, 0.35)) 70%, transparent),
+    transparent
+  );
+  opacity: 0;
+  mix-blend-mode: screen;
+  filter: blur(var(--bemo-light-rays-blur, 36px));
+  animation: bemo-light-rays-sway var(--ray-duration, 14s) ease-in-out var(--ray-delay, 0s) infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes bemo-light-rays-sway {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(calc(var(--ray-rotate, 0deg) - var(--ray-swing, 1deg)));
+  }
+  50% {
+    opacity: var(--ray-intensity, 0.7);
+    transform: translateX(-50%) rotate(calc(var(--ray-rotate, 0deg) + var(--ray-swing, 1deg)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-light-rays__ray {
+    animation: none;
+    opacity: calc(var(--ray-intensity, 0.7) * 0.35);
+    transform: translateX(-50%) rotate(var(--ray-rotate, 0deg));
+  }
+}

@@ -1,0 +1,51 @@
+.bemo-border-beam {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-style: solid;
+  border-color: transparent;
+  border-width: var(--bemo-border-beam-width, 1px);
+  mask-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
+  -webkit-mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+}
+
+.bemo-border-beam__beam {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  width: var(--bemo-border-beam-size, 50px);
+  background: linear-gradient(
+    to left,
+    var(--bemo-border-beam-from, #1620E4),
+    var(--bemo-border-beam-to, #7BE9C6),
+    transparent
+  );
+  offset-path: rect(0 auto auto 0 round var(--bemo-border-beam-size, 50px));
+  offset-anchor: center;
+  animation-name: bemo-border-beam-travel;
+  animation-duration: var(--bemo-border-beam-duration, 6s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: var(--bemo-border-beam-delay, 0s);
+  will-change: offset-distance;
+}
+
+@keyframes bemo-border-beam-travel {
+  from {
+    offset-distance: var(--bemo-border-beam-start, 0%);
+  }
+  to {
+    offset-distance: var(--bemo-border-beam-end, 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-border-beam__beam {
+    animation: none;
+    offset-distance: var(--bemo-border-beam-start, 0%);
+  }
+}

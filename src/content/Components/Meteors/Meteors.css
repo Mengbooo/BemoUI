@@ -1,0 +1,57 @@
+.bemo-meteors {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bemo-meteors__meteor {
+  pointer-events: none;
+  position: absolute;
+  width: 0.125rem;
+  height: 0.125rem;
+  border-radius: 9999px;
+  background-color: #1620E4;
+  box-shadow:
+    0 0 0 1px rgba(22, 32, 228, 0.12),
+    0 0 8px 1px rgba(123, 233, 198, 0.65);
+  transform: rotate(var(--bemo-meteors-angle, -215deg));
+  animation-name: bemo-meteors-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.bemo-meteors__tail {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  width: 3.125rem;
+  height: 1px;
+  transform: translateY(-50%);
+  background-image: linear-gradient(to right, #1620E4, #7BE9C6, transparent);
+}
+
+@keyframes bemo-meteors-fall {
+  0% {
+    transform: rotate(var(--bemo-meteors-angle, -215deg)) translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(var(--bemo-meteors-angle, -215deg)) translate3d(-500px, 0, 0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-meteors__meteor {
+    animation: none !important;
+    opacity: 0;
+  }
+}

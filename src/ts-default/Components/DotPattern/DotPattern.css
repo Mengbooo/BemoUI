@@ -1,0 +1,43 @@
+.bemo-dot-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: #1620E4;
+}
+
+.bemo-dot-pattern__dot {
+  fill: currentColor;
+}
+
+.bemo-dot-pattern__dot--glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: bemo-dot-pattern-glow;
+  animation-duration: var(--bemo-dot-duration, 3s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: var(--bemo-dot-delay, 0s);
+}
+
+@keyframes bemo-dot-pattern-glow {
+  from {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-dot-pattern__dot--glow {
+    animation: none;
+    opacity: 0.65;
+    transform: none;
+  }
+}

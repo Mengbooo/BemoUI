@@ -1,0 +1,156 @@
+.bemo-tweet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 32rem;
+  height: fit-content;
+  overflow: hidden;
+  padding: 1.25rem;
+  border: 1px solid #2a2a32;
+  border-radius: 0.75rem;
+  background: #111116;
+  color: #f4f4f5;
+}
+
+.bemo-tweet-card__header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  letter-spacing: normal;
+}
+
+.bemo-tweet-card__user {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bemo-tweet-card__avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border: 1px solid rgba(22, 32, 228, 0.18);
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #1620e4 0%, #7be9c6 100%);
+}
+
+.bemo-tweet-card__avatar-initials {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  user-select: none;
+}
+
+.bemo-tweet-card__identity {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.bemo-tweet-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  color: #f4f4f5;
+  white-space: nowrap;
+}
+
+.bemo-tweet-card__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bemo-tweet-card__verified {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: #1620e4;
+}
+
+.bemo-tweet-card__username {
+  overflow: hidden;
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bemo-tweet-card__brand,
+.bemo-tweet-card__brand-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  color: #a1a1aa;
+  border-radius: 0.25rem;
+  transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bemo-tweet-card__brand-link {
+  text-decoration: none;
+}
+
+.bemo-tweet-card__brand-link:hover {
+  color: #1620e4;
+}
+
+.bemo-tweet-card__brand-link:focus-visible {
+  color: #1620e4;
+  outline: none;
+  box-shadow: 0 0 0 2px #7be9c6;
+}
+
+.bemo-tweet-card__brand-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.bemo-tweet-card__brand-link:hover .bemo-tweet-card__brand-icon,
+.bemo-tweet-card__brand-link:focus-visible .bemo-tweet-card__brand-icon {
+  transform: scale(1.05);
+}
+
+.bemo-tweet-card__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.625;
+  letter-spacing: normal;
+  color: #f4f4f5;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.bemo-tweet-card__footer {
+  margin: 0;
+}
+
+.bemo-tweet-card__date {
+  font-size: 0.8125rem;
+  color: #a1a1aa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-tweet-card__brand,
+  .bemo-tweet-card__brand-link,
+  .bemo-tweet-card__brand-icon {
+    transition: none;
+  }
+
+  .bemo-tweet-card__brand-link:hover .bemo-tweet-card__brand-icon,
+  .bemo-tweet-card__brand-link:focus-visible .bemo-tweet-card__brand-icon {
+    transform: none;
+  }
+}

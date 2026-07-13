@@ -1,0 +1,21 @@
+.bemo-scroll-progress {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(to right, #1620E4, #7BE9C6);
+  pointer-events: none;
+}
+
+.bemo-scroll-progress--disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-scroll-progress {
+    transition: none !important;
+  }
+}

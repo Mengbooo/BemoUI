@@ -1,0 +1,50 @@
+.bemo-aurora-text {
+  position: relative;
+  display: inline-block;
+}
+
+.bemo-aurora-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.bemo-aurora-text__visual {
+  position: relative;
+  display: inline-block;
+  background-image: var(--bemo-aurora-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation-name: bemo-aurora-text-aurora;
+  animation-duration: var(--bemo-aurora-duration, 10s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bemo-aurora-text-aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-aurora-text__visual {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}

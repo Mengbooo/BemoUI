@@ -1,0 +1,103 @@
+.bemo-warp-background {
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1px solid #2a2a32;
+  padding: 5rem;
+  background-color: #0d0d12;
+  color: #f4f4f5;
+}
+
+.bemo-warp-background__scene {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: inset(0);
+  perspective: var(--bemo-warp-perspective, 100px);
+  transform-style: preserve-3d;
+  container-type: size;
+}
+
+.bemo-warp-background__side {
+  position: absolute;
+  container-type: size;
+  transform-style: preserve-3d;
+  background-size: var(--bemo-warp-beam-size, 5%) var(--bemo-warp-beam-size, 5%);
+  background-image:
+    linear-gradient(
+      var(--bemo-warp-grid-color, rgba(128, 128, 128, 0.35)) 0 1px,
+      transparent 1px var(--bemo-warp-beam-size, 5%)
+    ),
+    linear-gradient(
+      90deg,
+      var(--bemo-warp-grid-color, rgba(128, 128, 128, 0.35)) 0 1px,
+      transparent 1px var(--bemo-warp-beam-size, 5%)
+    );
+  background-position: 50% -0.5px, 50% 50%;
+}
+
+.bemo-warp-background__side--top {
+  z-index: 20;
+  top: 0;
+  left: 0;
+  height: 100cqmax;
+  width: 100cqi;
+  transform-origin: 50% 0%;
+  transform: rotateX(-90deg);
+}
+
+.bemo-warp-background__side--bottom {
+  top: 100%;
+  left: 0;
+  height: 100cqmax;
+  width: 100cqi;
+  transform-origin: 50% 0%;
+  transform: rotateX(-90deg);
+}
+
+.bemo-warp-background__side--left {
+  top: 0;
+  left: 0;
+  height: 100cqmax;
+  width: 100cqh;
+  transform-origin: 0% 0%;
+  transform: rotate(90deg) rotateX(-90deg);
+}
+
+.bemo-warp-background__side--right {
+  top: 0;
+  right: 0;
+  height: 100cqmax;
+  width: 100cqh;
+  transform-origin: 100% 0%;
+  transform: rotate(-90deg) rotateX(-90deg);
+}
+
+.bemo-warp-background__beam {
+  position: absolute;
+  top: 0;
+  left: var(--bemo-warp-x, 0%);
+  width: var(--bemo-warp-width, 5%);
+  aspect-ratio: 1 / var(--bemo-warp-aspect-ratio, 2);
+  background: var(--bemo-warp-beam-bg, linear-gradient(#1620E4, transparent));
+  will-change: transform;
+}
+
+.bemo-warp-background__beam--static {
+  top: 25%;
+  transform: translateX(-50%);
+  opacity: 0.35;
+}
+
+.bemo-warp-background__content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-warp-background__beam {
+    animation: none !important;
+  }
+}

@@ -77,20 +77,15 @@ function updateCategoriesFile(componentName) {
         .trim() // Remove leading space if first letter is capital
         .replace(/^./, str => str.toUpperCase()); // Capitalize first letter
       
-      // Find the components subcategories array
-      const componentsArrayRegex = /(subcategories:\s*\[)([\s\S]*?)(\])/;
+      // Add the item before the closing bracket while preserving valid formatting.
+      const componentsArrayRegex = /(subcategories:\s*\[[\s\S]*?)(\n\s*\])/;
       const match = categoriesContent.match(componentsArrayRegex);
       
       if (match) {
-        // Add the new component to the subcategories array
-        const currentSubcategories = match[2];
-        const updatedSubcategories = currentSubcategories.trim() 
-          ? `${currentSubcategories}      '${componentTitleCase}',\n      ` 
-          : `\n      '${componentTitleCase}',\n      `;
-        
+        const separator = match[1].trimEnd().endsWith(',') ? '' : ',';
         const updatedContent = categoriesContent.replace(
-          componentsArrayRegex, 
-          `$1${updatedSubcategories}$3`
+          componentsArrayRegex,
+          `$1${separator}\n      '${componentTitleCase}',$2`
         );
         
         fs.writeFileSync(categoriesPath, updatedContent);
@@ -114,16 +109,16 @@ function updateComponentsFile(componentName) {
     if (fs.existsSync(componentsPath)) {
       let componentsContent = fs.readFileSync(componentsPath, 'utf8');
       
-      // Find the componentMap object
-      const componentMapRegex = /(const\s+componentMap\s*=\s*\{)([\s\S]*?)(\};)/;
+      // Add the route before the closing brace while preserving valid formatting.
+      const componentMapRegex = /(const\s+componentMap\s*=\s*\{[\s\S]*?)(\n\};)/;
       const match = componentsContent.match(componentMapRegex);
       
       if (match) {
-        // Add the new component to the component map
-        const newComponentEntry = `\n  '${componentKebabCase}': () => import("../demo/Components/${componentName}Demo"),`;
+        const separator = match[1].trimEnd().endsWith(',') ? '' : ',';
+        const newComponentEntry = `${separator}\n  '${componentKebabCase}': () => import("../demo/Components/${componentName}Demo"),`;
         const updatedContent = componentsContent.replace(
-          componentMapRegex, 
-          `$1${match[2]}${newComponentEntry}$3`
+          componentMapRegex,
+          `$1${newComponentEntry}$2`
         );
         
         fs.writeFileSync(componentsPath, updatedContent);

@@ -1,0 +1,103 @@
+.bemo-animated-theme-toggler {
+  --bemo-att-blue: #1620E4;
+  --bemo-att-green: #7BE9C6;
+  --bemo-att-bg: #111116;
+  --bemo-att-fg: #f4f4f5;
+  --bemo-att-border: #2a2a32;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--bemo-att-border);
+  border-radius: 9999px;
+  background: var(--bemo-att-bg);
+  color: var(--bemo-att-fg);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.dark .bemo-animated-theme-toggler,
+:root.dark .bemo-animated-theme-toggler {
+  --bemo-att-bg: #18181b;
+  --bemo-att-fg: #fafafa;
+  --bemo-att-border: #3f3f46;
+}
+
+.bemo-animated-theme-toggler:hover:not(:disabled) {
+  border-color: var(--bemo-att-blue);
+  color: var(--bemo-att-blue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bemo-att-green) 45%, transparent);
+}
+
+.bemo-animated-theme-toggler:focus {
+  outline: none;
+}
+
+.bemo-animated-theme-toggler:focus-visible {
+  outline: 2px solid var(--bemo-att-blue);
+  outline-offset: 3px;
+  border-color: var(--bemo-att-blue);
+}
+
+.bemo-animated-theme-toggler:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.bemo-animated-theme-toggler:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.bemo-animated-theme-toggler__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.bemo-animated-theme-toggler__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html[data-bemo-theme-vt='active']::view-transition-old(root),
+html[data-bemo-theme-vt='active']::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-bemo-theme-vt='active']::view-transition-old(root) {
+  z-index: 1;
+}
+
+html[data-bemo-theme-vt='active']::view-transition-new(root) {
+  z-index: 9999;
+  animation: none;
+  clip-path: var(--bemo-theme-vt-clip-from);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-theme-toggler {
+    transition: none;
+  }
+
+  .bemo-animated-theme-toggler:active:not(:disabled) {
+    transform: none;
+  }
+}

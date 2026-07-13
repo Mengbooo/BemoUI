@@ -1,0 +1,73 @@
+.bemo-ripple-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 2px solid #7be9c6;
+  background-color: #1620e4;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font: inherit;
+  line-height: 1.25;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bemo-ripple-button:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.bemo-ripple-button:focus {
+  outline: none;
+}
+
+.bemo-ripple-button:focus-visible {
+  outline: 2px solid #1620e4;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #7be9c6;
+}
+
+.bemo-ripple-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.bemo-ripple-button__content {
+  position: relative;
+  z-index: 10;
+}
+
+.bemo-ripple-button__ripples {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.bemo-ripple-button__ripple {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.3;
+  transform: scale(0);
+  animation: bemo-ripple-button-rippling var(--bemo-ripple-duration, 600ms) ease-out forwards;
+}
+
+@keyframes bemo-ripple-button-rippling {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-ripple-button {
+    transition: none;
+  }
+
+  .bemo-ripple-button__ripple {
+    animation: none;
+    display: none;
+  }
+}

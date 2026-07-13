@@ -1,0 +1,34 @@
+.bemo-hexagon-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  fill: rgba(22, 32, 228, 0.3);
+  stroke: rgba(22, 32, 228, 0.3);
+}
+
+.bemo-hexagon-pattern__hex-outline {
+  fill: none;
+}
+
+.bemo-hexagon-pattern__edge {
+  fill: none;
+}
+
+.bemo-hexagon-pattern__highlight-layer {
+  overflow: visible;
+}
+
+.bemo-hexagon-pattern__highlight {
+  fill: rgba(123, 233, 198, 0.45);
+  stroke-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-hexagon-pattern,
+  .bemo-hexagon-pattern * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

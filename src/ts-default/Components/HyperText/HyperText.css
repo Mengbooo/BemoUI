@@ -1,0 +1,59 @@
+.bemo-hyper-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-block: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111111;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.bemo-hyper-text--interactive {
+  cursor: default;
+}
+
+.bemo-hyper-text--interactive:hover,
+.bemo-hyper-text--interactive:focus-visible {
+  color: #1620E4;
+  border-bottom-color: #7BE9C6;
+}
+
+.bemo-hyper-text:focus {
+  outline: none;
+}
+
+.bemo-hyper-text:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 4px;
+}
+
+.bemo-hyper-text--disabled,
+.bemo-hyper-text[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-bottom-color: transparent;
+  color: #6b7280;
+}
+
+.bemo-hyper-text__visual {
+  display: inline;
+}
+
+.bemo-hyper-text__letter {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+.bemo-hyper-text__letter--space {
+  width: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-hyper-text {
+    transition: none;
+  }
+}

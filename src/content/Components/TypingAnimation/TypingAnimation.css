@@ -1,0 +1,49 @@
+.bemo-typing-animation {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.bemo-typing-animation--inline {
+  display: inline-block;
+}
+
+.bemo-typing-animation__cursor {
+  display: inline-block;
+  margin-left: 1px;
+  color: #1620E4;
+}
+
+.bemo-typing-animation__cursor--line {
+  color: #1620E4;
+}
+
+.bemo-typing-animation__cursor--block {
+  color: #1620E4;
+}
+
+.bemo-typing-animation__cursor--underscore {
+  color: #7BE9C6;
+}
+
+.bemo-typing-animation__cursor--blink {
+  animation: bemo-typing-animation-blink 1s step-end infinite;
+}
+
+@keyframes bemo-typing-animation-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-typing-animation__cursor--blink {
+    animation: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,57 @@
+.bemo-dotted-map {
+  display: block;
+  color: #6b7280;
+  overflow: visible;
+}
+
+.bemo-dotted-map--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.bemo-dotted-map__dot {
+  pointer-events: none;
+}
+
+.bemo-dotted-map__marker:focus {
+  outline: none;
+}
+
+.bemo-dotted-map__marker:focus-visible {
+  outline: 2px solid #1620e4;
+  outline-offset: 2px;
+}
+
+.bemo-dotted-map__pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bemo-dotted-map-pulse 1.4s ease-out infinite;
+}
+
+.bemo-dotted-map__pulse-ring--delayed {
+  animation-delay: 0.7s;
+}
+
+.bemo-dotted-map--disabled .bemo-dotted-map__pulse-ring {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes bemo-dotted-map-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-dotted-map__pulse-ring,
+  .bemo-dotted-map__pulse-ring--delayed {
+    animation: none;
+    opacity: 0;
+  }
+}

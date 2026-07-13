@@ -218,6 +218,43 @@ bemo-ui/
 - [组件文档](https://bemoui.com/docs)
 - [API 参考](https://bemoui.com/api)
 
+## 🤖 CodePen 导入流程
+
+CodePen 的条款禁止自动爬取站点，且公开 API 不提供任意 Pen 的源码读取。因此 BemoUI 采用“人工筛选 + 官方 Download ZIP + 自动转换”的流程：
+
+1. 在 CodePen 人工确认组件质量、作者和第三方资源授权，并下载 Pen 的 ZIP。
+2. 在 Git 已忽略的 `.env.local` 中配置 OpenAI 兼容服务：
+
+```bash
+OPENAI_API_KEY="..."
+OPENAI_BASE_URL="https://www.micuapi.ai/v1"
+OPENAI_MODEL="grok-4.5"
+OPENAI_USER_AGENT="codex_cli_rs/0.77.0 (Windows 10.0.26100; x86_64) WindowsTerminal"
+```
+
+然后运行导入器：
+
+```bash
+npm run import:codepen -- \
+  --source /path/to/codepen-export.zip \
+  --name AuroraButton \
+  --url https://codepen.io/author/pen/pen-id \
+  --author author \
+  --license MIT \
+  --confirm-rights
+```
+
+3. 导入器会读取 `src/index.html`、`src/style.css`、`src/script.js`，生成 BemoUI 的 React + CSS 组件、演示页、代码展示文件和来源记录。
+4. 提交前必须运行：
+
+```bash
+npm run test:codepen-import
+npm run lint
+npm run build
+```
+
+生成代码不会自动合并。通过 Pull Request 审查后合并到 `main`，由现有 Vercel 项目发布。当前默认使用 MicuAPI 的 OpenAI Responses 协议和 `grok-4.5`，服务地址、模型和 User-Agent 均可通过环境变量覆盖。
+
 ## 🤝 贡献指南
 
 欢迎贡献！请按以下步骤操作：
@@ -252,3 +289,19 @@ BemoUI 基于以下优秀的库构建：
     <a href="https://discord.gg/bemoui">Discord</a>
   </p>
 </div>
+
+## 🪄 Magic UI 自动导入 Workflow
+
+仓库中的 `.github/workflows/import-magicui.yml` 可从官方 Magic UI Registry 获取组件，调用 AI 转换为 BemoUI 的 JS、Tailwind、TypeScript 和演示页面，并在测试通过后创建 Pull Request。
+
+首次使用需要在 GitHub 仓库中配置：
+
+- Actions Secret：`MICUAPI_API_KEY`
+- Actions Workflow permissions：允许读写仓库，并允许 GitHub Actions 创建 Pull Request
+
+然后进入 **Actions → Import Magic UI component → Run workflow**，填写：
+
+- `slug`：Magic UI 路径名，例如 `shimmer-button`
+- `component_name`：BemoUI PascalCase 名称，例如 `ShimmerButton`
+
+Workflow 不会自动合并。生成结果通过测试、ESLint、TypeScript 和生产构建后只创建 PR，仍需人工检查视觉效果、可访问性和来源记录。

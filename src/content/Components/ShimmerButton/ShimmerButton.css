@@ -1,0 +1,152 @@
+.bemo-shimmer-button {
+  --bemo-shimmer-color: #7BE9C6;
+  --bemo-shimmer-radius: 100px;
+  --bemo-shimmer-speed: 3s;
+  --bemo-shimmer-cut: 0.05em;
+  --bemo-shimmer-background: rgba(0, 0, 0, 1);
+  --bemo-shimmer-spread: 90deg;
+
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bemo-shimmer-radius);
+  color: #ffffff;
+  background: var(--bemo-shimmer-background);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateZ(0);
+  transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bemo-shimmer-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+.bemo-shimmer-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.bemo-shimmer-button:focus-visible {
+  outline: 2px solid var(--bemo-shimmer-color);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--bemo-shimmer-color) 24%, transparent);
+}
+
+.bemo-shimmer-button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.bemo-shimmer-button__content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.bemo-shimmer-button__spark-container {
+  position: absolute;
+  inset: 0;
+  z-index: -30;
+  overflow: visible;
+  filter: blur(2px);
+  container-type: size;
+  pointer-events: none;
+}
+
+.bemo-shimmer-button__spark {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: 1;
+  height: 100cqh;
+  animation: bemo-shimmer-slide var(--bemo-shimmer-speed) ease-in-out infinite alternate;
+}
+
+.bemo-shimmer-button__spark-inner {
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from calc(270deg - (var(--bemo-shimmer-spread) * 0.5)),
+    transparent 0,
+    var(--bemo-shimmer-color) var(--bemo-shimmer-spread),
+    transparent var(--bemo-shimmer-spread)
+  );
+  animation: bemo-shimmer-spin calc(var(--bemo-shimmer-speed) * 2) infinite linear;
+}
+
+.bemo-shimmer-button__highlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.12);
+  transition: box-shadow 220ms ease;
+  pointer-events: none;
+}
+
+.bemo-shimmer-button:hover:not(:disabled) .bemo-shimmer-button__highlight {
+  box-shadow: inset 0 -6px 12px rgba(255, 255, 255, 0.25);
+}
+
+.bemo-shimmer-button:active:not(:disabled) .bemo-shimmer-button__highlight {
+  box-shadow: inset 0 -10px 12px rgba(255, 255, 255, 0.25);
+}
+
+.bemo-shimmer-button__backdrop {
+  position: absolute;
+  inset: var(--bemo-shimmer-cut);
+  z-index: -20;
+  border-radius: inherit;
+  background: var(--bemo-shimmer-background);
+  pointer-events: none;
+}
+
+@keyframes bemo-shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes bemo-shimmer-spin {
+  0% { transform: translateZ(0) rotate(0deg); }
+  15%, 35% { transform: translateZ(0) rotate(90deg); }
+  65%, 85% { transform: translateZ(0) rotate(270deg); }
+  100% { transform: translateZ(0) rotate(360deg); }
+}
+
+.bemo-shimmer-button:disabled .bemo-shimmer-button__spark,
+.bemo-shimmer-button:disabled .bemo-shimmer-button__spark-inner {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-shimmer-button,
+  .bemo-shimmer-button__highlight {
+    transition: none;
+  }
+
+  .bemo-shimmer-button__spark,
+  .bemo-shimmer-button__spark-inner {
+    animation: none;
+  }
+
+  .bemo-shimmer-button:hover:not(:disabled),
+  .bemo-shimmer-button:active:not(:disabled) {
+    transform: none;
+  }
+}

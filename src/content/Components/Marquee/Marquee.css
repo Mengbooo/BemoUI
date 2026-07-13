@@ -1,0 +1,65 @@
+.bemo-marquee {
+  --bemo-marquee-duration: 40s;
+  --bemo-marquee-gap: 1rem;
+  display: flex;
+  gap: var(--bemo-marquee-gap);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.bemo-marquee--vertical {
+  flex-direction: column;
+}
+
+.bemo-marquee--fade {
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.bemo-marquee--vertical.bemo-marquee--fade {
+  mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+}
+
+.bemo-marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  gap: var(--bemo-marquee-gap);
+  min-width: 100%;
+  animation: bemo-marquee var(--bemo-marquee-duration) linear infinite;
+}
+
+.bemo-marquee--vertical .bemo-marquee__track {
+  flex-direction: column;
+  min-width: auto;
+  min-height: 100%;
+  animation-name: bemo-marquee-vertical;
+}
+
+.bemo-marquee__track--reverse {
+  animation-direction: reverse;
+}
+
+.bemo-marquee:hover .bemo-marquee__track--pause,
+.bemo-marquee:focus-within .bemo-marquee__track--pause {
+  animation-play-state: paused;
+}
+
+@keyframes bemo-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--bemo-marquee-gap))); }
+}
+
+@keyframes bemo-marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--bemo-marquee-gap))); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-marquee__track {
+    animation: none;
+  }
+
+  .bemo-marquee__track:not(:first-child) {
+    display: none;
+  }
+}

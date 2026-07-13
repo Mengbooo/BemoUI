@@ -1,0 +1,50 @@
+.bemo-blur-fade {
+  --bemo-blur-fade-duration: 0.4s;
+  --bemo-blur-fade-delay: 0.04s;
+  --bemo-blur-fade-offset: 6px;
+  --bemo-blur-fade-blur: 6px;
+  opacity: 0;
+  filter: blur(var(--bemo-blur-fade-blur));
+  transition:
+    opacity var(--bemo-blur-fade-duration) ease-out var(--bemo-blur-fade-delay),
+    filter var(--bemo-blur-fade-duration) ease-out var(--bemo-blur-fade-delay),
+    transform var(--bemo-blur-fade-duration) ease-out var(--bemo-blur-fade-delay);
+  will-change: opacity, filter, transform;
+}
+
+.bemo-blur-fade--up {
+  transform: translateY(var(--bemo-blur-fade-offset));
+}
+
+.bemo-blur-fade--down {
+  transform: translateY(calc(var(--bemo-blur-fade-offset) * -1));
+}
+
+.bemo-blur-fade--left {
+  transform: translateX(var(--bemo-blur-fade-offset));
+}
+
+.bemo-blur-fade--right {
+  transform: translateX(calc(var(--bemo-blur-fade-offset) * -1));
+}
+
+.bemo-blur-fade--visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-blur-fade,
+  .bemo-blur-fade--up,
+  .bemo-blur-fade--down,
+  .bemo-blur-fade--left,
+  .bemo-blur-fade--right,
+  .bemo-blur-fade--visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

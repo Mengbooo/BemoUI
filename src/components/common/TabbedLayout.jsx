@@ -58,7 +58,7 @@ const TabbedLayout = ({ children, className }) => {
         </Flex>
       </TabList>
 
-      <TabPanels>
+      <TabPanels mt={{ base: 4, md: 6 }}>
         <TabPanel p={0}>{contentMap.PreviewTab}</TabPanel>
         <TabPanel p={0}>{contentMap.CodeTab}</TabPanel>
         <TabPanel p={0}>{contentMap.CliTab}</TabPanel>
@@ -68,7 +68,11 @@ const TabbedLayout = ({ children, className }) => {
 };
 
 // Helper components to wrap tab content
-const PreviewTab = ({ children }) => <>{children}</>;
+const PreviewTab = ({ children }) => (
+  <div className="bemo-preview-panel dark" data-theme="dark">
+    {children}
+  </div>
+);
 const CodeTab = ({ children }) => <>{children}</>;
 const CliTab = ({ children }) => <>{children}</>;
 

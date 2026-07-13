@@ -87,7 +87,8 @@ const AnimatedResult = ({ children, delay = 0, dataIndex, onMouseEnter, onClick 
 const categoryIconMapping = {
   "Text Animations": FiType,
   "Animations": FiCircle,
-  "Components": FiLayers,
+  "ReactBits": FiLayers,
+  "MagicUI": FiLayers,
   "Backgrounds": FiImage,
 };
 
@@ -144,7 +145,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
 
   const handleSelect = useCallback((result) => {
     const formatForURL = (str) => str.replace(/\s+/g, '-').toLowerCase();
-    const path = `/${formatForURL(result.categoryName)}/${formatForURL(result.componentName)}`;
+    const path = `/components/${formatForURL(result.componentName)}`;
     navigate(path);
     setInputValue('');
     setSearchValue('');

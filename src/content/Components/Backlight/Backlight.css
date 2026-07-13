@@ -1,0 +1,26 @@
+.bemo-backlight {
+  position: relative;
+  display: inline-block;
+}
+
+.bemo-backlight__svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bemo-backlight__content {
+  position: relative;
+}
+
+.bemo-backlight--disabled .bemo-backlight__content {
+  filter: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-backlight__content {
+    filter: none !important;
+  }
+}

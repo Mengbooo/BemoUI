@@ -1,0 +1,23 @@
+.bemo-flickering-grid {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  isolation: isolate;
+}
+
+.bemo-flickering-grid__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-flickering-grid {
+    /* Flicker animation is disabled in JavaScript when reduced motion is preferred. */
+  }
+}

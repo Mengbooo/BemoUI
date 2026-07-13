@@ -1,0 +1,26 @@
+.bemo-animated-grid-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  fill: color-mix(in srgb, #1620E4 30%, transparent);
+  stroke: color-mix(in srgb, #1620E4 30%, transparent);
+  color: #1620E4;
+}
+
+.bemo-animated-grid-pattern__squares {
+  overflow: visible;
+}
+
+.bemo-animated-grid-pattern__square {
+  fill: currentColor;
+  stroke-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-grid-pattern__square {
+    animation: none !important;
+    transition: none !important;
+  }
+}

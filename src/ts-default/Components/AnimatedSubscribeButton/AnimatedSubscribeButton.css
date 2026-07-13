@@ -1,0 +1,60 @@
+.bemo-animated-subscribe-button {
+  position: relative;
+  display: inline-flex;
+  height: 2.5rem;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  background-color: #1620E4;
+  color: #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.bemo-animated-subscribe-button--idle {
+  background-color: #1620E4;
+  color: #ffffff;
+}
+
+.bemo-animated-subscribe-button--subscribed {
+  background-color: #7BE9C6;
+  color: #000000;
+}
+
+.bemo-animated-subscribe-button:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+.bemo-animated-subscribe-button--subscribed:focus-visible {
+  outline-color: #7BE9C6;
+}
+
+.bemo-animated-subscribe-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bemo-animated-subscribe-button__label {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-subscribe-button {
+    transition: none;
+  }
+}

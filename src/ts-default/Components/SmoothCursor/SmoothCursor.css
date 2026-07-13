@@ -1,0 +1,24 @@
+.bemo-smooth-cursor {
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.bemo-smooth-cursor__icon {
+  display: block;
+  transform: scale(0.5);
+  transform-origin: center center;
+}
+
+html:has(.bemo-smooth-cursor),
+html:has(.bemo-smooth-cursor) * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-smooth-cursor {
+    transition: none !important;
+    animation: none !important;
+  }
+}

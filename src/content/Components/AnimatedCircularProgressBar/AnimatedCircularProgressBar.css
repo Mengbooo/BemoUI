@@ -1,0 +1,63 @@
+.bemo-animated-circular-progress-bar {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  transform: translateZ(0);
+}
+
+.bemo-animated-circular-progress-bar__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bemo-animated-circular-progress-bar__circle {
+  opacity: 1;
+}
+
+.bemo-animated-circular-progress-bar__circle--secondary {
+  stroke-dasharray: calc(var(--bemo-acpb-stroke-percent) * var(--bemo-acpb-percent-to-px)) var(--bemo-acpb-circumference);
+  transform: rotate(calc(1turn - 90deg - (var(--bemo-acpb-gap-percent) * var(--bemo-acpb-percent-to-deg) * var(--bemo-acpb-offset-factor-secondary)))) scaleY(-1);
+  transform-origin: calc(var(--bemo-acpb-circle-size) / 2) calc(var(--bemo-acpb-circle-size) / 2);
+  transition: all var(--bemo-acpb-transition-length) ease var(--bemo-acpb-delay);
+}
+
+.bemo-animated-circular-progress-bar__circle--primary {
+  stroke-dasharray: calc(var(--bemo-acpb-stroke-percent) * var(--bemo-acpb-percent-to-px)) var(--bemo-acpb-circumference);
+  transform: rotate(calc(-90deg + var(--bemo-acpb-gap-percent) * var(--bemo-acpb-offset-factor) * var(--bemo-acpb-percent-to-deg)));
+  transform-origin: calc(var(--bemo-acpb-circle-size) / 2) calc(var(--bemo-acpb-circle-size) / 2);
+  transition: var(--bemo-acpb-transition-length) ease var(--bemo-acpb-delay), stroke var(--bemo-acpb-transition-length) ease var(--bemo-acpb-delay);
+  transition-property: stroke-dasharray, transform;
+}
+
+.bemo-animated-circular-progress-bar__value {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  animation: bemo-animated-circular-progress-bar-fade-in var(--bemo-acpb-transition-length) ease-linear var(--bemo-acpb-delay) both;
+}
+
+@keyframes bemo-animated-circular-progress-bar-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-circular-progress-bar__circle--secondary,
+  .bemo-animated-circular-progress-bar__circle--primary {
+    transition: none;
+  }
+
+  .bemo-animated-circular-progress-bar__value {
+    animation: none;
+  }
+}

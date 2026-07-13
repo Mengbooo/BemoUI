@@ -1,0 +1,52 @@
+.bemo-cool-mode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  touch-action: manipulation;
+}
+
+.bemo-cool-mode[data-disabled='true'] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.bemo-cool-mode:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+.bemo-cool-mode__layer {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2147483647;
+}
+
+.bemo-cool-mode__particle {
+  position: absolute;
+  will-change: transform, top, left;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bemo-cool-mode__particle-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  color: #1620E4;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-cool-mode__layer,
+  .bemo-cool-mode__particle {
+    display: none !important;
+  }
+}

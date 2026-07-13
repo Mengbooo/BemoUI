@@ -1,0 +1,23 @@
+.bemo-animated-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.bemo-animated-list__item {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform-origin: top center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-list__item {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,61 @@
+.bemo-lens {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  outline: none;
+  isolation: isolate;
+  color: inherit;
+  background: transparent;
+}
+
+.bemo-lens:focus-visible {
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px #1620E4;
+}
+
+.bemo-lens--disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.bemo-lens__base {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bemo-lens__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bemo-lens__zoom {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.bemo-lens__overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(123, 233, 198, 0.35);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-lens__overlay,
+  .bemo-lens__zoom {
+    transition: none !important;
+    animation: none !important;
+  }
+}

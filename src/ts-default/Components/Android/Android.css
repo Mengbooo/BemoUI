@@ -1,0 +1,84 @@
+.bemo-android {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  color: inherit;
+}
+
+.bemo-android--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.bemo-android__button {
+  fill: #1620e4;
+}
+
+.bemo-android__body {
+  fill: #e5e5e5;
+}
+
+.bemo-android__bezel {
+  fill: #ffffff;
+}
+
+.bemo-android__screen {
+  fill: #e5e5e5;
+  stroke: #e5e5e5;
+  stroke-width: 0.5;
+}
+
+.bemo-android__camera {
+  fill: #ffffff;
+}
+
+.bemo-android__lens {
+  fill: #7be9c6;
+}
+
+.bemo-android__media {
+  object-fit: cover;
+}
+
+.bemo-android__video-wrap {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+.bemo-android__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-android__body {
+    fill: #404040;
+  }
+
+  .bemo-android__bezel {
+    fill: #262626;
+  }
+
+  .bemo-android__screen {
+    fill: #404040;
+    stroke: #404040;
+  }
+
+  .bemo-android__camera {
+    fill: #262626;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-android__video {
+    scroll-behavior: auto;
+  }
+}

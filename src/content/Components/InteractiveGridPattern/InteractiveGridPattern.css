@@ -1,0 +1,36 @@
+.bemo-interactive-grid-pattern {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.bemo-interactive-grid-pattern--disabled {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.bemo-interactive-grid-pattern__square {
+  fill: transparent;
+  stroke: rgba(128, 128, 128, 0.3);
+  transition:
+    fill 1000ms ease-in-out,
+    stroke 100ms ease-in-out;
+}
+
+.bemo-interactive-grid-pattern__square--hovered {
+  fill: rgba(22, 32, 228, 0.15);
+  stroke: rgba(123, 233, 198, 0.55);
+  transition-duration: 100ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-interactive-grid-pattern__square,
+  .bemo-interactive-grid-pattern__square--hovered {
+    transition: none;
+  }
+}

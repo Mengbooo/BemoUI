@@ -1,0 +1,108 @@
+.bemo-avatar-circles {
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bemo-avatar-circles__item {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bemo-avatar-circles__item + .bemo-avatar-circles__item {
+  margin-inline-start: -1rem;
+}
+
+.bemo-avatar-circles__link {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 9999px;
+}
+
+.bemo-avatar-circles__link:hover {
+  transform: translateY(-2px);
+  z-index: 1;
+}
+
+.bemo-avatar-circles__link:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+.bemo-avatar-circles__img {
+  display: block;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  background-color: #e5e7eb;
+}
+
+.bemo-avatar-circles__fallback {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  user-select: none;
+}
+
+.bemo-avatar-circles__fallback--blue {
+  background-color: #1620E4;
+}
+
+.bemo-avatar-circles__fallback--green {
+  background-color: #7BE9C6;
+  color: #0a0a0a;
+}
+
+.bemo-avatar-circles__more {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  background-color: #1620E4;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.bemo-avatar-circles__more.bemo-avatar-circles__link:hover,
+.bemo-avatar-circles__more:hover {
+  background-color: #1018b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-avatar-circles__img,
+  .bemo-avatar-circles__fallback,
+  .bemo-avatar-circles__more {
+    border-color: #1f2937;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-avatar-circles__item {
+    transition: none;
+  }
+
+  .bemo-avatar-circles__link:hover {
+    transform: none;
+  }
+}

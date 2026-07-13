@@ -1,0 +1,22 @@
+.bemo-glyph-matrix {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
+
+.bemo-glyph-matrix:focus {
+  outline: none;
+}
+
+.bemo-glyph-matrix:focus-visible {
+  outline: 2px solid #1620E4;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-glyph-matrix {
+    /* Mutation loop is disabled in JS when this media query matches. */
+  }
+}

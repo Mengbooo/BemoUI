@@ -1,0 +1,65 @@
+.bemo-orbiting-circles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bemo-orbiting-circles__path {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bemo-orbiting-circles__path-circle {
+  stroke: rgba(22, 32, 228, 0.2);
+  stroke-width: 1;
+  fill: none;
+}
+
+.bemo-orbiting-circles__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: var(--icon-size, 30px);
+  height: var(--icon-size, 30px);
+  margin: calc(var(--icon-size, 30px) / -2) 0 0 calc(var(--icon-size, 30px) / -2);
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  animation-name: bemo-orbiting-circles-orbit;
+  animation-duration: calc(var(--duration, 20) * 1s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--delay, 0) * 1s);
+  will-change: transform;
+}
+
+.bemo-orbiting-circles__item--reverse {
+  animation-direction: reverse;
+}
+
+@keyframes bemo-orbiting-circles-orbit {
+  from {
+    transform: rotate(calc(var(--angle, 0) * 1deg))
+      translateY(calc(var(--radius, 160) * 1px))
+      rotate(calc(var(--angle, 0) * -1deg));
+  }
+  to {
+    transform: rotate(calc(var(--angle, 0) * 1deg + 360deg))
+      translateY(calc(var(--radius, 160) * 1px))
+      rotate(calc((var(--angle, 0) * -1deg) - 360deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-orbiting-circles__item {
+    animation: none;
+    will-change: auto;
+    transform: rotate(calc(var(--angle, 0) * 1deg))
+      translateY(calc(var(--radius, 160) * 1px))
+      rotate(calc(var(--angle, 0) * -1deg));
+  }
+}

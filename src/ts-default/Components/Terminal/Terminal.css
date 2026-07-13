@@ -1,0 +1,108 @@
+.bemo-terminal {
+  --bemo-terminal-blue: #1620e4;
+  --bemo-terminal-green: #7be9c6;
+  --bemo-terminal-bg: #0a0a0a;
+  --bemo-terminal-border: #2a2a2a;
+  --bemo-terminal-text: #f5f5f5;
+  --bemo-terminal-muted: #a3a3a3;
+
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 32rem;
+  max-height: 25rem;
+  height: 100%;
+  overflow: hidden;
+  color: var(--bemo-terminal-text);
+  background: var(--bemo-terminal-bg);
+  border: 1px solid var(--bemo-terminal-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.bemo-terminal:focus-visible {
+  outline: 2px solid var(--bemo-terminal-blue);
+  outline-offset: 2px;
+}
+
+.bemo-terminal__chrome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--bemo-terminal-border);
+}
+
+.bemo-terminal__dots {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.bemo-terminal__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+.bemo-terminal__dot--close {
+  background: #525252;
+}
+
+.bemo-terminal__dot--minimize {
+  background: var(--bemo-terminal-blue);
+}
+
+.bemo-terminal__dot--maximize {
+  background: var(--bemo-terminal-green);
+}
+
+.bemo-terminal__body {
+  margin: 0;
+  padding: 1rem;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.bemo-terminal__code {
+  display: grid;
+  gap: 0.25rem;
+  overflow: auto;
+  color: inherit;
+  font: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bemo-terminal__animated-span {
+  display: grid;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--bemo-terminal-text);
+}
+
+.bemo-terminal__typing {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--bemo-terminal-text);
+}
+
+.bemo-terminal__typing--accent {
+  color: var(--bemo-terminal-green);
+}
+
+.bemo-terminal__animated-span--accent {
+  color: var(--bemo-terminal-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-terminal,
+  .bemo-terminal * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

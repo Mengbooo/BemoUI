@@ -1,0 +1,98 @@
+.bemo-dock {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  height: 58px;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(22, 32, 228, 0.2);
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(22, 32, 228, 0.08);
+  color: #1620e4;
+}
+
+.bemo-dock--top {
+  align-items: flex-start;
+}
+
+.bemo-dock--middle {
+  align-items: center;
+}
+
+.bemo-dock--bottom {
+  align-items: flex-end;
+}
+
+.bemo-dock__icon {
+  display: flex;
+  aspect-ratio: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  outline: none;
+  color: #1620e4;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bemo-dock__icon:hover,
+.bemo-dock__icon:focus-visible {
+  background-color: rgba(123, 233, 198, 0.28);
+}
+
+.bemo-dock__icon:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #1620e4;
+}
+
+.bemo-dock__icon--static:hover {
+  background-color: rgba(123, 233, 198, 0.38);
+}
+
+.bemo-dock__icon--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.bemo-dock__icon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+@supports not ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+  .bemo-dock {
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-dock__icon {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bemo-dock {
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(123, 233, 198, 0.28);
+    color: #7be9c6;
+  }
+
+  .bemo-dock__icon {
+    color: #7be9c6;
+  }
+
+  .bemo-dock__icon:focus-visible {
+    box-shadow: 0 0 0 2px #111111, 0 0 0 4px #7be9c6;
+  }
+}

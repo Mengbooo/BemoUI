@@ -1,0 +1,53 @@
+name: Import all remaining Magic UI components
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: import-all-magicui
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Import remaining registry components
+        env:
+          OPENAI_API_KEY: ${{ secrets.MICUAPI_API_KEY }}
+          OPENAI_BASE_URL: https://www.micuapi.ai/v1
+          OPENAI_MODEL: grok-4.5
+          OPENAI_USER_AGENT: codex_cli_rs/0.77.0 (Windows 10.0.26100; x86_64) WindowsTerminal
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run import:magicui:all -- --retry-failed
+      - name: Validate
+        run: |
+          npm run test:magicui-import
+          npm run lint
+          npx tsc --noEmit
+          npm run build
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          branch="automation/magicui-all-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add .
+          git commit -m "feat: import remaining Magic UI components"
+          git push --set-upstream origin "$branch"
+          gh pr create --base "$BASE_BRANCH" --head "$branch" \
+            --title "feat: import remaining Magic UI components" \
+            --body "Imports every Magic UI registry component not already present in BemoUI. Tests, lint, TypeScript, and production build passed."

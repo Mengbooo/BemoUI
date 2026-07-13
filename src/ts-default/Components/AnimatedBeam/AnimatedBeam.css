@@ -1,0 +1,18 @@
+.bemo-animated-beam {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateZ(0);
+  stroke-width: 2;
+}
+
+.bemo-animated-beam__gradient {
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-animated-beam__gradient {
+    animation: none !important;
+  }
+}

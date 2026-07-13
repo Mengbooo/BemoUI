@@ -1,0 +1,109 @@
+.bemo-confetti {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bemo-confetti__layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bemo-confetti__viewport {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.bemo-confetti__particle {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform: translate(-50%, -50%);
+  animation-name: bemo-confetti-burst;
+  animation-duration: var(--bemo-confetti-duration, 2.2s);
+  animation-delay: var(--bemo-confetti-delay, 0ms);
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.bemo-confetti__particle--circle {
+  border-radius: 999px;
+}
+
+.bemo-confetti__particle--square {
+  border-radius: 0.125rem;
+}
+
+.bemo-confetti-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1620E4;
+  border-radius: 0.5rem;
+  background: #1620E4;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease,
+    box-shadow 150ms ease, opacity 150ms ease;
+}
+
+.bemo-confetti-button:hover:not(:disabled) {
+  background: #1118b8;
+  border-color: #1118b8;
+}
+
+.bemo-confetti-button:focus-visible {
+  outline: 2px solid #7BE9C6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(22, 32, 228, 0.2);
+}
+
+.bemo-confetti-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@keyframes bemo-confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--bemo-confetti-tx), var(--bemo-confetti-ty))
+      rotate(var(--bemo-confetti-rot)) scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bemo-confetti__particle {
+    animation: none;
+    opacity: 0;
+  }
+
+  .bemo-confetti-button {
+    transition: none;
+  }
+}
